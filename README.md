@@ -52,15 +52,16 @@ const eitherFields = { id: 1, fields: 'id,channel_stats(views),channel_stats.sub
 
 /**
 * Any of these queries will return:
-* [  
+* [
 *   {
 *     id: 1,
 *     channel_stats: {
-*       views: number,  
+*       views: number,
 *       subscribers: number
 *     }
 *   }
 * ]
+*/
 ```
 
 ### Endpoints
@@ -69,17 +70,17 @@ Displays live, upcoming, and ended videos.
 ###### Query parameters:
 ```json
 {
-  "status": string[],
-  "title": string,
-  "group": string 
+  "status": "string[]",
+  "title": "string",
+  "group": "string" 
 }
 ```
 ###### Returns:
 ```json
 {
-  "live": object[],
-  "upcoming": object[],
-  "ended": object[]
+  "live": "object[]",
+  "upcoming": "object[]",
+  "ended": "object[]"
 }
 ```
 
@@ -88,32 +89,32 @@ Shows a list of all channels (Max 150).
 ###### Query parameters:
 ```json
 {
-  "id": number,
-  "name": string,
-  "youtube": string,
-  "channel": string,
-  "fields": string[],
-  "limit": number
+  "id": "number",
+  "name": "string",
+  "youtube": "string",
+  "channel": "string",
+  "fields": "string[]",
+  "limit": "number"
 }
 ```
 ###### Returns:
 ```json
 [
   {
-    "id": number,
-    "name_jp": string,
-    "name_en": string,
-    "youtube": string,
-    "twitter": string,
-    "channel": string,
+    "id": "number",
+    "name_jp": "string",
+    "name_en": "string",
+    "youtube": "string",
+    "twitter": "string",
+    "channel": "string",
     "channel_stats": {
-      "published_at": number,
-      "views": number,
-      "subscribers": number,
-      "videos": number,
+      "published_at": "number",
+      "views": "number",
+      "subscribers": "number",
+      "videos": "number",
     },
-    "description": string,
-    "thumbnail": string
+    "description": "string",
+    "thumbnail": "string"
   }
 ]
 ```
@@ -123,26 +124,26 @@ Shows a list of all videos (Max 100).
 ###### Query parameters:
 ```json
 {
-  "status": string[],
-  "title": string,
-  "fields": string[],
-  "limit": number
+  "status": "string[]",
+  "title": "string",
+  "fields": "string[]",
+  "limit": "number"
 }
 ```
 ###### Returns:
 ```json
 [
   {
-    "id": string,
-    "title": string,
-    "channel": string,
-    "group": string,
-    "published_at": number,
-    "scheduled_time": number,
-    "start_time": number,
-    "end_time": number,
-    "length": number,
-    "status": string
+    "id": "string",
+    "title": "string",
+    "channel": "string",
+    "group": "string",
+    "published_at": "number",
+    "scheduled_time": "number",
+    "start_time": "number",
+    "end_time": "number",
+    "length": "number",
+    "status": "string"
   }
 ]
 ```
