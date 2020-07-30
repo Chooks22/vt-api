@@ -1,0 +1,137 @@
+const { Router } = require('express');
+const { logger, memcache } = require('../../modules');
+const TWO_HOURS = 72e5;
+
+const templates = {
+  videoFields(item) {
+    return {
+      'id': item._id,
+      'title': item.title,
+      'channel': item.channel,
+      'group': item.group,
+      'published_at': item.published_at,
+      'scheduled_time': item.scheduled_time,
+      'start_time': item.start_time,
+      'end_time': item.end_time,
+      'length': item.length,
+      'viewers': item.viewers,
+      'status': item.status
+    };
+  },
+  channelFields(item) {
+    const { channel_stats } = item;
+    return {
+      'id': item.id,
+      'name_jp': item.name_jp,
+      'name_en': item.name_en,
+      'youtube': item.youtube,
+      'twitter': item.twitter,
+      'updated_at': item.updated_at,
+      'channel': item.channel,
+      'channel_stats': {
+        'published_at': channel_stats.published_at,
+        'views': channel_stats.views,
+        'subscribers': channel_stats.subscribers,
+        'videos': channel_stats.videos,
+      },
+      'description': item.description,
+      'thumbnail': item.thumbnail
+    };
+  }
+};
+
+const defaults = {
+  live: {
+    validStatus: [
+      'live',
+      'upcoming',
+      'ended'
+    ],
+    dbQueries: {
+      'live': {
+        'status': 'live'
+      },
+      'upcoming': {
+        'status': 'upcoming'
+      },
+      'ended': {
+        'status': 'ended',
+        'end_time': { $gte: Date.now - TWO_HOURS }
+      }
+    }
+  },
+  channel: {
+    projectFields: [
+      'id',
+      'name_jp',
+      'name_en',
+      'youtube',
+      'twitter',
+      'group',
+      'channel',
+      'channel_stats',
+      'description',
+      'thumbnail'
+    ],
+    hiddenFields: {
+      '_id': 0,
+      'from': 0,
+      'updated_at': 0
+    }
+  },
+  video: {
+    projectFields: [
+      'title',
+      'channel',
+      'published_at',
+      'scheduled_time',
+      'start_time',
+      'end_time',
+      'length',
+      'status',
+    ],
+    hiddenFields: {
+      'viewers': 0,
+      'updated_at': 0
+    }
+  }
+};
+
+addNested({
+  root: 'channel_stats',
+  fields: [
+    'published_at',
+    'views',
+    'subscribers',
+    'videos'
+  ],
+  array: defaults.channel.projectFields
+});
+
+module.exports = {
+  ...require('../../modules/mongo'),
+  defaults,
+  memcache,
+  logger,
+  Router,
+  send404,
+  templates,
+  sanitizeRegex,
+  toProjectionField
+};
+
+function addNested({ root, fields, array }) {
+  fields.map(field => array.push(`${root}.${field}`));
+}
+
+function send404(res, error = 'Not found.') {
+  return res.status(404).json({ error });
+}
+
+function sanitizeRegex(string = '') {
+  return RegExp(string.replace(/[#-.]|[[-^]|[?|{}]/g, '\\$&'), 'gi');
+}
+
+function toProjectionField(field) {
+  return { [field]: 1 };
+}
