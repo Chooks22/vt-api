@@ -1,0 +1,33 @@
+[
+  {
+    "name_jp": "string",
+    "name_en": "string",
+    "youtube": "string"
+  },
+  {
+    "_id": "don't touch this. mongodb uses this as a unique identifier",
+    "name_jp": "name_en and name_jp are required in code,",
+    "name_en": "it's used by channels/ endpoint to search by name.",
+    "youtube": "absolutely required, it's what the api uses to identify channels.",
+    "twitter": "you can add also extra fields like this, but it will be static and you'll have to",
+    "group": "manually add it in defaults.channel.projectFields for it to show.",
+    "updated_at": "this field and all below it cannot be added manually,",
+    "from": "it's used by the api when crawling channels and will be automatically overwritten by the api",
+    "channel": "name the files to 'groupname'.json to register it (eg: hololive.json, nijisanji.json).",
+    "channel_stats": "don't forget to delete this file before running 'npm run save-channels'",
+    "description": "if you want to use pre-made files, just drag the files from the default folder to here.",
+    "thumbnail": "the next objects below these would be the actual examples used by the api."
+  },
+  {
+    "name_jp": "周防パトラ",
+    "name_en": "Suou Patra",
+    "youtube": "UCeLzT-7b2PBcunJplmWtoDg",
+    "twitter": "Patra_HNST"
+  },
+  {
+    "name_jp": "島村シャルロット",
+    "name_en": "Shimamura Charlotte",
+    "youtube": "UCYTz3uIgwVY3ZU-IQJS8r3A",
+    "twitter": "Charlotte_HNST"
+  }
+]
