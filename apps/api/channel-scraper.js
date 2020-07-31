@@ -52,7 +52,7 @@ async function main(group) {
   // throw results if null
   if (!channelVideos) {
     retries++;
-    return logger.api.channelScraper('youtube api threw an error! stopping for now.');
+    return logger.api.channelScraper('youtube api threw an error! skipping channel...');
   }
 
   // initialize some bulk operators
@@ -83,7 +83,7 @@ function videoFetcher(playlistId, pageToken) {
   timesRan++;
   return youtube.playlistItems
     .list({
-      part: 'id,snippet',
+      part: 'snippet',
       fields: 'nextPageToken,items(snippet(channelId,title,resourceId/videoId))',
       playlistId,
       maxResults: 50,
@@ -92,7 +92,7 @@ function videoFetcher(playlistId, pageToken) {
     })
     .then(({ data }) => [data.items, data.nextPageToken, 'ok'])
     .catch(({ message }) => {
-      logger.api.helpers.channelScraper('threw an error: %s', message);
+      logger.api.helpers.channelScraper('!!! threw an error: %s', message);
       return [[]];
     });
 }
