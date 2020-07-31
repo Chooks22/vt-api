@@ -1,11 +1,14 @@
 const { channels, api_data, logger, youtube } = require('./consts');
+const schedule = require('node-schedule');
 
 let timesRan = 0;
 let retries = 0;
-logger.api.channelScraper('running...');
 
-init();
+module.exports = init;
+
 async function init() {
+  logger.api.channelScraper('running...');
+
   // get group list
   const channelGroups = await channels.listCollections();
   const groups = channelGroups.map(group => group.name);
@@ -18,9 +21,12 @@ async function init() {
     groups.splice(index - 1, result);
   }
 
-  // log if max retries reached
+  // retry again at midnight PST after youtube quota resets.
+  // another possibilty of failure is getting disconnected from the internet,
+  // in that case just manually restart.
   if (retries > 4) {
-    return logger.api.channelScraper('max retries reached! stopping for now.');
+    logger.api.channelScraper('max retries reached! retrying again after quota resets.');
+    return retry('reschedule channel-scraper');
   }
 
   logger.api.channelScraper('done! youtube:playlistItems ran %d times', timesRan);
@@ -119,4 +125,8 @@ function parseData({ snippet }, group) {
   return { _id, title, channel, group };
 }
 
-module.exports = init;
+function retry(description) {
+  // this is tied to the timezone!
+  // if you changed timezones make sure to set it so it runs at midnight PST
+  schedule.scheduleJob(description, '0 16 * * *', init);
+}
