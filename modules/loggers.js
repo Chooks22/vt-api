@@ -18,14 +18,14 @@ module.exports = {
     xmlCrawler: debug('api:xmlCrawler()'),
     channelInfo: debug('api:channelInfo()'),
     channelScraper: debug('api:channelScraper()'),
-    videoInfo: debug('api:videoStats()'),
+    videoInfo: debug('api:videoInfo()'),
     videoLive: debug('api:videoLive()'),
     helpers: {
       xmlCrawler: debug('helper:xmlCrawler()'),
       channelInfo: debug('helper:channelInfo()'),
       channelScraper: debug('helper:channelScraper()'),
-      videoInfo: debug('helper:videoStats()'),
-      videoLive: debug('api:videoLive()')
+      videoInfo: debug('helper:videoInfo()'),
+      videoLive: debug('helper:videoLive()')
     }
   }
 };
