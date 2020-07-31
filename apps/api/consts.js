@@ -5,6 +5,7 @@ const CHANNEL_LIMIT = +process.env.CRAWL_LIMIT || 10;
 const ONE_HOUR = 36e5;
 
 const TEMPLATE = {
+  'thumbnail': null,
   'published_at': null,
   'scheduled_time': null,
   'start_time': null,

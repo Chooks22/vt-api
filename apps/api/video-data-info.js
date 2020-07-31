@@ -44,7 +44,7 @@ function fetchVideoData(videos) {
   return youtube.videos
     .list({
       part: 'snippet',
-      fields: 'items(id,snippet/publishedAt)',
+      fields: 'items(id,snippet(publishedAt,thumbnails/high/url))',
       id: videos.join(','),
       hl: 'ja',
       maxResults: 50
@@ -57,9 +57,10 @@ function fetchVideoData(videos) {
 }
 
 function parseVideoData({ id, snippet }) {
-  const { publishedAt } = snippet;
+  const { publishedAt, thumbnails } = snippet;
   return {
     '_id': id,
+    'thumbnail': thumbnails.high.url,
     'published_at': +new Date(publishedAt),
     'updated_at': Date.now()
   };
