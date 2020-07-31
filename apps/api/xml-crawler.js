@@ -1,16 +1,14 @@
-require('dotenv').config({ path: '../../.env' });
-const { channels, api_data, logger, TEMPLATE } = require('./consts');
+const { channels, api_data, logger, TEMPLATE, CHANNEL_LIMIT } = require('./consts');
 const schedule = require('node-schedule');
 const axios = require('axios');
 
 const baseURL = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
 const re = /<yt:videoId>(.*?)<\/yt:videoId>\s+\S+\s+<title>(.*?)<\/title>/gi;
 
-const CHANNEL_LIMIT = +process.env.CRAWL_LIMIT || 10;
-
 let index = 1, groups;
 
 init();
+
 async function init() {
   logger.api.xmlCrawler('started');
   const channelGroups = await channels.listCollections();

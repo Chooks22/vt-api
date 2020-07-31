@@ -1,7 +1,8 @@
 const { channels, api_data, logger, youtube } = require('./consts');
-module.exports = main;
 
 logger.api.channelInfo('started');
+
+module.exports = main;
 
 async function main() {
   const groupCollections = await channels.listCollections();

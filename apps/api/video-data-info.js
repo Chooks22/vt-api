@@ -2,6 +2,8 @@ const { api_data, youtube, logger } = require('./consts');
 
 logger.api.videoInfo('started');
 
+module.exports = main;
+
 async function main() {
   logger.api.videoInfo('fetching new video data...');
   logger.db.api_data('fetching blank videos...');
@@ -62,5 +64,3 @@ function parseVideoData({ id, snippet }) {
     'updated_at': Date.now()
   };
 }
-
-module.exports = main;

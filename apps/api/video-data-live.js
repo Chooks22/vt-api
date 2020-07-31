@@ -1,6 +1,6 @@
-const { api_data, youtube, logger } = require('./consts');
+const { api_data, youtube, logger, ONE_HOUR } = require('./consts');
 
-const ONE_HOUR = 36e5;
+module.exports = main;
 
 async function main() {
   logger.db.api_data('fetching videos...');
@@ -74,5 +74,3 @@ function getVideoStatus(details) {
                               'uploaded' ;
   /* eslint-enable indent,no-multi-spaces */
 }
-
-module.exports = main;

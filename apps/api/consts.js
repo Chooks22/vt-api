@@ -1,5 +1,9 @@
 const { logger, youtube, mongo } = require('../../modules');
 
+const CHANNEL_LIMIT = +process.env.CRAWL_LIMIT || 10;
+
+const ONE_HOUR = 36e5;
+
 const TEMPLATE = {
   'published_at': null,
   'scheduled_time': null,
@@ -15,5 +19,7 @@ module.exports = {
   ...mongo,
   logger,
   youtube,
-  TEMPLATE
+  TEMPLATE,
+  ONE_HOUR,
+  CHANNEL_LIMIT
 };
