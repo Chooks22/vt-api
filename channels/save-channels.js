@@ -11,9 +11,9 @@ async function main() {
     return console.error('Error: You tried running this script locally!\nRun this script using "npm run save-channels"!');
   }
 
-  // grab all json files in directory
+  // grab all json files in directory and ignore template
   const channelsList = fs.readdirSync(channelsDir)
-    .filter(file => file.endsWith('.json'))
+    .filter(file => file.endsWith('.json') && file !== 'template.json')
     .map(file => [
       file.split('.')[0],
       require(path.join(channelsDir, file))
@@ -21,9 +21,9 @@ async function main() {
     ]);
 
   // write files to database
-  const writeOps = channelsList.map(([group, channelList]) => {
-    channels[group].insert(channelList);
-  });
+  const writeOps = channelsList.map(([group, channelList]) =>
+    channels[group].insert(channelList)
+  );
 
   // wait for writes to finish before closing
   await Promise.all(writeOps);
