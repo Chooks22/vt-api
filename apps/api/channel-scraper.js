@@ -1,8 +1,8 @@
 const { channels, api_data, logger, youtube } = require('./consts');
-const schedule = require('node-schedule');
 
 let timesRan = 0;
-let retries = 0;
+let channelCount = 0;
+let channelsUpdated = 0;
 
 module.exports = init;
 
@@ -14,22 +14,22 @@ async function init() {
   const groups = channelGroups.map(group => group.name);
   let index = 1;
 
+  // check if channels have been set up
+  if (!groups.length) {
+    logger.api.channelScraper('no groups found! have you made sure to set up the channels yet?');
+    return [];
+  }
+
   // loop through groups
-  while (groups.length && retries < 4) {
+  while (groups.length) {
     index = --index || groups.length;
     const result = await main(groups[index - 1]);
     groups.splice(index - 1, result);
   }
 
-  // retry again at midnight PST after youtube quota resets.
-  // another possibilty of failure is getting disconnected from the internet,
-  // in that case just manually restart.
-  if (retries > 4) {
-    logger.api.channelScraper('max retries reached! retrying again after quota resets.');
-    return retry('reschedule channel-scraper');
-  }
-
   logger.api.channelScraper('done! youtube:playlistItems ran %d times', timesRan);
+  logger.db.api_data('updated %d of %d channels', channelsUpdated, channelCount);
+  return [channelsUpdated, channelCount];
 }
 
 async function main(group) {
@@ -44,6 +44,7 @@ async function main(group) {
     return true; // this will delete the group from the list
   }
   logger.api.channelScraper('scraping channel: %s', uncrawledChannel.youtube);
+  channelCount++;
 
   // convert channel ID to playlist ID and run through youtube api
   const uploadsId = 'UU' + uncrawledChannel.youtube.slice(2);
@@ -51,8 +52,7 @@ async function main(group) {
 
   // throw results if null
   if (!channelVideos) {
-    retries++;
-    return logger.api.channelScraper('youtube api threw an error! skipping channel...');
+    return logger.api.channelScraper('youtube api threw an error! skipping channel %s...', uncrawledChannel.youtube);
   }
 
   // initialize some bulk operators
@@ -74,6 +74,7 @@ async function main(group) {
   );
 
   // log results
+  channelsUpdated++;
   logger.db.channels('updated %s from %s at %s', uncrawledChannel.youtube, group, new Date);
   logger.api.channelScraper('ran youtube:playlistItems %d times', timesRan);
 }
@@ -123,10 +124,4 @@ function parseData({ snippet }, group) {
     channelId: channel, title } = snippet;
 
   return { _id, title, channel, group };
-}
-
-function retry(description) {
-  // this is tied to the timezone!
-  // if you changed timezones make sure to set it so it runs at midnight PST
-  schedule.scheduleJob(description, '0 16 * * *', init);
 }
