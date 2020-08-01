@@ -20,6 +20,7 @@ module.exports = {
     channelScraper: debug('api:channelScraper()'),
     videoInfo: debug('api:videoInfo()'),
     videoLive: debug('api:videoLive()'),
+    videoInit: debug('api:videoInit()'),
     helpers: {
       xmlCrawler: debug('helper:xmlCrawler()'),
       channelInfo: debug('helper:channelInfo()'),
