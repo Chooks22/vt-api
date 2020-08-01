@@ -42,7 +42,6 @@ function fetchVideoData(ids) {
       fields: 'items(id,liveStreamingDetails(actualStartTime,actualEndTime,scheduledStartTime,concurrentViewers))',
       id: ids.join(','),
       hl: 'ja',
-      maxResults: 50
     })
     .then(({ data }) => data.items.map(parseVideoData))
     .catch(({ message: error }) => {
