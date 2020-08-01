@@ -1,4 +1,4 @@
-const { api_data, youtube, logger } = require('./consts');
+const { api_data, youtube, logger, TEMPLATE } = require('./consts');
 
 logger.api.videoInfo('started');
 
@@ -29,6 +29,7 @@ async function main() {
   videoIDs.map(_id => {
     const newVideo = newVideoData.find(data => data._id === _id);
     bulk.find({ _id }).updateOne({ $set: newVideo || {
+      TEMPLATE,
       'status': 'missing',
       'updated_at': Date.now()
     } });
@@ -47,7 +48,6 @@ function fetchVideoData(videos) {
       fields: 'items(id,snippet(publishedAt,thumbnails/high/url))',
       id: videos.join(','),
       hl: 'ja',
-      maxResults: 50
     })
     .then(({ data }) => data.items.map(parseVideoData))
     .catch(({ message: error }) => {
@@ -60,6 +60,7 @@ function parseVideoData({ id, snippet }) {
   const { publishedAt, thumbnails } = snippet;
   return {
     '_id': id,
+    TEMPLATE,
     'thumbnail': thumbnails.high.url,
     'published_at': +new Date(publishedAt),
     'updated_at': Date.now()
