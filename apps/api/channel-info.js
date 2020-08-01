@@ -30,10 +30,11 @@ async function main() {
   ));
 
   // assign write ops
-  channelData.flat().map(item => {
+  channelData.flat().map((item, _id) => {
     const initData = channelsToUpdate.find(channel => channel.youtube === item.id);
     const id = initData._id;
 
+    initData._id = _id + 1;
     delete item.id;
 
     // update channel info for api
@@ -51,6 +52,7 @@ async function main() {
   const result = await bulk.execute();
   await Promise.all(groups.map(group => bulkChannels[group].execute()));
   logger.api.channelInfo('updated %d channels', result.nUpserted);
+  return result.nUpserted;
 }
 
 async function fetchChannelData(ids) {
