@@ -12,13 +12,14 @@ module.exports = { getQueries };
  * @returns {object}  'projection'  - The fields to show
  * @returns {number}  'limit'       - Amount of videos to return (Max 100)
  */
-function getQueries({ status = '', title = '', fields = '', limit = 50, group = '' }) {
+function getQueries({ status = '', channel = '', title = '', fields = '', limit = 50, group = '' }) {
   const project = fields.toLowerCase().split(',').filter(validFields);
 
   return {
     'query': {
-      'group': group || /.*/,
-      'status': status || { $exists: 1 },
+      'group': group ? toArray(group) : /.*/,
+      'channel': channel ? toArray(channel) : /.*/,
+      'status': status ? toArray(status) : { $exists: 1 },
       'title': sanitizeRegex(title),
     },
     'projection': project.length
@@ -30,4 +31,8 @@ function getQueries({ status = '', title = '', fields = '', limit = 50, group = 
 
 function validFields(field) {
   return defaults.video.projectFields.includes(field);
+}
+
+function toArray(string) {
+  return { $in: string.split(',') };
 }
