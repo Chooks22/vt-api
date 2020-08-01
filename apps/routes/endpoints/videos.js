@@ -1,9 +1,9 @@
-const { api_data, logger, Router, templates } = require('../consts');
+const { api_data, logger, Router, templates, asyncWrapper } = require('../consts');
 const { getQueries } = require('../helpers/videos');
 
 const router = Router();
 
-module.exports = router.get('/', async (req, res) => {
+module.exports = router.get('/', asyncWrapper(async (req, res) => {
   logger.routes.videos('query: %O', req.query);
   const { query, projection, limit = 50 } = getQueries(req.query);
 
@@ -16,4 +16,4 @@ module.exports = router.get('/', async (req, res) => {
 
   logger.db.api_data('found %d videos', videos.length);
   return res.json(videos);
-});
+}));

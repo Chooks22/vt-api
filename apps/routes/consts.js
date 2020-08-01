@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { logger, memcache } = require('../../modules');
+const { logger, memcache, mongo } = require('../../modules');
 const TWO_HOURS = 72e5;
 
 const templates = {
@@ -109,7 +109,7 @@ addNested({
 });
 
 module.exports = {
-  ...require('../../modules/mongo'),
+  ...mongo,
   defaults,
   memcache,
   logger,
@@ -117,7 +117,8 @@ module.exports = {
   send404,
   templates,
   sanitizeRegex,
-  toProjectionField
+  toProjectionField,
+  asyncWrapper
 };
 
 function addNested({ root, fields, array }) {
@@ -134,4 +135,10 @@ function sanitizeRegex(string = '') {
 
 function toProjectionField(field) {
   return { [field]: 1 };
+}
+
+function asyncWrapper(fn) {
+  return (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
 }

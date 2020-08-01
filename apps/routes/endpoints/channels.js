@@ -1,9 +1,9 @@
-const { api_data, logger, Router, send404, templates } = require('../consts');
+const { api_data, logger, Router, send404, templates, asyncWrapper } = require('../consts');
 const { getQueries } = require('../helpers/channels');
 
 const router = Router();
 
-module.exports = router.get('/', async (req, res) => {
+module.exports = router.get('/', asyncWrapper(async (req, res) => {
   logger.routes.channels('query: %O', req.query);
   const { query, projection, limit } = getQueries(req.query);
 
@@ -18,4 +18,4 @@ module.exports = router.get('/', async (req, res) => {
   return channels.length
     ? res.json(channels)
     : send404(res);
-});
+}));
