@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const channelsDir = path.resolve('channels');
 
+console.clear();
 async function main() {
   // check directory
   if (!fs.existsSync(channelsDir)) {
@@ -21,15 +22,30 @@ async function main() {
     ]);
 
   // write files to database
-  const writeOps = channelsList.map(([group, channelList]) =>
-    channels[group].insert(channelList)
-  );
+  const writeOps = channelsList.map(([group, channelList]) => {
+    const bulk = channels[group].initializeUnorderedBulkOp();
+
+    channelList.map(channel => bulk
+      .find(channel.bilibili
+        ? { 'bilibili': channel.bilibili }
+        : { 'youtube': channel.youtube }
+      )
+      .upsert()
+      .updateOne({ $set: channel })
+    );
+
+    return bulk;
+  });
 
   // wait for writes to finish before closing
-  await Promise.all(writeOps);
+  const results = await Promise.all(writeOps.map(ops => ops.execute()));
 
-  console.log('done! you can now start the api using "npm start" and begin crawling videos.');
+  console.log(`done! upserted ${countUpsertedChannels(results)} channels.\nrun "npm run init" to fetch initial channel and video data from youtube.`);
   process.exit();
+}
+
+function countUpsertedChannels(result) {
+  return result.reduce((total, { nUpserted }) => total + nUpserted, 0);
 }
 
 main();
