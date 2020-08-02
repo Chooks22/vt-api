@@ -47,17 +47,19 @@ const defaults = {
       'upcoming',
       'ended'
     ],
-    dbQueries: {
-      'live': {
-        'status': 'live'
-      },
-      'upcoming': {
-        'status': 'upcoming'
-      },
-      'ended': {
-        'status': 'ended',
-        'end_time': { $gte: Date.now - TWO_HOURS }
-      }
+    dbQueries() {
+      return {
+        'live': {
+          'status': 'live'
+        },
+        'upcoming': {
+          'status': 'upcoming'
+        },
+        'ended': {
+          'status': 'ended',
+          'end_time': { $gte: Date.now() - TWO_HOURS }
+        }
+      };
     }
   },
   channel: {
