@@ -47,7 +47,7 @@ const defaults = {
       'upcoming',
       'ended'
     ],
-    dbQueries() {
+    dbQueries(now) {
       return {
         'live': {
           'status': 'live'
@@ -57,7 +57,7 @@ const defaults = {
         },
         'ended': {
           'status': 'ended',
-          'end_time': { $gte: Date.now() - TWO_HOURS }
+          'end_time': { $gte: now - TWO_HOURS }
         }
       };
     }

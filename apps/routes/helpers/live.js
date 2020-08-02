@@ -55,7 +55,7 @@ async function fetchVideosFromDb(status, group, title) {
       {
         'group': group || /.*/,
         'title': sanitizeRegex(title),
-        $or: status.map(key => defaults.live.dbQueries()[key])
+        $or: status.map(key => defaults.live.dbQueries(Date.now())[key])
       },
       { 'updated_at': 0 }
     )
