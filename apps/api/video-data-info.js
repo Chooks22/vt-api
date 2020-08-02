@@ -10,26 +10,25 @@ async function main() {
   const blankVideos = await api_data.videos
     .findAsCursor({ 'status': null, 'published_at': null })
     .limit(50)
-    .toArray();
+    .map(video => video._id);
 
   logger.db.api_data('fetched %d videos', blankVideos.length);
   if (!blankVideos.length) {
     return logger.db.api_data('found no new videos');
   }
 
-  // extract video ids and run through youtube
-  const videoIDs = blankVideos.map(video => video._id);
-  const newVideoData = await fetchVideoData(videoIDs);
+  // fetch data from youtube api
+  const newVideoData = await fetchVideoData(blankVideos);
   logger.api.videoInfo('fetched %d new video data', newVideoData.length);
 
   // initialize bulk operator
   const bulk = api_data.videos.initializeUnorderedBulkOp();
 
   // assign a write op for each video
-  videoIDs.map(_id => {
+  blankVideos.map(_id => {
     const newVideo = newVideoData.find(data => data._id === _id);
     bulk.find({ _id }).updateOne({ $set: newVideo || {
-      TEMPLATE,
+      ...TEMPLATE,
       'status': 'missing',
       'updated_at': Date.now()
     } });
@@ -60,7 +59,7 @@ function parseVideoData({ id, snippet }) {
   const { publishedAt, thumbnails } = snippet;
   return {
     '_id': id,
-    TEMPLATE,
+    ...TEMPLATE,
     'thumbnail': thumbnails.high.url,
     'published_at': +new Date(publishedAt),
     'updated_at': Date.now()
