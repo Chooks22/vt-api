@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Api docs</title>
+
+</head>
+
+<body>
+
+  <span class="sidenav">
+
+    <h1 class="title">VTuber API</h1>
+    <div class="sidenav-btn">
+      <a href="#live">Live</a>
+    </div>
+    <div class="sidenav-btn">
+      <a href="#channels">Channels</a>
+    </div>
+    <div class="sidenav-btn">
+      <a href="#videos">Videos</a>
+    </div>
+
+  </span>
+
+
+  <span class="main">
+    <section id='live'>
+      <div class="endpoint-title">
+        <h1>Live</h1>
+        <span class='endpoint'>GET /live</span>
+      </div>
+
+      <h3>Displays live, upcoming, and ended videos.</h3>
+      <hr>
+      <h4>Query parameters</h4>
+      <pre class="response">
+        {
+          "status": string[],
+          "title": string,
+          "group": string
+        }
+      </pre>
+      <hr>
+      <h4>Status</h4>
+      <p>
+        The status of the video.
+      </p>
+      <pre class='code'>
+        { status: 'live,upcoming' }
+      </pre>
+      <h4>Valid statuses:</h4>
+      <pre class='code'>
+        ["live", "upcoming", "ended"]
+      </pre>
+
+      <hr>
+      <h4>Title</h4>
+      <p>
+        The string you want to search for in the video title.
+      </p>
+      <pre class='code'>
+        // either of these work
+        const titleEN = { title: 'apex' };
+        const titleJP = { title: '歌ってみた' };
+      </pre>
+
+      <hr>
+      <h4>Group</h4>
+      <p>
+        Filter videos from channels that belong to the group.
+      </p>
+      <pre class='code'>
+        { group: 'nijisanji' };
+      </pre>
+      <h3>Valid groups:</h3>
+      <pre class='code'>
+        [
+          "animare",
+          "hanayori",
+          "hololive",
+          "honeystrap",
+          "nijisanji",
+          "others",
+          "react",
+          "sugarlyrics",
+          "vapart",
+          "vivid"
+        ]
+      </pre>
+
+      <hr>
+      <h4>Example code using axios</h4>
+      <p class='code-block'>
+        Searches for `live` and `upcoming` videos from `nijisanji` with `apex` in the title
+      </p>
+      <pre class='code'>
+        const axios = require('axios');
+        const parameters = {
+          status: 'live,upcoming',
+          title: 'apex',
+          group: 'nijisanji'
+        };
+
+        axios.get('http://localhost:2434/live', { params: parameters });
+      </pre>
+
+      <br>
+    </section>
+
+    <section id='channels'>
+      <div class="endpoint-title">
+        <h1>Channels</h1>
+        <span class='endpoint'>GET /channels</span>
+      </div>
+
+      <h3>Shows a list of all channels (Max 150).</h3>
+      <hr>
+      <h4>Query parameters</h4>
+      <pre class="response">
+        {
+          "id": number,
+          "name": string,
+          "youtube": string,
+          "fields": string[],
+          "limit": number
+        }
+      </pre>
+      <hr>
+      <h3>ID</h3>
+      <p>
+        The ID of the channel.
+      </p>
+      <pre class='code'>
+        { id: 4 }
+      </pre>
+
+      <hr>
+      <h3>Name</h3>
+      <p>
+        The name of the VTuber.
+      </p>
+      <pre class='code'>
+        // either of these works
+        const nameEN = { name: 'suisei' };
+        const nameJP = { name: 'すいせい' };
+      </pre>
+
+      <hr>
+      <h3>Youtube</h3>
+      <p>
+        The Youtube ID of the channel.
+      </p>
+      <pre class='code'>
+        { youtube: 'UC9V3Y3_uzU5e-usObb6IE1w' }
+      </pre>
+
+      <hr>
+      <h3>Fields</h3>
+      <p>
+        The fields of the object you want to return.
+      </p>
+      <pre class='code'>
+        const singleFields = { id: 1, fields: 'id,channel_stats.views,channel_stats.subscribers' };
+        const multipleFields = { id: 1, fields: 'id,channel_stats(views,subscribers)' };
+        const eitherFields = { id: 1, fields: 'id,channel_stats(views),channel_stats.subscribers' }
+
+        /**
+         * Any of these queries will return:
+         * [
+         *   {
+         *     id: 1,
+         *     channel_stats: {
+         *       views: number,
+         *       subscribers: number
+         *     }
+         *   }
+         * ]
+         */
+      </pre>
+      <h3>Valid fields:</h3>
+      <pre class='code'>
+        [
+          "id",
+          "name_jp",
+          "name_en",
+          "youtube",
+          "twitter",
+          "group",
+          "channel",
+          "channel_stats",
+          "description",
+          "thumbnail",
+          "channel_stats.published_at",
+          "channel_stats.views",
+          "channel_stats.subscribers",
+          "channel_stats.videos",
+        ]
+
+        /**
+         *  access nested fields by putting a . or ()
+         *   - channel_stats.views
+         *   - channel_stats(views)
+         */
+      </pre>
+
+      <hr>
+      <h3>Limit</h3>
+      <p>
+        Max number of channels you want to return. (Max 150)
+      </p>
+      <pre class='code'>
+        { limit: 50 }
+      </pre>
+
+      <hr>
+      <h3>Example code using axios</h3>
+      <p class='code-block'>
+        Gets `5` channels from `hololive` and gets their `name_en`, `twitter`, and `subscribers` and `views` from
+        `channel_stats`.
+      </p>
+      <pre class='code'>
+        const axios = require('axios');
+        const parameters = {
+          group: 'hololive',
+          fields: 'name_en,twitter,channel_stats(subscribers,views)',
+          limit: 5
+        };
+
+        axios.get('http://localhost:2434/channels', { params: parameters });
+      </pre>
+      <br>
+    </section>
+
+    <section id='videos'>
+      <div class="endpoint-title">
+        <h1>Videos</h1>
+        <span class='endpoint'>GET /videos</span>
+      </div>
+
+      <p>
+        Shows a list of videos (Max 150).
+      </p>
+
+      <hr>
+      <h4>Query parameters</h4>
+      <pre class="response">
+        {
+          "group": string[],
+          "status": string[],
+          "fields": string[],
+          "title": string,
+          "limit": number
+        }
+      </pre>
+
+      <hr>
+      <h3>Group</h3>
+      <p>
+        Groups from which you want to get videos from.
+      </p>
+      <pre class='code'>
+        { group: 'hololive' }
+      </pre>
+
+      <hr>
+      <h3>Status</h3>
+      <p>
+        The status of the videos.
+      </p>
+      <pre class='code'>
+        { status: 'ended' }
+      </pre>
+
+      <hr>
+      <h3>Fields</h3>
+      <p>
+        The fields of the object you want to return.
+      </p>
+      <pre class='code'>
+        { fields: 'id,title,channel,status' }
+      </pre>
+      <h3>Valid fields:</h3>
+      <pre class='code'>
+        [
+          "title",
+          "channel",
+          "published_at",
+          "scheduled_time",
+          "start_time",
+          "end_time",
+          "length",
+          "status",
+        ]
+      </pre>
+
+      <hr>
+      <h3>Title</h3>
+      <p>
+        The string you want to search for in the video title.
+      </p>
+      <pre class='code'>
+        // either of these work
+        const titleEN = { title: 'asmr' };
+        const titleJP = { title: '雑談' };
+      </pre>
+
+      <hr>
+      <h3>Limit</h3>
+      <p>
+        Max amount of videos to return (Max 100).
+      </p>
+      <pre class='code'>
+        { limit: 100 }
+      </pre>
+
+      <hr>
+      <h3>Example code using axios</h3>
+      <p class='code-block'>
+        Gets `50` videos marked as `upcoming` or `ended` with `asmr` in the title from channels from `honeystrap`
+      </p>
+      <pre class='code'>
+        const axios = require('axios');
+        const parameters = {
+          status: 'upcoming,ended',
+          title: 'asmr',
+          group: 'honeystrap',
+          limit: 50
+        }
+
+        axios.get('http://localhost:2434/videos', { params: parameters });
+      </pre>
+    </section>
+
+  </span>
+
+
+  <span class="explorer">
+    <h2 class='title'>Response</h2>
+
+    <h3>Live</h3>
+    <pre class="response">
+      {
+        "live": video[],
+        "upcoming": video[],
+        "ended": video[]
+      }
+    </pre>
+    <h3>video{}</h3>
+    <pre class="response">
+      {
+        "id": number,
+        "title": string,
+        "channel": string,
+        "group": string,
+        "published_at": number,
+        "scheduled_time": number,
+        "start_time": number,
+        "end_time": number,
+        "length": number,
+        "viewers": number,
+        "status": string
+      }
+    </pre>
+
+    <hr>
+    <h3>Channels</h3>
+    <pre class="response">
+      [
+        {
+          "id": number,
+          "name_jp": string,
+          "name_en": string,
+          "youtube": string,
+          "twitter": string,
+          "channel": string,
+          "channel_stats": {
+            "published_at": number,
+            "views": number,
+            "subscribers": number,
+            "videos": number,
+          },
+          "description": string,
+          "thumbnail": string
+        }
+      ]
+    </pre>
+
+    <hr>
+    <h3>Videos</h3>
+    <pre class="response">
+      [
+        {
+          "id": string,
+          "title": string,
+          "channel": string,
+          "group": string,
+          "published_at": number,
+          "scheduled_time": number,
+          "start_time": number,
+          "end_time": number,
+          "length": number,
+          "viewers": number,
+          "status": string
+        }
+      ]
+    </pre>
+
+  </span>
+
+  <script>
+    const pre = document.getElementsByTagName('pre');
+    [].slice.call(pre).forEach(element => {
+      const whitespace = element.innerHTML.split('\n')[0].match(/ +/)[0].length;
+      const re = RegExp(` {${whitespace - 2},${whitespace}}`)
+
+      element.innerHTML = element.innerHTML
+        .split('\n')
+        .map(text => text.replace(re, ''))
+        .join('\n');
+    });
+
+    const response = document.getElementsByClassName('response');
+    [].slice.call(response).forEach(element => element.innerHTML = element.innerHTML
+      .replace(/([^\d\W]+\[?\]?)(?=,|\n)/g, '<span class=response-val-type>$&</span>')
+      .replace(/(?<=": )("\w+")/g, '<span class=response-val-string>$&</span>')
+      .replace(/(?<=": )(\d+)/g, '<span class=response-val-number>$&</span>')
+      .replace(/(\w+)(?=":)/g, '<span class=response-key>$&</span>')
+      .replace(/"/g, '<span class=response-punc>"</span>')
+    );
+
+    const code = document.getElementsByClassName('code');
+    [].slice.call(code).forEach(element => element.innerHTML = element.innerHTML
+      .replace(/(?<! +?\*.*): (\d+|null|undefined)/g, '<span class=code-value>$&</span>')
+      .replace(/ ?(var|let|const) (\w+)/gi, '<span class=code-keyword>$1</span> <span class=code-variable>$2</span>')
+      .replace(/(?<! +?\*.*)([{}:;,]+)(?=(?:[^']*'[^']*')*[^']*$)/g, '<span class=code-symbol>$&</span>')
+      .replace(/(?<=['"])([^'" ]+)(?=['"][^\w])/g, '<span class=code-string>$&</span>')
+      .replace(/(?<!['"].*)(\/\/.*|\/\*+.*|\*\/?.*|)\n/g, '<span class=code-comment>$&</span>')
+      .replace(/(?<!['"*].*)(\w+)(?=\()/g, '<span class=code-func>$&</span>')
+      .replace(/ = /g, '<span class=code-keyword>$&</span>')
+      .replace(/(['"])/g, '<span class=code-quot>$&</span>')
+    );
+
+    const code_block = document.getElementsByClassName('code-block');
+    [].slice.call(code_block).forEach(element => element.innerHTML = element.innerHTML
+      .replace(/`(\w+)`/g, '<span class=inline-code>$1</span>')
+    );
+  </script>
+
+</body>
+
+</html>

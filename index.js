@@ -19,12 +19,13 @@ app.use(require('./apps/routes'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
-  res.json({ 'endpoints': ['live', 'channels', 'videos'] });
+  res.redirect('docs');
 });
 
 app.listen(PORT, () => {
   logger.app('API is now accessible at localhost:%d', PORT);
 });
 
-app.use(require('./apps/routes'));
