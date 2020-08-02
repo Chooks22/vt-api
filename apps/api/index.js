@@ -2,6 +2,7 @@ require('dotenv').config({ path: '../../.env' });
 
 const schedule = require('node-schedule');
 const channelInfo = require('./channel-info');
+const xmlCrawler = require('./xml-crawler');
 const video = {
   live: require('./video-data-live'),
   info: require('./video-data-info')
@@ -90,7 +91,7 @@ function main() {
    *  youtube?      no
    *  additional:   please add google pubsub
    */
-  require('./xml-crawler');
+  schedule.scheduleJob('xml-crawler', '55 * * * * *', xmlCrawler);
 
 }
 

@@ -1,67 +1,56 @@
-const { channels, api_data, logger, TEMPLATE, CHANNEL_LIMIT } = require('./consts');
-const schedule = require('node-schedule');
+const { api_data, logger, TEMPLATE, CHANNEL_LIMIT } = require('./consts');
 const axios = require('axios');
 
 const baseURL = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
 const re = /<yt:videoId>(.*?)<\/yt:videoId>\s+\S+\s+<title>(.*?)<\/title>/gi;
 
-let index = 1, groups;
+module.exports = main;
 
-init();
-
-async function init() {
-  logger.api.xmlCrawler('started');
-  const channelGroups = await channels.listCollections();
-  groups = channelGroups.map(group => group.name);
-
-  schedule.scheduleJob('55 * * * * *', findGroup);
-}
-
-function findGroup() {
-  logger.api.xmlCrawler('finding group');
-  index = --index || groups.length;
-  main(groups[index - 1]);
-}
-
-async function main(group) {
-  logger.db.channels('fetching %d channels from %s to be crawled', CHANNEL_LIMIT, group);
-  const channelList = await channels[group]
-    .findAsCursor({ 'crawled_at': { $exists: 1 } })
+async function main() {
+  logger.api.xmlCrawler('fetching %d channels to crawl...', CHANNEL_LIMIT);
+  logger.db.api_data('fetching %d channels...', CHANNEL_LIMIT);
+  const channels = await api_data.channels
+    .findAsCursor(
+      { 'youtube': { $exists: 1 } },
+      { 'youtube': 1, 'from': 1 })
     .sort({ 'crawled_at': 1 })
     .limit(CHANNEL_LIMIT)
     .toArray();
 
-  logger.db.channels('found %d channels', channelList.length);
-  logger.api.xmlCrawler('crawling %d %s channels', channelList.length, group);
-
-  const bulkChannels = channels[group].initializeUnorderedBulkOp();
-  const bulkApiData = api_data.videos.initializeOrderedBulkOp();
-
-  const newVideoData = await Promise.all(channelList.map(fetchXML));
-  const newVideos = newVideoData.reduce(updateChannel, 0);
-
-  function updateChannel(videoCount, [youtube, videos]) {
-    const newData = { $set: { 'crawled_at': Date.now() } };
-    bulkChannels.find({ youtube })
-      .updateOne(newData);
-
-    videos.map(video => bulkApiData
-      .find({ '_id': video._id })
-      .upsert()
-      .updateOne({
-        $set: { ...video, group },
-        $setOnInsert: TEMPLATE
-      })
-    );
-
-    return videoCount += videos.length;
+  logger.db.api_data('found %d channels', channels.length);
+  if (!channels.length) {
+    return logger.api.xmlCrawler('no channels to fetch');
   }
 
-  logger.db.api_data('updating %d videos...', newVideos);
-  const result = await bulkChannels.execute();
-  const savedVideos = await bulkApiData.execute();
-  logger.db.api_data('updated %d videos', savedVideos.nUpserted);
-  logger.api.xmlCrawler('updated %d channels with %d videos', result.nUpserted, newVideos);
+  // scrape channel xml feeds
+  logger.api.helpers.xmlCrawler('crawling %d channels...', channels.length);
+  const newData = await Promise.all(channels.map(fetchXML));
+
+  // initialize bulk operators for channels and videos
+  const bulkVideos = api_data.videos.initializeOrderedBulkOp();
+  const bulkChannels = api_data.channels.initializeOrderedBulkOp();
+
+  // update channel and add new videos to db
+  const newVideos = newData.reduce((videoCount, [youtube, videos]) => {
+    const initChannel = channels.find(channel => channel.youtube === youtube);
+    const crawledAt = { $set: { 'crawled_at': Date.now() } };
+    bulkChannels.find({ youtube }).updateOne(crawledAt);
+
+    return videoCount += videos.map(video => bulkVideos
+      .find({ '_id': video._id })
+      .upsert()
+      .updateOne({ $setOnInsert: {
+        ...TEMPLATE,
+        ...video,
+        'group': initChannel.from
+      } })
+    ).length;
+  }, 0);
+
+  // write data to db
+  await Promise.all([bulkVideos.execute(), bulkChannels.execute()]);
+  logger.api.xmlCrawler('updated %d videos', newVideos);
+  logger.db.api_data('updated %d videos from %d channels', newVideos, channels.length);
 }
 
 async function fetchXML({ youtube: channel }) {
