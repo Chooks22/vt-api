@@ -20,4 +20,3 @@ module.exports = {
   channels,
   api_data
 };
-
