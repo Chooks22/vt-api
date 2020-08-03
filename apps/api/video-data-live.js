@@ -13,7 +13,7 @@ async function main() {
         { 'status': 'upcoming', 'scheduled_time': { $lte: Date.now() + ONE_HOUR } },
         { 'status': null }
       ] })
-    .sort({ 'scheduled_time': -1, 'updated_at': 1 })
+    .sort({ 'updated_at': 1, 'scheduled_time': -1 })
     .limit(50)
     .map(video => video._id);
 
