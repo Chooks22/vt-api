@@ -1,4 +1,6 @@
-const { api_data, youtube, logger, ONE_HOUR, TEMPLATE } = require('./consts');
+const { api_data, youtube, logger, ONE_HOUR } = require('./consts');
+
+logger.app('started video-data-live');
 
 module.exports = main;
 
@@ -17,24 +19,23 @@ async function main() {
     .limit(50)
     .map(video => video._id);
 
-  logger.db.api_data('fetched %d videos', videos.length);
+  logger.db.api_data('fetched %d videos.', videos.length);
   if (!videos.length) {
-    return logger.db.api_data('no videos to be updated');
+    return logger.api.videoLive('no videos to be updated.');
   }
 
   // fetch data from youtube api
   logger.api.videoLive('updating %d videos...', videos.length);
   const videoData = await fetchVideoData(videos);
-  logger.api.videoLive('found data for %d videos', videoData.length);
+  logger.api.helpers.videoLive('fetched data for %d videos.', videoData.length);
 
   // initialize bulk operator
   const bulk = api_data.videos.initializeUnorderedBulkOp();
 
   // assign a write op for each video
-  videos.map(_id => {
+  videos.forEach(_id => {
     const newVideo = videoData.find(video => video._id === _id);
     bulk.find({ _id }).updateOne({ $set: newVideo || {
-      ...TEMPLATE,
       'status': 'missing',
       'updated_at': Date.now()
     } });
@@ -42,7 +43,7 @@ async function main() {
 
   // write to db and log results
   const result = await bulk.execute();
-  logger.api.videoLive('updated %d new videos', result.nUpserted);
+  logger.api.videoLive('updated %d new videos.', result.nUpserted);
 }
 
 function fetchVideoData(ids) {
