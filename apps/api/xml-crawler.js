@@ -1,68 +1,83 @@
-const { api_data, logger, TEMPLATE, CHANNEL_LIMIT } = require('./consts');
-const axios = require('axios');
+const { api_data, logger, TEMPLATE } = require('./consts');
+const schedule = require('node-schedule');
+const node_fetch = require('node-fetch');
 
+const fetch = url => node_fetch(url).then(res => res.text());
 const baseURL = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
-const re = /<yt:videoId>(.*?)<\/yt:videoId>\s+\S+\s+<title>(.*?)<\/title>/gi;
+const re = /<yt:videoId>(.*)<.*\n.*<yt:channelId>(.*)<.*\n.*<title>(.*)<\/title>(?:\n.*){0,10}<published>(.*)</g;
 
-module.exports = main;
+const cachedVideos = {};
 
-async function main() {
-  logger.api.xmlCrawler('fetching %d channels to crawl...', CHANNEL_LIMIT);
-  logger.db.api_data('fetching %d channels...', CHANNEL_LIMIT);
-  const channels = await api_data.channels
+module.exports = {
+  'init': () => api_data.channels
     .findAsCursor(
       { 'youtube': { $exists: 1 } },
-      { 'youtube': 1, 'from': 1 })
-    .sort({ 'crawled_at': 1 })
-    .limit(CHANNEL_LIMIT)
-    .toArray();
+      { 'youtube': 1, 'from': 1 }
+    )
+    .forEach(createJob)
+};
 
-  logger.db.api_data('found %d channels', channels.length);
-  if (!channels.length) {
-    return logger.api.xmlCrawler('no channels to fetch');
-  }
+/**
+ * Fetches XML feed from youtube and checks for new videos.
+ *
+ * @param {{youtube: String, from: String}} data    - channel data
+ */
+async function crawl({ youtube, from }) {
+  const xmlFeeds = await fetch(baseURL + youtube);
+  const videoFeeds = parseXML(xmlFeeds);
 
-  // scrape channel xml feeds
-  logger.api.helpers.xmlCrawler('crawling %d channels...', channels.length);
-  const newData = await Promise.all(channels.map(fetchXML));
+  const newEntries = videoFeeds.filter(feed =>
+    feed.timestamp > (cachedVideos[youtube] || 0)
+  );
 
-  // initialize bulk operators for channels and videos
-  const bulkVideos = api_data.videos.initializeOrderedBulkOp();
-  const bulkChannels = api_data.channels.initializeOrderedBulkOp();
+  if (!newEntries.length) return;
 
-  // update channel and add new videos to db
-  const newVideos = newData.reduce((videoCount, [youtube, videos]) => {
-    const initChannel = channels.find(channel => channel.youtube === youtube);
-    const crawledAt = { $set: { 'crawled_at': Date.now() } };
-    bulkChannels.find({ youtube }).updateOne(crawledAt);
-
-    return videoCount += videos.map(video => bulkVideos
-      .find({ '_id': video._id })
-      .upsert()
-      .updateOne({ $setOnInsert: {
-        ...TEMPLATE,
-        ...video,
-        'group': initChannel.from
-      } })
-    ).length;
-  }, 0);
-
-  // write data to db
-  await Promise.all([bulkVideos.execute(), bulkChannels.execute()]);
-  logger.api.xmlCrawler('updated %d videos', newVideos);
-  logger.db.api_data('updated %d videos from %d channels', newVideos, channels.length);
+  logger.api.xmlCrawler('found %d new videos from %s', newEntries.length, youtube);
+  cachedVideos[youtube] = newEntries[0].timestamp;
+  saveVideos(youtube, from, newEntries);
 }
 
-async function fetchXML({ youtube: channel }) {
-  logger.api.helpers.xmlCrawler('crawling %s...', channel);
+/**
+ * Saves videos to db and updates channel
+ *
+ * @param {String}    youtube
+ * @param {String}    group
+ * @param {{}[]}      videos
+ */
+function saveVideos(youtube, group, videos) {
+  logger.db.api_data('updating %d videos from %s...', videos.length, youtube);
+  const bulk = api_data.videos.initializeUnorderedBulkOp();
 
-  const feed = await axios.get(baseURL + channel);
-  const newVideos = [...feed.data.matchAll(re)].map(parseData);
+  // assign write ops to db
+  videos.forEach(video => bulk
+    .find({ '_id': video._id })
+    .upsert()
+    .updateOne(delete video.timestamp &&
+      { $setOnInsert: { ...TEMPLATE, ...video, group } }
+    )
+  );
 
-  function parseData([, _id, title]) {
-    return { _id, title, channel };
-  }
+  // write videos to db and log results
+  bulk.execute().then(results => logger.db.api_data(
+    'sucessfully added %d videos from %s at %s.',
+    results.nUpserted,
+    youtube,
+    new Date().toLocaleString('en-GB')
+  ));
+}
 
-  logger.api.helpers.xmlCrawler('crawled %d videos from %s', newVideos.length, channel);
-  return [channel, newVideos];
+function createJob(data) {
+  return schedule.scheduleJob(`${data._id % 3 * 2 + 3} * * * * *`, crawl.bind(null, data));
+}
+
+function parseXML(xml) {
+  return [...xml.matchAll(re)].map(parseData).sort(sortByDate);
+}
+
+function parseData([, _id, channel, title, date]) {
+  return { _id, title, channel, 'timestamp': +new Date(date) / 1000 };
+}
+
+function sortByDate(latest, older) {
+  return older.timestamp - latest.timestamp;
 }
