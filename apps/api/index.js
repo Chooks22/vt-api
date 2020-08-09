@@ -28,7 +28,7 @@ async function init() {
   const channelInfos = await channelInfo();
 
   /**
-   * video-init
+   * video-data-info.init
    *  executes:    on init
    *  runs:        once for every 50 blank videos
    *  function:    gets video info of every blank video
@@ -36,8 +36,7 @@ async function init() {
    *  quota:       per run: 1 quota
    *  additional:  1 run for every 50 blank videos
    */// update all blank videos
-  const videoScraper = require('./video-init');
-  const [videosUpdated = 0, missingVideos = 0] = await videoScraper();
+  const [videosUpdated = 0, missingVideos = 0] = await video.info.init();
 
   console.log();
   logger.api.channelScraper('updated %d out of %d channels', channelsUpdated, channelCount);
@@ -74,7 +73,7 @@ function main() {
   schedule.scheduleJob('video-data-live', '11 * * * * *', video.live);
 
   /**
-   * video-info-stats
+   * video-info-data.main
    * executes:      once every minute at 9-second mark
    * runs:          once if new videos exist
    * function:      grab video stats
@@ -82,7 +81,7 @@ function main() {
    * quota:         per run: 1 quota
    *                daily:   upto 1440 quota
    */
-  schedule.scheduleJob('video-data-info', '9 * * * * *', video.info);
+  schedule.scheduleJob('video-data-info', '9 * * * * *', video.info.main);
 
   /**
    * xml-crawler
