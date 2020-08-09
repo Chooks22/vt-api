@@ -7,7 +7,10 @@ module.exports = main;
 
 async function main() {
   const videos = await api_data.videos
-    .findAsCursor({ 'status': { $exists: 0 } }, { '_id': 1 })
+    .findAsCursor(
+      { 'status': { $exists: 0 } },
+      { '_id': 1 }
+    )
     .map(video => video._id);
 
   videosToUpdate = videos.length;
@@ -15,27 +18,21 @@ async function main() {
   if (!videosToUpdate) {
     logger.api.videoInit('no videos to update!');
     return [];
-  } else {
-    logger.api.videoInit('found %d videos to update', videosToUpdate);
   }
 
-  const batches = [];
-
-  while (videos.length) {
-    batches.push(videos.splice(0, 50));
-  }
-
-  logger.api.videoInit('fetching ');
-  const videoData = await Promise.all(batches.map(fetchVideoData));
+  logger.api.videoInit('found %d videos to update.', videosToUpdate);
   const bulk = api_data.videos.initializeUnorderedBulkOp();
 
-  videoData.flat().map(video => bulk
-    .find({ '_id': video._id })
-    .updateOne({ $set: video })
-  );
+  while (videos.length) {
+    const videoList = await fetchVideoData(videos.splice(0, 50));
+    videoList.forEach(video => bulk
+      .find({ '_id': video._id })
+      .updateOne({ $set: video })
+    );
+  }
 
   const results = await bulk.execute();
-  logger.db.api_data('updated %d of %d videos', results.nUpserted, videosToUpdate);
+  logger.db.api_data('updated %d of %d videos.', results.nUpserted, videosToUpdate);
 
   const missingVideos = videosToUpdate - results.nUpserted;
   if (missingVideos) {
@@ -52,11 +49,11 @@ function fetchVideoData(ids) {
       part: 'snippet,liveStreamingDetails',
       id: ids.join(','),
       fields: 'items(id,snippet(publishedAt,thumbnails/high/url),liveStreamingDetails(actualStartTime,actualEndTime,scheduledStartTime,concurrentViewers))',
-      hl: 'ja',
+      hl: 'ja'
     })
     .then(({ data }) => data.items.map(parseVideoData))
     .catch(({ message }) => {
-      ('!!! threw an error: ', message);
+      logger.api.videoInit('!!! threw an error: ', message);
       return [];
     });
 }
