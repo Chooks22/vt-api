@@ -27,8 +27,8 @@ async function init() {
     groups.splice(index - 1, result);
   }
 
-  logger.api.channelScraper('done! youtube:playlistItems ran %d times', timesRan);
-  logger.db.api_data('updated %d of %d channels', channelsUpdated, channelCount);
+  logger.api.channelScraper('done! youtube:playlistItems ran %d times.', timesRan);
+  logger.db.api_data('updated %d of %d channels.', channelsUpdated, channelCount);
   return [channelsUpdated, channelCount];
 }
 
@@ -40,10 +40,10 @@ async function main(group) {
   });
 
   if (!uncrawledChannel) {
-    logger.api.channelScraper('no channels from %s to be scraped', group);
+    logger.api.channelScraper('no channels from %s to be scraped.', group);
     return true; // this will delete the group from the list
   }
-  logger.api.channelScraper('scraping channel: %s', uncrawledChannel.youtube);
+  logger.api.channelScraper('scraping channel: %s...', uncrawledChannel.youtube);
   channelCount++;
 
   // convert channel ID to playlist ID and run through youtube api
@@ -52,21 +52,25 @@ async function main(group) {
 
   // throw results if null
   if (!channelVideos) {
-    return logger.api.channelScraper('youtube api threw an error! skipping channel %s...', uncrawledChannel.youtube);
+    return logger.api.channelScraper(
+      'youtube api threw an error! skipping channel %s...',
+      uncrawledChannel.youtube
+    );
   }
 
   // initialize some bulk operators
-  const parsedVideos = channelVideos.map(video => parseData(video, group));
   const bulk = api_data.videos.initializeUnorderedBulkOp();
 
   // assign a write op for each video
-  parsedVideos.map(video =>
-    bulk.find({ '_id': video._id }).upsert().updateOne(video)
+  channelVideos.forEach(video => bulk
+    .find({ '_id': video.snippet.resourceId.videoId })
+    .upsert()
+    .updateOne({ $setOnInsert: parseData(video, group) })
   );
 
   // write to db
   const result = await bulk.execute();
-  logger.api.channelScraper(`crawled ${result.nUpserted} new videos`);
+  logger.api.channelScraper(`crawled ${result.nUpserted} new videos.`);
 
   // mark channel as crawled
   channels[group].update(uncrawledChannel,
@@ -75,12 +79,17 @@ async function main(group) {
 
   // log results
   channelsUpdated++;
-  logger.db.channels('updated %s from %s at %s', uncrawledChannel.youtube, group, new Date);
-  logger.api.channelScraper('ran youtube:playlistItems %d times', timesRan);
+  logger.db.channels('updated %s from %s at %s.', uncrawledChannel.youtube, group, new Date);
+  logger.api.channelScraper('ran youtube:playlistItems %d times.', timesRan);
 }
 
 function videoFetcher(playlistId, pageToken) {
-  logger.api.helpers.channelScraper('fetching playlist %s with token %s', playlistId, pageToken);
+  logger.api.helpers.channelScraper(
+    'fetching playlist %s with token %s...',
+    playlistId,
+    pageToken
+  );
+
   timesRan++;
   return youtube.playlistItems
     .list({
@@ -89,7 +98,7 @@ function videoFetcher(playlistId, pageToken) {
       playlistId,
       maxResults: 50,
       pageToken,
-      hl: 'ja',
+      hl: 'ja'
     })
     .then(({ data }) => [data.items, data.nextPageToken, 'ok'])
     .catch(({ message }) => {
@@ -101,7 +110,11 @@ function videoFetcher(playlistId, pageToken) {
 async function crawlChannelVideos(uploadsId) {
   const results = [];
   const search = token => videoFetcher(uploadsId, token);
-  const countVideos = () => logger.api.helpers.channelScraper('video count: %d', results.length);
+  const countVideos = () => logger.api.helpers.channelScraper(
+    'fetched %d videos. total video count: %d.',
+    items.length,
+    results.length
+  );
 
   let [items, pageToken, status] = await search();
   results.push(...items);
