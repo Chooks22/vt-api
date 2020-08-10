@@ -14,8 +14,14 @@ module.exports = router.get('/', asyncWrapper(async (req, res) => {
     .limit(limit)
     .map(templates.channelFields);
 
-  logger.db.api_data('found %d channels', channels.length);
-  return channels.length
-    ? res.json(channels)
+  const filteredChannels = channels.filter(filterValidChannels);
+
+  logger.db.api_data('found %d valid channels', filteredChannels.length);
+  return filteredChannels.length
+    ? res.json(filteredChannels)
     : send404(res);
 }));
+
+function filterValidChannels(channel) {
+  return Object.values(channel).filter(val => val).length;
+}

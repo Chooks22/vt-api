@@ -12,7 +12,7 @@ module.exports = { getQueries };
  * @returns {object}  'projection'  - The fields to show
  * @returns {number}  'limit'       - Amount of channels to return (Max 150)
  */
-function getQueries({ id, youtube, name, channel, fields = '', limit = 25, group = '' }) {
+function getQueries({ id = '', youtube, name, channel, fields = '', limit = 25, group = '' }) {
   const fieldsArray = fields.toLowerCase().split(/,(?<!\(.*)|,(?!.*\))/g);
 
   const nested = fieldsArray.filter(findNested);
@@ -22,12 +22,13 @@ function getQueries({ id, youtube, name, channel, fields = '', limit = 25, group
   const project = [...normalFields, ...nestedFields].filter(validFields);
 
   /* eslint-disable indent,no-multi-spaces */
+  const ids = parseIds(id.split(','));
   const search =
-    !isNaN(id) ? { 'id': +id } :
-    youtube    ? { youtube }   :
-    name       ? { $or: [{ 'name_jp': re(name) }, { 'name_en': re(name) }] } :
-    channel    ? { 'channel': re(channel) }
-               : { }           ;
+    ids.length  ? { 'id': { $in: ids } }      :
+    youtube     ? { youtube }                 :
+    name        ? { $or: getNames(re(name)) } :
+    channel     ? { 'channel': re(channel) }  :
+                  { }                         ;
   /* eslint-enable indent,no-multi-spaces */
 
   return {
@@ -47,9 +48,40 @@ function findNested(field) {
   return /\(.*\)/.test(field);
 }
 
+function getNames(name) {
+  return ['name_jp', 'name_en', 'name_kr', 'name_th']
+    .map(lang => ({ [lang]: name }));
+}
+
 function processNested(field) {
   const nested = `${field.match(/(?<=\().*(?=\))/g)}`.split(',');
   const [root] = field.match(/.*(?=\()/g);
 
   return nested.map(item => `${root}.${item}`);
+}
+
+function parseIds(ids) {
+  const ranges = ids.filter(getRanges);
+  return ids
+    .map(int => +int)
+    .concat(ranges.map(parseIdRanges))
+    .flat()
+    .filter(val => val);
+}
+
+function getRanges(ids) {
+  return /\d+-\d+/.test(ids);
+}
+
+function parseIdRanges(range) {
+  // eslint-disable-next-line prefer-const
+  let [start, end] = range.split('-');
+  if (Math.max(end, start) > 150) return;
+
+  const ids = [];
+  while (start <= end) {
+    ids.push(start++);
+  }
+
+  return ids;
 }
