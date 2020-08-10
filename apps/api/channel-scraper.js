@@ -83,7 +83,7 @@ async function main(group) {
   logger.api.channelScraper('ran youtube:playlistItems %d times.', timesRan);
 }
 
-function videoFetcher(playlistId, pageToken) {
+function videoFetcher(playlistId, pageToken = '') {
   logger.api.helpers.channelScraper(
     'fetching playlist %s with token %s...',
     playlistId,
@@ -97,6 +97,7 @@ function videoFetcher(playlistId, pageToken) {
       fields: 'nextPageToken,items(snippet(channelId,title,resourceId/videoId))',
       playlistId,
       pageToken,
+      maxResults: 50,
       hl: 'ja'
     })
     .then(data => [data.items, data.nextPageToken, 'ok'])
