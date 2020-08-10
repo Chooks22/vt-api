@@ -12,7 +12,7 @@ module.exports = { getQueries };
  * @returns {object}  'projection'  - The fields to show
  * @returns {number}  'limit'       - Amount of channels to return (Max 150)
  */
-function getQueries({ id = '', youtube, name, channel, fields = '', limit = 25, group = '' }) {
+function getQueries({ id = '', youtube = '', name, channel, fields = '', limit = 25, group = '' }) {
   const fieldsArray = fields.toLowerCase().split(/,(?<!\(.*)|,(?!.*\))/g);
 
   const nested = fieldsArray.filter(findNested);
@@ -20,15 +20,16 @@ function getQueries({ id = '', youtube, name, channel, fields = '', limit = 25, 
   const nestedFields = nested.map(processNested).flat();
 
   const project = [...normalFields, ...nestedFields].filter(validFields);
+  const ids = parseIds(id.split(','));
+  const channels = youtube.split(',');
 
   /* eslint-disable indent,no-multi-spaces */
-  const ids = parseIds(id.split(','));
   const search =
-    ids.length  ? { 'id': { $in: ids } }      :
-    youtube     ? { youtube }                 :
-    name        ? { $or: getNames(re(name)) } :
-    channel     ? { 'channel': re(channel) }  :
-                  { }                         ;
+    ids.length  ? { 'id': { $in: ids } }           :
+    youtube     ? { 'youtube': { $in: channels } } :
+    name        ? { $or: getNames(re(name)) }      :
+    channel     ? { 'channel': re(channel) }       :
+                  { }                              ;
   /* eslint-enable indent,no-multi-spaces */
 
   return {
