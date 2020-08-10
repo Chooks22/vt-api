@@ -1,6 +1,6 @@
 const { channels, api_data, logger, youtube } = require('./consts');
 
-logger.api.channelInfo('started');
+logger.app('started channel-info');
 
 module.exports = main;
 
@@ -30,7 +30,7 @@ async function main() {
   ));
 
   // assign write ops
-  channelData.flat().map((item, _id) => {
+  channelData.flat().forEach((item, _id) => {
     const initData = channelsToUpdate.find(channel => channel.youtube === item.id);
     const id = initData._id;
 
@@ -57,14 +57,14 @@ async function main() {
 
 async function fetchChannelData(ids) {
   logger.api.helpers.channelInfo('requesting %d ids from youtube', ids.length);
-  return youtube.channels
-    .list({
+  return youtube
+    .channels({
       part: 'snippet,statistics',
       fields: 'items(id,snippet(title,description,thumbnails/high/url,publishedAt),statistics(viewCount,subscriberCount,videoCount))',
       id: ids.join(','),
       maxResults: 50
     })
-    .then(({ data }) => data.items.map(parseYoutubeData))
+    .then(data => data.items.map(parseYoutubeData))
     .catch(({ message }) => {
       logger.api.helpers.channelInfo('threw an error: %s', message);
       return [];

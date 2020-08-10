@@ -1,10 +1,10 @@
 {
   "name": "vt-api",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Simple API for getting VTuber livefeeds, channels, and videos.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
+    "start": "node index",
     "save-channels": "node channels/save-channels.js",
     "init": "node -e \"require('dotenv').config() && require('./apps/api').init()\""
   },
@@ -17,7 +17,6 @@
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "googleapis": "^52.1.0",
     "helmet": "^3.23.3",
     "memcached": "^2.2.2",
     "memcached-promise": "^1.0.1",

@@ -48,14 +48,14 @@ async function main() {
 
 function fetchVideoData(ids) {
   logger.api.helpers.videoLive('fetching %d ids...', ids.length);
-  return youtube.videos
-    .list({
+  return youtube
+    .videos({
       part: 'liveStreamingDetails',
       fields: 'items(id,liveStreamingDetails(actualStartTime,actualEndTime,scheduledStartTime,concurrentViewers))',
       id: ids.join(','),
-      hl: 'ja',
+      hl: 'ja'
     })
-    .then(({ data }) => data.items.map(parseVideoData))
+    .then(data => data.items.map(parseVideoData))
     .catch(({ message: error }) => {
       logger.api.helpers.videoLive('!!! encountered an error: %s', error);
       return [];
