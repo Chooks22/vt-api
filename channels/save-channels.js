@@ -26,12 +26,9 @@ async function main() {
     const bulk = channels[group].initializeUnorderedBulkOp();
 
     channelList.map(channel => bulk
-      .find(channel.bilibili
-        ? { 'bilibili': channel.bilibili }
-        : { 'youtube': channel.youtube }
-      )
+      .find({ '_id': channel._id })
       .upsert()
-      .updateOne({ $set: channel })
+      .replaceOne(channel)
     );
 
     return bulk;
