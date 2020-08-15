@@ -3,23 +3,15 @@
 ## Development
 * Prerequisites
   * Have `node` installed.
-  * Have `MongoDB` and `Memcached` installed locally.
-  * Have a [Google Cloud Project](https://console.cloud.google.com/apis/credentials) API Key with the Youtube API enabled.
+  * Have [MongoDB](https://docs.mongodb.com/manual/installation/) and [Memcached](https://www.howtoforge.com/how-to-install-memcached-on-ubuntu-2004-lts/) installed locally.
+    * Optional: Download [MongoDB Compass](https://www.mongodb.com/try/download/compass) to access your database with a GUI.
+  * Have a [Google Cloud Project](https://console.cloud.google.com/apis/credentials) API Key with Youtube API enabled.
   * Setup some channels first before starting.
 
 
 * Installation
 ```
-# Install MongoDB and Memcached
-$ sudo apt install mongodb-server-core memcached
-
-# You'll have to run mongod and memcached in the background before starting.
-$ mongod
-$ memcached
-
-# Assuming you've already cloned the repository and is in the same directory
-
-# This will install node modules and create your `.env` copy
+# Install dependencies and create your .env copy
 $ npm i
 $ cp .env.sample .env
 
@@ -33,15 +25,16 @@ $ npm start
 
 ## API Basics
 ### Queries
-* `string[]` are strings split with `,`.
+* `any[]` are queries split with `,`.
   * Example: `status=live,upcoming`
-* Add parameters by fetching the endpoint using any module.
-  * Example using `axios`:
+* Add queries by adding parameters to GET requests.
+  * Example using `node-js` with `axios`:
 ```js
 const axios = require('axios');
 const parameters = { status: 'live,upcoming', title: 'apex' };
 
-axios.get('http://localhost:2434/live', { params: parameters }).then(res => console.log(res.data));
+axios.get('http://localhost:2434/live', { params: parameters })
+  .then(res => console.log(res.data));
 ```
 * Access nested `fields` query with `.` or `()`.
   * Example:
@@ -51,17 +44,17 @@ const multipleFields = { id: 1, fields: 'id,channel_stats(views,subscribers)' };
 const eitherFields = { id: 1, fields: 'id,channel_stats(views),channel_stats.subscribers' }
 
 /**
-* Any of these queries will return:
-* [
-*   {
-*     id: 1,
-*     channel_stats: {
-*       views: number,
-*       subscribers: number
-*     }
-*   }
-* ]
-*/
+ * Any of these queries will return:
+ * [
+ *   {
+ *     id: 1,
+ *     channel_stats: {
+ *       views: number,
+ *       subscribers: number
+ *     }
+ *   }
+ * ]
+ */
 ```
 
 ### Endpoints
@@ -72,7 +65,7 @@ Displays live, upcoming, and ended videos.
 {
   "status": "string[]",
   "title": "string",
-  "group": "string" 
+  "group": "string"
 }
 ```
 ###### Returns:
@@ -83,19 +76,43 @@ Displays live, upcoming, and ended videos.
   "ended": "object[]"
 }
 ```
+###### Video object:
+```json
+{
+  "id": "string",
+  "title": "string",
+  "channel": "string",
+  "group": "string",
+  "published_at": "number",
+  "scheduled_time": "number",
+  "start_time": "number",
+  "end_time": "number",
+  "length": "number",
+  "viewers": "number",
+  "status": "string"
+}
+```
 
 #### `/channels`
 Shows a list of all channels (Max 150).
 ###### Query parameters:
 ```json
 {
-  "id": "number",
+  "id": "number[]",
   "name": "string",
-  "youtube": "string",
+  "group": "string",
+  "youtube": "string[]",
   "channel": "string",
   "fields": "string[]",
   "limit": "number"
 }
+```
+You can use number ranges for `id` query, example:
+```js
+// Any of these queries will return channels with ids from 1 to 5
+const idArray = { id: '1,2,3,4,5' };
+const idRange = { id: '1-5' };
+const idBoth = { id: '1,2,3-5' };
 ```
 ###### Returns:
 ```json
@@ -124,7 +141,9 @@ Shows a list of all videos (Max 100).
 ###### Query parameters:
 ```json
 {
+  "group": "string[]",
   "status": "string[]",
+  "channel": "string[]",
   "title": "string",
   "fields": "string[]",
   "limit": "number"
@@ -150,6 +169,6 @@ Shows a list of all videos (Max 100).
 
 ## TO-DOs
 * Add support for Bilibili channels(?)
-* Google PubSub for getting new videos
+* Sort queries
 * API documentation
 * Cooler name, maybe?
