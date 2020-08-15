@@ -1,4 +1,4 @@
-const { logger, youtube, mongo } = require('../../modules');
+const { logger, youtube, mongo, memcache } = require('../../modules');
 
 const ONE_HOUR = 36e5;
 
@@ -18,6 +18,7 @@ module.exports = {
   ...mongo,
   logger,
   youtube,
+  memcache,
   TEMPLATE,
   ONE_HOUR
 };
