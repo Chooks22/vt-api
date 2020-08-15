@@ -66,7 +66,7 @@ function saveVideos(youtube, group, videos) {
 }
 
 function createJob(data) {
-  return schedule.scheduleJob(`${data._id % 3 * 2 + 3} * * * * *`, crawl.bind(null, data));
+  return schedule.scheduleJob('1 * * * * *', crawl.bind(null, data));
 }
 
 function parseXML(xml) {

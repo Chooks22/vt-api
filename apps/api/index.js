@@ -11,7 +11,11 @@ const video = {
 module.exports = { init, main };
 
 async function init() {
-  const { logger } = require('./consts');
+  const { logger, api_data } = require('./consts');
+
+  // drop collection if collection exists
+  api_data.channels.ns && await api_data.channels.drop();
+
   /**
    * channel-feed-scraper
    *  executes:     on init
@@ -56,37 +60,37 @@ function main() {
    *  function:     updates channel's stats
    *  youtube?      yes
    *  quota:        per run: 1 quota
-   *                daily:   5 quota for 236 channels
+   *                daily:   6 quota for 256 channels
    *  additional:   1 run for every 50 channels
    */
   schedule.scheduleJob('channel-info', '0 0 * * *', channelInfo);
 
   /**
    * video-info-live
-   *  executes:     once every minute at 11-second mark
+   *  executes:     once every minute at 6-second mark
    *  runs:         once and gets 50 videos
    *  function:     updates video data
    *  youtube?      yes
    *  quota:        per run: 1 quota
    *                daily:   1440 quota
    */
-  schedule.scheduleJob('video-data-live', '11 * * * * *', video.live);
+  schedule.scheduleJob('video-data-live', '6 * * * * *', video.live);
 
   /**
    * video-info-data.main
-   * executes:      once every minute at 9-second mark
+   * executes:      once every minute at 4-second mark
    * runs:          once if new videos exist
    * function:      grab video stats
    * youtube?       yes
    * quota:         per run: 1 quota
    *                daily:   upto 1440 quota
    */
-  schedule.scheduleJob('video-data-info', '9 * * * * *', video.info.main);
+  schedule.scheduleJob('video-data-info', '4 * * * * *', video.info.main);
 
   /**
    * xml-crawler
-   *  executes:     3 times every minute at 3, 5, and 7-second mark
-   *  runs:         once and crawls 1/3 of all channels per run
+   *  executes:     once every minute at 1-second mark
+   *  runs:         once and crawls every channels
    *  function:     fetches latest videos
    *  youtube?      no
    */
