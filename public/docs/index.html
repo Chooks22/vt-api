@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Api docs</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='stylesheet' href='styles.css'>
+  <title>vt-api</title>
 
 </head>
 
 <body>
 
-  <span class="sidenav">
+  <span class='sidenav'>
 
-    <h1 class="title">VTuber API</h1>
-    <div class="sidenav-btn">
-      <a href="#live">Live</a>
+    <h1 class='title'>VTuber API</h1>
+    <div class='sidenav-btn'>
+      <a href='#live'>Live</a>
     </div>
-    <div class="sidenav-btn">
-      <a href="#channels">Channels</a>
+    <div class='sidenav-btn'>
+      <a href='#channels'>Channels</a>
     </div>
-    <div class="sidenav-btn">
-      <a href="#videos">Videos</a>
+    <div class='sidenav-btn'>
+      <a href='#videos'>Videos</a>
     </div>
 
   </span>
 
 
-  <span class="main">
+  <span class='main'>
     <section id='live'>
-      <div class="endpoint-title">
+      <div class='endpoint-title'>
         <h1>Live</h1>
         <span class='endpoint'>GET /live</span>
       </div>
@@ -37,7 +37,7 @@
       <h3>Displays live, upcoming, and ended videos.</h3>
       <hr>
       <h4>Query parameters</h4>
-      <pre class="response">
+      <pre class='json'>
         {
           "status": string[],
           "title": string,
@@ -50,7 +50,8 @@
         The status of the video.
       </p>
       <pre class='code'>
-        { status: 'live,upcoming' }
+        const single = { status: 'live' };
+        const multi = { status: 'live,upcoming,ended' };
       </pre>
       <h4>Valid statuses:</h4>
       <pre class='code'>
@@ -74,7 +75,7 @@
         Filter videos from channels that belong to the group.
       </p>
       <pre class='code'>
-        { group: 'nijisanji' };
+        const group = { group: 'nijisanji' };
       </pre>
       <h3>Valid groups:</h3>
       <pre class='code'>
@@ -84,6 +85,7 @@
           "hololive",
           "honeystrap",
           "nijisanji",
+          "noripro",
           "others",
           "react",
           "sugarlyrics",
@@ -112,7 +114,7 @@
     </section>
 
     <section id='channels'>
-      <div class="endpoint-title">
+      <div class='endpoint-title'>
         <h1>Channels</h1>
         <span class='endpoint'>GET /channels</span>
       </div>
@@ -120,11 +122,13 @@
       <h3>Shows a list of all channels (Max 150).</h3>
       <hr>
       <h4>Query parameters</h4>
-      <pre class="response">
+      <pre class='json'>
         {
-          "id": number,
+          "id": number[],
           "name": string,
-          "youtube": string,
+          "group": string,
+          "youtube": string[],
+          "channel": string,
           "fields": string[],
           "limit": number
         }
@@ -135,7 +139,10 @@
         The ID of the channel.
       </p>
       <pre class='code'>
-        { id: 4 }
+        // Any of these queries will return channels with ids from 1 to 5
+        const idArray = { id: '1,2,3,4,5' };
+        const idRange = { id: '1-5' };
+        const idBoth = { id: '1,2,3-5' };
       </pre>
 
       <hr>
@@ -150,12 +157,31 @@
       </pre>
 
       <hr>
+      <h3>Group</h3>
+      <p>
+        The group which the channel belongs to.
+      </p>
+      <pre class='code'>
+        const group = { group: 'hololive' };
+      </pre>
+
+      <hr>
       <h3>Youtube</h3>
       <p>
         The Youtube ID of the channel.
       </p>
       <pre class='code'>
-        { youtube: 'UC9V3Y3_uzU5e-usObb6IE1w' }
+        const single = { youtube: 'UC9V3Y3_uzU5e-usObb6IE1w' };
+        const multi = { youtube: 'UCS9uQI-jC3DE0L4IpXyvr6w,UCZlDXzGoo7d44bwdNObFacg' };
+      </pre>
+      
+      <hr>
+      <h3>Channel</h3>
+      <p>
+        The name of the channel.
+      </p>
+      <pre class='code'>
+        const channel = { channel: 'botan ch.' }
       </pre>
 
       <hr>
@@ -170,15 +196,15 @@
 
         /**
          * Any of these queries will return:
-         * [
-         *   {
-         *     id: 1,
-         *     channel_stats: {
-         *       views: number,
-         *       subscribers: number
-         *     }
-         *   }
-         * ]
+         *  [
+         *    {
+         *      id: 1,
+         *      channel_stats: {
+         *        views: number,
+         *        subscribers: number
+         *      }
+         *    }
+         *  ]
          */
       </pre>
       <h3>Valid fields:</h3>
@@ -201,9 +227,9 @@
         ]
 
         /**
-         *  access nested fields by putting a . or ()
-         *   - channel_stats.views
-         *   - channel_stats(views)
+         * access nested fields by putting a "." or "()"
+         *  - channel_stats.views
+         *  - channel_stats(views)
          */
       </pre>
 
@@ -236,7 +262,7 @@
     </section>
 
     <section id='videos'>
-      <div class="endpoint-title">
+      <div class='endpoint-title'>
         <h1>Videos</h1>
         <span class='endpoint'>GET /videos</span>
       </div>
@@ -247,12 +273,13 @@
 
       <hr>
       <h4>Query parameters</h4>
-      <pre class="response">
+      <pre class='json'>
         {
           "group": string[],
           "status": string[],
-          "fields": string[],
+          "channel": string[],
           "title": string,
+          "fields": string[],
           "limit": number
         }
       </pre>
@@ -273,6 +300,27 @@
       </p>
       <pre class='code'>
         { status: 'ended' }
+      </pre>
+
+      <hr>
+      <h3>Channel</h3>
+      <p>
+        A list of Youtube channel IDs.
+      </p>
+      <pre class='code'>
+        const single = { channel: 'UC1CfXB_kRs3C-zaeTG3oGyg' };
+        const multi = { channel: 'UCgZuwn-O7Szh9cAgHqJ6vjw,UCFKOVgVbGmX65RxO3EtH3iw' };
+      </pre>
+
+      <hr>
+      <h3>Title</h3>
+      <p>
+        The string you want to search for in the video title.
+      </p>
+      <pre class='code'>
+        // either of these work
+        const titleEN = { title: 'asmr' };
+        const titleJP = { title: '雑談' };
       </pre>
 
       <hr>
@@ -298,29 +346,18 @@
       </pre>
 
       <hr>
-      <h3>Title</h3>
-      <p>
-        The string you want to search for in the video title.
-      </p>
-      <pre class='code'>
-        // either of these work
-        const titleEN = { title: 'asmr' };
-        const titleJP = { title: '雑談' };
-      </pre>
-
-      <hr>
       <h3>Limit</h3>
       <p>
         Max amount of videos to return (Max 100).
       </p>
       <pre class='code'>
-        { limit: 100 }
+        const limit = { limit: 100 };
       </pre>
 
       <hr>
       <h3>Example code using axios</h3>
       <p class='code-block'>
-        Gets `50` videos marked as `upcoming` or `ended` with `asmr` in the title from channels from `honeystrap`
+        Gets `50` videos marked as `upcoming` or `ended` with `asmr` in the title from members of `honeystrap`
       </p>
       <pre class='code'>
         const axios = require('axios');
@@ -329,7 +366,7 @@
           title: 'asmr',
           group: 'honeystrap',
           limit: 50
-        }
+        };
 
         axios.get('http://localhost:2434/videos', { params: parameters });
       </pre>
@@ -338,19 +375,19 @@
   </span>
 
 
-  <span class="explorer">
+  <span class='explorer'>
     <h2 class='title'>Response</h2>
 
     <h3>Live</h3>
-    <pre class="response">
+    <pre class='json'>
       {
         "live": video[],
         "upcoming": video[],
         "ended": video[]
       }
     </pre>
-    <h3>video{}</h3>
-    <pre class="response">
+    <h3>Video{}</h3>
+    <pre class='json'>
       {
         "id": number,
         "title": string,
@@ -368,7 +405,7 @@
 
     <hr>
     <h3>Channels</h3>
-    <pre class="response">
+    <pre class='json'>
       [
         {
           "id": number,
@@ -391,7 +428,7 @@
 
     <hr>
     <h3>Videos</h3>
-    <pre class="response">
+    <pre class='json'>
       [
         {
           "id": string,
@@ -423,13 +460,13 @@
         .join('\n');
     });
 
-    const response = document.getElementsByClassName('response');
-    [].slice.call(response).forEach(element => element.innerHTML = element.innerHTML
-      .replace(/([^\d\W]+\[?\]?)(?=,|\n)/g, '<span class=response-val-type>$&</span>')
-      .replace(/(?<=": )("\w+")/g, '<span class=response-val-string>$&</span>')
-      .replace(/(?<=": )(\d+)/g, '<span class=response-val-number>$&</span>')
-      .replace(/(\w+)(?=":)/g, '<span class=response-key>$&</span>')
-      .replace(/"/g, '<span class=response-punc>"</span>')
+    const json = document.getElementsByClassName('json');
+    [].slice.call(json).forEach(element => element.innerHTML = element.innerHTML
+      .replace(/([^\d\W]+\[?\]?)(?=,|\n)/g, '<span class=json-val-type>$&</span>')
+      .replace(/(?<=": )("\w+")/g, '<span class=json-val-string>$&</span>')
+      .replace(/(?<=": )(\d+)/g, '<span class=json-val-number>$&</span>')
+      .replace(/(\w+)(?=":)/g, '<span class=json-key>$&</span>')
+      .replace(/"/g, '<span class=json-punc>"</span>')
     );
 
     const code = document.getElementsByClassName('code');
@@ -437,11 +474,11 @@
       .replace(/(?<! +?\*.*): (\d+|null|undefined)/g, '<span class=code-value>$&</span>')
       .replace(/ ?(var|let|const) (\w+)/gi, '<span class=code-keyword>$1</span> <span class=code-variable>$2</span>')
       .replace(/(?<! +?\*.*)([{}:;,]+)(?=(?:[^']*'[^']*')*[^']*$)/g, '<span class=code-symbol>$&</span>')
-      .replace(/(?<=['"])([^'" ]+)(?=['"][^\w])/g, '<span class=code-string>$&</span>')
       .replace(/(?<!['"].*)(\/\/.*|\/\*+.*|\*\/?.*|)\n/g, '<span class=code-comment>$&</span>')
+      .replace(/(?<!\*.*)(?<=['"])([^'" ]+)(?=['"][^\w])/g, '<span class=code-string>$&</span>')
       .replace(/(?<!['"*].*)(\w+)(?=\()/g, '<span class=code-func>$&</span>')
       .replace(/ = /g, '<span class=code-keyword>$&</span>')
-      .replace(/(['"])/g, '<span class=code-quot>$&</span>')
+      .replace(/(?<!\*.*)(['"])/g, '<span class=code-quot>$&</span>')
     );
 
     const code_block = document.getElementsByClassName('code-block');

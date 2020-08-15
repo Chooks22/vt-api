@@ -184,26 +184,26 @@ span.endpoint {
   color: #c3e88d;
 }
 
-span.response-punc {
+span.json-punc {
   color: #c3e88d;
 }
 
-span.response-key {
+span.json-key {
   font-weight: 600;
   color: #5f8bec;
 }
 
-span.response-val-type {
+span.json-val-type {
   font-style: italic;
   font-weight: 400;
   color: #ff5370;
 }
 
-span.response-val-string {
+span.json-val-string {
   color: #c3e88d;
 }
 
-span.response-val-number {
+span.json-val-number {
   color: #f78c6c;
 }
 
