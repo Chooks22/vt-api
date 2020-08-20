@@ -3,7 +3,6 @@ const schedule = require('node-schedule');
 const node_fetch = require('node-fetch');
 
 const fetch = url => node_fetch(url).then(res => res.text());
-const baseURL = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
 const re = /<yt:videoId>(.*)<.*\n.*<yt:channelId>(.*)<.*\n.*<title>(.*)<\/title>(?:\n.*){0,10}<published>(.*)</g;
 
 module.exports = {
@@ -21,7 +20,7 @@ module.exports = {
  * @param {{youtube: String, from: String}} data    - channel data
  */
 async function crawl({ youtube, from }) {
-  const xmlFeeds = await fetch(baseURL + youtube);
+  const xmlFeeds = await fetch(getXMLLink(youtube));
   const videoFeeds = parseXML(xmlFeeds);
 
   const latestTimestamp = await memcache.get(youtube) || 0;
@@ -63,6 +62,10 @@ function saveVideos(youtube, group, videos) {
     youtube,
     new Date().toLocaleString('en-GB')
   ));
+}
+
+function getXMLLink(id) {
+  return `https://www.youtube.com/feeds/videos.xml?channel_id=${id}&t=${Date.now()}`;
 }
 
 function createJob(data) {
