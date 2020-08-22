@@ -15,11 +15,12 @@
 $ npm i
 $ cp .env.sample .env
 
-# Check the template.json file inside the channels folder first!
-# Make sure you've set the channels you want to target, then run:
-$ npm run save-channels
+# Make sure to adjust your .env file before continuing!
 
-# Make sure to adjust your .env file first before running!
+# Check the template.json file inside the channels folder first! Then run:
+$ npm run init
+
+# If all things went well, you can then start the api.
 $ npm start
 ```
 
