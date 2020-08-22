@@ -1,5 +1,9 @@
 const node_fetch = require('node-fetch');
-const fetch = url => node_fetch(url).then(res => res.json());
+const fetch = url => node_fetch(url)
+  .then(res => {
+    if (!res.ok) throw new Error(`${res.statusText}, status code: ${res.status}`);
+    return res.json();
+  });
 
 const baseURL = 'https://www.googleapis.com/youtube/v3/';
 const settings = {
@@ -19,6 +23,6 @@ module.exports = {
   }
 };
 
-function getParams(params) {
+function getParams(params = {}) {
   return new URLSearchParams({ ...params, ...settings });
 }
