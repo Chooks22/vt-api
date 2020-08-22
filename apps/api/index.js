@@ -11,7 +11,12 @@ const video = {
 module.exports = { init, main };
 
 async function init() {
-  const { logger, api_data } = require('./consts');
+  const { logger, api_data, youtube } = require('./consts');
+
+  // check if youtube api key is valid
+  if (!await youtube.validateKey()) {
+    return logger.app('Stopping!!! Invalid Youtube API key. Please configure your .env file first.');
+  }
 
   // drop collection if collection exists
   api_data.channels.ns && await api_data.channels.drop();

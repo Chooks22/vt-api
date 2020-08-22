@@ -1,7 +1,13 @@
 require('dotenv').config();
 require('./apps/api').main();
 
-const { logger } = require('./modules');
+const { logger, youtube } = require('./modules');
+
+(async () => {
+  if (await youtube.validateKey()) return;
+  logger.app('Invalid Youtube API key! Please check your .env file.');
+  process.exit();
+})();
 
 const express = require('express');
 const bodyParser = require('body-parser');
