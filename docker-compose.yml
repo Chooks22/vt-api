@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  mongo:
+    container_name: vtapi-mongo
+    image: mongo:4
+    restart: always
+  memcached:
+    container_name: vtapi-memcached
+    image: memcached:latest
+    restart: always
+  vtapi:
+    depends_on:
+      - mongo
+      - memcached
+    image: vtapi:latest
+    ports:
+      - 2434:2434
+    restart: always
+    environment:
+      MONGO_HOST: vtapi-mongo
+      MEMCACHED_HOST: vtapi-memcached
+      GOOGLE_API_KEY:   # Fill this with your api key
