@@ -1,3 +1,4 @@
+const fs = require('fs');
 const node_fetch = require('node-fetch');
 const fetch = url => node_fetch(url)
   .then(res => {
@@ -12,6 +13,18 @@ const settings = {
 };
 
 module.exports = {
+  async validateKey() {
+    const keys = getKeys('../.keys.json');
+    const key = `${settings.key.slice(0, 10)}...${settings.key.slice(-10)}`;
+    if (keys.includes(key)) {
+      return 1;
+    }
+
+    const res = await node_fetch(baseURL + 'videos?' + getParams({ 'id': 'dQw4w9WgXcQ' }));
+    return res.ok
+      ? fs.writeFileSync('.keys.json', JSON.stringify([...keys, key])) || 1
+      : 0;
+  },
   videos(params) {
     return fetch(baseURL + 'videos?' + getParams(params));
   },
@@ -25,4 +38,12 @@ module.exports = {
 
 function getParams(params = {}) {
   return new URLSearchParams({ ...params, ...settings });
+}
+
+function getKeys(path) {
+  try {
+    return require(path);
+  } catch {
+    return [];
+  }
 }
