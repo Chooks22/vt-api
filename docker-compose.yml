@@ -20,4 +20,5 @@ services:
     environment:
       MONGO_HOST: vtapi-mongo
       MEMCACHED_HOST: vtapi-memcached
-      GOOGLE_API_KEY:   # Fill this with your api key
+      GOOGLE_API_KEY:  # Fill this with your api key
+    command:           # Setup channels, delete if json files copied manually ex. --animare copies animare.json to channels
