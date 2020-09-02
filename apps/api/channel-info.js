@@ -16,12 +16,11 @@ async function main() {
   // extract ids and split into batches
   const channelIDs = channelsToUpdate.map(item => item.youtube);
 
-  const batches = [];
+  const channelData = [];
   while (channelIDs.length) {
-    batches.push(channelIDs.splice(0, 50));
+    const batch = channelIDs.splice(0, 50);
+    channelData.push(...await fetchChannelData(batch));
   }
-
-  const channelData = await Promise.all(batches.map(fetchChannelData));
 
   // initialize bulk operators
   const bulk = api_data.channels.initializeUnorderedBulkOp();
