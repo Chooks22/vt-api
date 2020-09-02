@@ -70,7 +70,7 @@ function parseVideoData({ id, liveStreamingDetails: details = {} }) {
     'start_time': +new Date(actualStartTime) || null,
     'end_time': +new Date(actualEndTime) || null,
     'length': +new Date(actualEndTime) - +new Date(actualStartTime) || null,
-    'viewers': viewers && +(+viewers).toPrecision(viewers.length > 3 ? 3 : 2),
+    'viewers': viewers && +(+viewers).toPrecision(Math.max(viewers.length - 2, 2)),
     'status': getVideoStatus(details),
     'updated_at': Date.now()
   };
