@@ -23,6 +23,9 @@ module.exports = {
       return logger.app('Error: Invalid Youtube API key!\nPlease configure your .env file first.');
     }
 
+    // reset database to avoid dupes
+    await channels.dropDatabase();
+
     // grab all json files in directory and ignore template
     const channelsList = fs.readdirSync(channelsDir)
       .filter(file => file.endsWith('.json') && file !== 'template.json')
