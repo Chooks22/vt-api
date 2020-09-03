@@ -19,7 +19,10 @@ async function init() {
   }
 
   // drop collection if collection exists
-  api_data.channels.ns && await api_data.channels.drop();
+  logger.db.api_data(await api_data.channels.drop()
+    .then(() => 'dropped channels collection.')
+    .catch(() => 'channels collection not dropped. doesn\'t exists.')
+  );
 
   /**
    * channel-feed-scraper
