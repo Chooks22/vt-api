@@ -45,17 +45,17 @@ module.exports = {
         .replaceOne(channel)
       );
 
-      return bulk;
+      return bulk.execute();
     });
 
     // wait for writes to finish before closing
-    const results = await Promise.all(writeOps.map(ops => ops.execute()));
+    const results = await Promise.all(writeOps);
 
     logger.app('done! upserted %d channels.', countUpsertedChannels(results));
 
     return init
-    || logger.app('run "npm run scrape-channels" to fetch all channels\' videos from youtube.')
-    || process.exit();
+        || logger.app('run "npm run scrape-channels" to fetch all channels\' videos from youtube.')
+        || process.exit();
   }
 };
 
