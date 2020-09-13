@@ -11,7 +11,7 @@ const video = {
 module.exports = { init, main };
 
 async function init() {
-  const { logger, api_data, youtube } = require('./consts');
+  const { logger, youtube } = require('./consts');
 
   // check if youtube api key is valid
   if (!await youtube.validateKey()) {
@@ -19,10 +19,10 @@ async function init() {
   }
 
   // drop collection if collection exists
-  logger.db.api_data(await api_data.channels.drop()
-    .then(() => 'dropped channels collection.')
-    .catch(() => 'channels collection not dropped. doesn\'t exists.')
-  );
+  // logger.db.api_data(await api_data.channels.drop()
+  //   .then(() => 'dropped channels collection.')
+  //   .catch(() => 'channels collection not dropped. doesn\'t exists.')
+  // );
 
   /**
    * channel-feed-scraper
