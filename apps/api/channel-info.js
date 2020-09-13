@@ -5,13 +5,13 @@ logger.app('started channel-info');
 module.exports = main;
 
 async function main() {
-  const groupCollections = await channels.listCollections();
-  const groups = groupCollections.map(group => group.name);
+  const groups = await channels.listCollections()
+    .then(list => list.map(group => group.name));
 
-  const channelsToUpdate = (await Promise.all(groups.map(group => channels[group]
+  const channelsToUpdate = await Promise.all(groups.map(group => channels[group]
     .findAsCursor({ 'youtube': { $exists: 1 } }, { 'crawled_at': 0 })
     .map(data => ({ ...data, 'from': group })))
-  )).flat();
+  ).then(data => data.flat());
 
   // extract ids and split into batches
   const channelIDs = channelsToUpdate.map(item => item.youtube);
@@ -29,15 +29,15 @@ async function main() {
   ));
 
   // assign write ops
-  channelData.flat().forEach((item, _id) => {
+  channelData.forEach(item => {
     const initData = channelsToUpdate.find(channel => channel.youtube === item.id);
     const id = initData._id;
 
-    initData._id = _id + 1;
+    initData._id = initData.youtube;
     delete item.id;
 
     // update channel info for api
-    bulk.find({ 'youtube': initData.youtube })
+    bulk.find({ '_id': initData._id })
       .upsert()
       .replaceOne({ id, ...initData, ...item, updated_at: Date.now() });
 
@@ -46,6 +46,11 @@ async function main() {
       .find({ 'youtube': initData.youtube })
       .updateOne({ $set: { updated_at: Date.now() } });
   });
+
+  // remove deleted channels
+  await api_data.channels.remove(
+    { '_id': { $nin: channelIDs } }
+  );
 
   // write to db and log results
   const result = await bulk.execute();
