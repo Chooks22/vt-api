@@ -23,30 +23,10 @@ module.exports = {
       return logger.app('Error: Invalid Youtube API key!\nPlease configure your .env file first.');
     }
 
-    // reset database to avoid dupes
-    await channels.dropDatabase();
-
-    // grab all json files in directory and ignore template
-    const channelsList = fs.readdirSync(channelsDir)
+    // grab all json files in directory and save channels
+    const writeOps = fs.readdirSync(channelsDir)
       .filter(file => file.endsWith('.json') && file !== 'template.json')
-      .map(file => [
-        file.split('.')[0],
-        require(path.join(channelsDir, file))
-          .map((data, i) => ({ '_id': i + 1, ...data }))
-      ]);
-
-    // write files to database
-    const writeOps = channelsList.map(([group, channelList]) => {
-      const bulk = channels[group].initializeUnorderedBulkOp();
-
-      channelList.forEach(channel => bulk
-        .find({ '_id': channel._id })
-        .upsert()
-        .replaceOne(channel)
-      );
-
-      return bulk.execute();
-    });
+      .map(saveChannels);
 
     // wait for writes to finish before closing
     const results = await Promise.all(writeOps);
@@ -61,4 +41,23 @@ module.exports = {
 
 function countUpsertedChannels(result) {
   return result.reduce((total, { nUpserted }) => total + nUpserted, 0);
+}
+
+async function saveChannels(file) {
+  const [group] = file.split('.');
+  const channelList = require(path.join(channelsDir, file));
+
+  logger.app(await channels[group].drop()
+    .then(() => `dropped ${group} collection.`)
+    .catch(() => `couldn't drop ${group} collection. probably doesn't exist.`));
+  const bulk = channels[group].initializeUnorderedBulkOp();
+
+  channelList.forEach((channel, i) => {
+    const _id = i + 1;
+    bulk.find({ _id })
+      .upsert()
+      .replaceOne({ _id, ...channel });
+  });
+
+  return bulk.execute();
 }
