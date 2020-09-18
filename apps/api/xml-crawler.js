@@ -31,7 +31,7 @@ async function crawl({ youtube, from }) {
   if (!newEntries.length) return;
 
   logger.api.xmlCrawler('found %d new videos from %s', newEntries.length, youtube);
-  memcache.save(youtube, newEntries[0].timestamp, 3600 * 4);
+  memcache.save(youtube, newEntries[0].timestamp, process.env.TTL_LONG ?? 900);
   saveVideos(youtube, from, newEntries);
 }
 

@@ -33,7 +33,7 @@ async function getLiveVideos({ status: queryStatus = '', group = '', title = '' 
   }
 
   // save uncached data and return video list
-  !title && uncached.map(key => memcache.save(`${group}_${key}`, videos[key], 20));
+  !title && uncached.map(key => memcache.save(`${group}_${key}`, videos[key], process.env.TTL_SHORT ?? 20));
   logger.routes.helpers.live('found %d videos', getVideoCount(videos));
   return videos;
 }
