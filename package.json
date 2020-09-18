@@ -38,6 +38,9 @@
       "restart": "clear"
     }
   },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Choooks22/vt-api.git"
