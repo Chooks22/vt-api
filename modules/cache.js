@@ -2,7 +2,7 @@ const Memcached = require('memcached-promise');
 const re = /(?<=_).*/;
 
 const memcached = new Memcached(
-    process.env.MEMCACHED_HOST + ':11211', {
+  (process.env.MEMCACHED_HOST ?? 'localhost') + ':11211', {
     timeout: 1000,
     retries: 1
   }

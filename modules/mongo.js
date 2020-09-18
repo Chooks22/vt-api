@@ -1,7 +1,7 @@
 const mongoist = require('mongoist');
 const { db } = require('./loggers');
 
-const baseURL = 'mongodb://' + process.env.MONGO_HOST + ':27017/';
+const baseURL = 'mongodb://' + (process.env.MONGO_HOST ?? 'localhost') + ':27017/';
 const urlChannels = baseURL + 'channels';
 const urlData = baseURL + 'data';
 
