@@ -1,6 +1,4 @@
-module.exports = {
-  mongo: require('./mongo'),
-  logger: require('./loggers'),
-  memcache: require('./cache'),
-  youtube: require('./youtube')
-};
+export * as mongo from './mongo';
+export * as logger from './loggers';
+export * as memcache from './cache';
+export * as youtube from './youtube';

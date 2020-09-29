@@ -1,5 +1,5 @@
-const mongoist = require('mongoist');
-const { db } = require('./loggers');
+import mongoist from 'mongoist';
+import { db } from './loggers';
 
 const baseURL = 'mongodb://' + (process.env.MONGO_HOST ?? 'localhost') + ':27017/';
 const urlChannels = baseURL + 'channels';
@@ -10,13 +10,8 @@ const options = {
   useUnifiedTopology: true
 };
 
-const channels = mongoist(urlChannels, options);
+export const channels = mongoist(urlChannels, options);
 channels.on('connect', () => db.channels('connected'));
 
-const api_data = mongoist(urlData, options);
+export const api_data = mongoist(urlData, options);
 api_data.on('connect', () => db.api_data('connected'));
-
-module.exports = {
-  channels,
-  api_data
-};

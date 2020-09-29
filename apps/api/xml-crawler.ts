@@ -1,18 +1,18 @@
-const { api_data, logger, memcache, TEMPLATE } = require('./consts');
-const schedule = require('node-schedule');
-const node_fetch = require('node-fetch');
+import { api_data, logger, memcache, TEMPLATE } from './consts';
+import schedule from 'node-schedule';
+import node_fetch from 'node-fetch';
 
 const fetch = url => node_fetch(url).then(res => res.text());
 const re = /<yt:videoId>(.*)<.*\n.*<yt:channelId>(.*)<.*\n.*<title>(.*)<\/title>(?:\n.*){0,10}<published>(.*)</g;
 
-module.exports = {
-  'init': () => api_data.channels
+export function init() {
+  api_data.channels
     .findAsCursor(
       { 'youtube': { $exists: 1 } },
       { 'youtube': 1, 'from': 1 }
     )
-    .forEach(createJob)
-};
+    .forEach(createJob);
+}
 
 /**
  * Fetches XML feed from youtube and checks for new videos.

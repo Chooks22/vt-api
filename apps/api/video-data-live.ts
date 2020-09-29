@@ -1,10 +1,8 @@
-const { api_data, youtube, logger, ONE_HOUR } = require('./consts');
+import { api_data, youtube, logger, ONE_HOUR } from './consts';
 
 logger.app('started video-data-live');
 
-module.exports = main;
-
-async function main() {
+export default async function main() {
   logger.api.videoLive('looking for videos to update...');
   logger.db.api_data('fetching videos...');
   const videos = await api_data.videos

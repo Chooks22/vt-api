@@ -1,10 +1,8 @@
-const { channels, api_data, logger, youtube } = require('./consts');
+import { channels, api_data, logger, youtube } from './consts';
 
 logger.app('started channel-info');
 
-module.exports = main;
-
-async function main() {
+export default async function main() {
   const groups = await channels.listCollections()
     .then(list => list.map(group => group.name));
 

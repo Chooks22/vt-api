@@ -1,17 +1,16 @@
-require('dotenv').config({ path: '../../.env' });
+import { config } from 'dotenv';
+config({ path: '../../.env' });
 
-const schedule = require('node-schedule');
-const channelInfo = require('./channel-info');
-const xmlCrawler = require('./xml-crawler');
-const video = {
-  live: require('./video-data-live'),
-  info: require('./video-data-info')
-};
+import schedule from 'node-schedule';
+import channelInfo from './channel-info';
+import video_live from './video-data-live';
+import * as video_info from './video-data-info';
+import * as xmlCrawler from './xml-crawler';
 
 module.exports = { init, main };
 
 async function init() {
-  const { logger, youtube } = require('./consts');
+  const { logger, youtube } = await require('./consts');
 
   // check if youtube api key is valid
   if (!await youtube.validateKey()) {
@@ -33,7 +32,7 @@ async function init() {
    *  quota:        per run: 1 quota
    *  additional:   runs varies per channel
    */// get all videos from every channel
-  const channelScraper = require('./channel-scraper');
+  const channelScraper = await require('./channel-scraper');
   const [channelsUpdated = 0, channelCount = 0] = await channelScraper();
 
   // update channels list for the first time
@@ -48,7 +47,7 @@ async function init() {
    *  quota:       per run: 1 quota
    *  additional:  1 run for every 50 blank videos
    */// update all blank videos
-  const [videosUpdated = 0, missingVideos = 0] = await video.info.init();
+  const [videosUpdated = 0, missingVideos = 0] = await video_info.init();
 
   console.log();
   logger.api.channelScraper('updated %d out of %d channels', channelsUpdated, channelCount);
@@ -82,7 +81,7 @@ function main() {
    *  quota:        per run: 1 quota
    *                daily:   1440 quota
    */
-  schedule.scheduleJob('video-data-live', '6 * * * * *', video.live);
+  schedule.scheduleJob('video-data-live', '6 * * * * *', video_live);
 
   /**
    * video-info-data.main
@@ -93,7 +92,7 @@ function main() {
    * quota:         per run: 1 quota
    *                daily:   upto 1440 quota
    */
-  schedule.scheduleJob('video-data-info', '4 * * * * *', video.info.main);
+  schedule.scheduleJob('video-data-info', '4 * * * * *', video_info.main);
 
   /**
    * xml-crawler

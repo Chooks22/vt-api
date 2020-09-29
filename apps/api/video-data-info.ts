@@ -1,10 +1,8 @@
-const { api_data, youtube, logger, TEMPLATE } = require('./consts');
+import { api_data, youtube, logger, TEMPLATE } from './consts';
 
 logger.app('started video-data-info');
 
-module.exports = { main, init };
-
-async function main() {
+export async function main() {
   logger.api.videoInfo('fetching new video data...');
   logger.db.api_data('fetching blank videos...');
   const blankVideos = await api_data.videos
@@ -44,7 +42,7 @@ async function main() {
   logger.api.videoInfo('updated %d new videos', result.nUpserted);
 }
 
-async function init() {
+export async function init() {
   let videoCount = 0;
   const videos = await api_data.videos
     .findAsCursor(

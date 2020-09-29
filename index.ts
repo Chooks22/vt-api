@@ -1,7 +1,10 @@
-require('dotenv').config();
-require('./apps/api').main();
+import { config } from 'dotenv';
+config();
 
-const { logger, youtube } = require('./modules');
+import { main } from './apps/api';
+main();
+
+import { logger, youtube } from './modules';
 
 (async () => {
   if (await youtube.validateKey()) return;
@@ -9,10 +12,10 @@ const { logger, youtube } = require('./modules');
   process.exit();
 })();
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
-const cors = require('cors');
+import express from 'express';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
+import cors from 'cors';
 
 const PORT = +process.env.PORT || 2434;
 const app = express();

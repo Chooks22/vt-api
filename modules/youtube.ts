@@ -1,5 +1,5 @@
-const fs = require('fs');
-const node_fetch = require('node-fetch');
+import fs from 'fs';
+import node_fetch from 'node-fetch';
 const fetch = url => node_fetch(url)
   .then(res => {
     if (!res.ok) throw new Error(`${res.statusText}, status code: ${res.status}`);
@@ -12,29 +12,28 @@ const settings = {
   'accept': 'application/json'
 };
 
-module.exports = {
-  async validateKey() {
-    const keys = getKeys('../.keys.json');
-    const key = `${settings.key.slice(0, 10)}...${settings.key.slice(-10)}`;
-    if (keys.includes(key)) {
-      return 1;
-    }
 
-    const res = await node_fetch(baseURL + 'videos?' + getParams({ 'id': 'dQw4w9WgXcQ' }));
-    return res.ok
-      ? fs.writeFileSync('.keys.json', JSON.stringify([...keys, key])) || 1
-      : 0;
-  },
-  videos(params) {
-    return fetch(baseURL + 'videos?' + getParams(params));
-  },
-  channels(params) {
-    return fetch(baseURL + 'channels?' + getParams(params));
-  },
-  playlistItems(params) {
-    return fetch(baseURL + 'playlistItems?' + getParams(params));
+export async function validateKey() {
+  const keys = getKeys('../.keys.json');
+  const key = `${settings.key.slice(0, 10)}...${settings.key.slice(-10)}`;
+  if (keys.includes(key)) {
+    return 1;
   }
-};
+
+  const res = await node_fetch(baseURL + 'videos?' + getParams({ 'id': 'dQw4w9WgXcQ' }));
+  return res.ok
+    ? fs.writeFileSync('.keys.json', JSON.stringify([...keys, key])) || 1
+    : 0;
+}
+export function videos(params) {
+  return fetch(baseURL + 'videos?' + getParams(params));
+}
+export function channels(params) {
+  return fetch(baseURL + 'channels?' + getParams(params));
+}
+export function playlistItems(params) {
+  return fetch(baseURL + 'playlistItems?' + getParams(params));
+}
 
 function getParams(params = {}) {
   return new URLSearchParams({ ...params, ...settings });

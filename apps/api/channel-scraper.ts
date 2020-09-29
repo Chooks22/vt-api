@@ -1,12 +1,10 @@
-const { channels, api_data, logger, youtube } = require('./consts');
+import { channels, api_data, logger, youtube } from './consts';
 
 let timesRan = 0;
 let channelCount = 0;
 let channelsUpdated = 0;
 
-module.exports = init;
-
-async function init() {
+export async function init() {
   logger.api.channelScraper('running...');
 
   // get group list
