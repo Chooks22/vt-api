@@ -16,6 +16,19 @@
     "ecmaVersion": 2020
   },
   "rules": {
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        }
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "brace-style": [
       "error",

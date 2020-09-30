@@ -2,10 +2,7 @@ import debug from 'debug';
 
 export const app = debug('app');
 
-export const db = {
-  channels: debug('db:channels'),
-  api_data: debug('db:api_data')
-};
+export const db = debug('db:mongo');
 
 export const routes = {
   channels: debug('routes:channels/'),
