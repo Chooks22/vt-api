@@ -1,48 +1,29 @@
-import fs from 'fs';
 import node_fetch from 'node-fetch';
-const fetch = url => node_fetch(url)
-  .then(res => {
-    if (!res.ok) throw new Error(`${res.statusText}, status code: ${res.status}`);
-    return res.json();
-  });
+import { SearchParams, YoutubeResponse } from './types/youtube';
 
-const baseURL = 'https://www.googleapis.com/youtube/v3/';
-const settings = {
-  'key': process.env.GOOGLE_API_KEY,
-  'accept': 'application/json'
-};
+const URL = 'https://www.googleapis.com/youtube/v3/';
+const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json`;
 
-
-export async function validateKey() {
-  const keys = getKeys('../.keys.json');
-  const key = `${settings.key.slice(0, 10)}...${settings.key.slice(-10)}`;
-  if (keys.includes(key)) {
-    return 1;
-  }
-
-  const res = await node_fetch(baseURL + 'videos?' + getParams({ 'id': 'dQw4w9WgXcQ' }));
-  return res.ok
-    ? fs.writeFileSync('.keys.json', JSON.stringify([...keys, key])) || 1
-    : 0;
-}
-export function videos(params) {
-  return fetch(baseURL + 'videos?' + getParams(params));
-}
-export function channels(params) {
-  return fetch(baseURL + 'channels?' + getParams(params));
-}
-export function playlistItems(params) {
-  return fetch(baseURL + 'playlistItems?' + getParams(params));
+async function fetch(type: string, params: SearchParams): Promise<YoutubeResponse> {
+  return node_fetch(`${URL}${type}?${parseParams(params)}`)
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error(`${res.statusText}, status code: ${res.status}`);
+    });
 }
 
-function getParams(params = {}) {
-  return new URLSearchParams({ ...params, ...settings });
+export function videos(params: SearchParams) {
+  return fetch('videos', params);
+}
+export function channels(params: SearchParams) {
+  return fetch('channels', params);
+}
+export function playlistItems(params: SearchParams) {
+  return fetch('playlistItems', params);
 }
 
-function getKeys(path) {
-  try {
-    return require(path);
-  } catch {
-    return [];
-  }
+function parseParams(params: SearchParams = <SearchParams>{}) {
+  return SETTINGS + Object.entries(params)
+    .map(([k, v]) => k + '=' + v)
+    .join('&');
 }
