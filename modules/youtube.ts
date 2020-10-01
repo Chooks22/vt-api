@@ -2,7 +2,7 @@ import node_fetch from 'node-fetch';
 import { SearchParams, YoutubeResponse } from './types/youtube';
 
 const URL = 'https://www.googleapis.com/youtube/v3/';
-const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json`;
+const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json&`;
 
 async function fetch(type: string, params: SearchParams): Promise<YoutubeResponse> {
   return node_fetch(`${URL}${type}?${parseParams(params)}`)
