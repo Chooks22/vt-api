@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { SearchParams, YoutubeResponse } from './types/youtube';
+import { PlaylistParams, SearchParams, YoutubeResponse } from './types/youtube';
 
 const URL = 'https://www.googleapis.com/youtube/v3/';
 const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json&`;
@@ -18,7 +18,7 @@ export function videos(params: SearchParams) {
 export function channels(params: SearchParams) {
   return api('channels', params);
 }
-export function playlistItems(params: SearchParams) {
+export function playlistItems(params: PlaylistParams) {
   return api('playlistItems', params);
 }
 
