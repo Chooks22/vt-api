@@ -1,10 +1,9 @@
-import { Document } from 'mongoose';
-import { PlatformId } from './members';
+type Document = import('mongoose').Document;
 
-export type VideoId = string;
-export type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing';
+type VideoId = string;
+type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing';
 
-export interface VideoObject {
+interface VideoObject {
   _id: VideoId;
   platform: PlatformId;
   channel: string;
@@ -22,6 +21,6 @@ export interface VideoObject {
   updated_at: Date;
 }
 
-export interface VideoProps extends Document, VideoObject {
+interface VideoProps extends Document, VideoObject {
   _id: VideoId;
 }

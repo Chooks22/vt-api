@@ -1,4 +1,4 @@
-export interface SearchParams {
+interface SearchParams {
   /**
    * Available parts:
    * - contentDetails
@@ -21,7 +21,7 @@ export interface SearchParams {
   hl?: string;
 }
 
-export interface PlaylistParams extends SearchParams {
+interface PlaylistParams extends SearchParams {
   playlistId: string;
   pageToken?: string;
   maxResults?: number;
@@ -30,7 +30,7 @@ export interface PlaylistParams extends SearchParams {
 type DateString = string;
 type ChannelId = string;
 
-export interface Snippet {
+interface Snippet {
   publishedAt?: DateString;
   channelId?: ChannelId;
   title?: string;
@@ -54,7 +54,7 @@ export interface Snippet {
   defaultAudioLanguage?: string;
 }
 
-export interface Statistics {
+interface Statistics {
   viewCount?: number;
   likeCount?: number;
   dislikeCount?: number;
@@ -63,7 +63,7 @@ export interface Statistics {
   commentcount?: number;
 }
 
-export interface LiveStreamingDetails {
+interface LiveStreamingDetails {
   actualStartTime?: DateString;
   actualEndTime?: DateString;
   scheduledStartTime?: DateString;
@@ -72,7 +72,7 @@ export interface LiveStreamingDetails {
   activeLiveChatId?: number;
 }
 
-export interface YoutubeVideoObject {
+interface YoutubeVideoObject {
   snippet?: Snippet;
   contentDetails?: Record<string, unknown>;
   status?: Record<string, unknown>;
@@ -86,7 +86,7 @@ export interface YoutubeVideoObject {
   localizations?: Record<string, unknown>;
 }
 
-export interface YoutubeResponse {
+interface YoutubeResponse {
   kind: string;
   etag: string;
   nextPageToken?: string;
