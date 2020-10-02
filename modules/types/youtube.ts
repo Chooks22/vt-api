@@ -21,6 +21,12 @@ export interface SearchParams {
   hl?: string;
 }
 
+export interface PlaylistParams extends SearchParams {
+  playlistId: string;
+  pageToken?: string;
+  maxResults?: number;
+}
+
 type DateString = string;
 type ChannelId = string;
 
