@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
 
-import { youtube } from '../../modules';
+import { youtube } from '../../../modules';
 const channel = 'UCXTpFs_3PqI41qX2d9tL2Rw';
 const search = (playlistId: string, pageToken = '') => youtube.playlistItems({
   part: 'snippet',
