@@ -3,13 +3,14 @@ import fetch from 'node-fetch';
 const URL = 'https://www.googleapis.com/youtube/v3/';
 const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json&`;
 
-const api = (type: string, params: SearchParams): Promise<YoutubeResponse> =>
-  fetch(`${URL}${type}?${parseParams(params)}`)
+async function api(type: string, params: SearchParams): Promise<YoutubeResponse> {
+  return fetch(`${URL}${type}?${parseParams(params)}`)
     .then(res => res.json())
     .then(res => {
       if (res.error) throw res.error;
       return res;
     });
+}
 
 export function videos(params: SearchParams) {
   return api('videos', params);
