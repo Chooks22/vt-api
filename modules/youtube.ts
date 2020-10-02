@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import { PlaylistParams, SearchParams, YoutubeResponse } from './types/youtube';
 
 const URL = 'https://www.googleapis.com/youtube/v3/';
 const SETTINGS = `key=${process.env.GOOGLE_API_KEY}&accept=application/json&`;
