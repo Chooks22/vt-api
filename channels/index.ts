@@ -1,65 +1,75 @@
 import { config } from 'dotenv';
-config({ path: '.env' });
+config();
 
-import { mongo, logger, youtube } from '../modules';
-const { channels } = mongo;
+if (!process.env.GOOGLE_API_KEY) throw new Error('GOOGLE_API_KEY is undefined!');
 
-import path from 'path';
-import fs from 'fs';
+import { readdirSync, readFileSync } from 'fs';
+import { MemberObject, PlatformId } from '../database/types/members';
+import { Members } from '../modules';
+import { ChannelId } from '../modules/types/youtube';
+import scrapeChannel from './scrapers/youtube-channel-scraper';
 
-const channelsDir = path.resolve('channels');
+const ROOT_DIR = 'channels/organizations';
 
-console.clear();
-
-
-export async function init() {
-  if (!await this.save(1)) return;
-  import('../apps/api').then(mod => mod.init());
+function saveChannel(filename: string, dry = false, save = true): [ChannelId, string, PlatformId][] {
+  const groupName = filename.slice(0, -5);
+  const channelList: MemberObject[] = JSON.parse(readFileSync(`${ROOT_DIR}/${filename}`, 'utf-8'));
+  const parseChannel = (channel: MemberObject): any => { channel.organization = groupName; return channel; };
+  const parsedChannels = channelList.map(parseChannel);
+  if (dry) return parsedChannels;
+  if (save) Members.create(parsedChannels);
+  return channelList.map(channel => [channel.channel_id, groupName, channel.platform_id]);
 }
-export async function save(init) {
-  // check directory
-  if (!fs.existsSync(channelsDir)) {
-    return logger.app('Error: You tried running this script locally!\nRun this script using "npm run save-channels"!');
+
+function checkChannels<T>(channelList: T[]): T[]|never {
+  if (!channelList.length) {
+    throw new Error('No channels found.');
+  } else { return channelList; }
+}
+
+interface saveOptions { dry?: boolean; save?: boolean; }
+export const saveChannels = (options: saveOptions = { dry: false, save: true }) => checkChannels(
+  readdirSync(`${ROOT_DIR}`)
+    .filter(file => file.endsWith('.json'))
+    .flatMap(groups => saveChannel(groups, options.dry, options.save))
+);
+
+export const validateChannels = () => {
+  const channels = saveChannels({ dry: true });
+  let errors = 0;
+  for (let i = channels.length; i--;) {
+    const err = new Members(channels[i]).validateSync();
+    if (!err) continue;
+    console.log({ error: err.message, channel: channels[i] });
+    errors++;
   }
+  if (errors) {
+    console.info(`Failed to validate ${errors} channels.`);
+  } else { console.info('All channels validated successfully.'); }
+};
 
-  if (init && !await youtube.validateKey()) {
-    return logger.app('Error: Invalid Youtube API key!\nPlease configure your .env file first.');
+export async function scrapeChannels(channelList?: [ChannelId, string, PlatformId][]) {
+  const channelIds = channelList ?? await Members.find({ crawled_at: { $exists: false } })
+    .then(channels => channels.map(channel => [channel.channel_id, channel.organization, channel.platform_id]));
+  const RESULTS = { OK: <ChannelId[]>[], FAIL: <ChannelId[]>[], videoCount: 0 };
+  for (let i = channelIds.length; i--;) {
+    const [currentChannel, organization, platform] = channelIds[i];
+    switch (platform) {
+    case 'yt': {
+      const [status, videoCount] = await scrapeChannel(currentChannel, organization);
+      RESULTS[status].push(currentChannel);
+      RESULTS.videoCount += videoCount;
+    } break;
+    case 'bb': {
+    } break;
+    case 'tt':
+    }
   }
-
-  // grab all json files in directory and save channels
-  const writeOps = fs.readdirSync(channelsDir)
-    .filter(file => file.endsWith('.json') && file !== 'template.json')
-    .map(saveChannels);
-
-  // wait for writes to finish before closing
-  const results = await Promise.all(writeOps);
-
-  logger.app('done! upserted %d channels.', countUpsertedChannels(results));
-
-  return init
-      || logger.app('run "npm run scrape-channels" to fetch all channels\' videos from youtube.')
-      || process.exit();
+  console.log(`Finished scraping ${channelIds.length}.`);
+  console.log(`Failed to scrape ${RESULTS.FAIL.length} channels, and got a total of ${RESULTS.videoCount.toLocaleString()} new videos.`);
 }
 
-function countUpsertedChannels(result) {
-  return result.reduce((total, { nUpserted }) => total + nUpserted, 0);
-}
-
-async function saveChannels(file) {
-  const [group] = file.split('.');
-  const channelList = require(path.join(channelsDir, file));
-
-  logger.app(await channels[group].drop()
-    .then(() => `dropped ${group} collection.`)
-    .catch(() => `couldn't drop ${group} collection. probably doesn't exist.`));
-  const bulk = channels[group].initializeUnorderedBulkOp();
-
-  channelList.forEach((channel, i) => {
-    const _id = i + 1;
-    bulk.find({ _id })
-      .upsert()
-      .replaceOne({ _id, ...channel });
-  });
-
-  return bulk.execute();
+export default async function init() {
+  const channelIds = saveChannels({ save: false });
+  scrapeChannels(channelIds);
 }

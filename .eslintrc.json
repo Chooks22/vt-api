@@ -16,6 +16,7 @@
     "ecmaVersion": 2020
   },
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
@@ -66,7 +67,14 @@
       }
     ],
     "no-console": "off",
-    "no-empty-function": "error",
+    "no-empty-function": [
+      "error",
+      {
+        "allow": [
+          "constructors"
+        ]
+      }
+    ],
     "no-floating-decimal": "error",
     "no-lonely-if": "error",
     "no-multi-spaces": "error",

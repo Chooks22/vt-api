@@ -1,1 +1,79 @@
-[{"name_jp":"因幡はねる","name_en":"Inaba Haneru","youtube":"UC0Owc36U9lOyi9Gx9Ic-4qg","twitter":"Haneru_Inaba"},{"name_jp":"宗谷 いちか","name_en":"Souya Ichika","youtube":"UC2kyQhzGOB-JPgcQX9OMgEw","twitter":"Ichika_Souya"},{"name_jp":"日ノ隈らん","name_en":"Hinokuma Ran","youtube":"UCRvpMpzAXBRKJQuk-8-Sdvg","twitter":"Ran_Hinokuma"},{"name_jp":"風見くく","name_en":"Kazami Kuku","youtube":"UCXp7sNC0F_qkjickvlYkg-Q","twitter":"Kuku_Kazami"},{"name_jp":"柚原いづみ","name_en":"Yunohara Izumi","youtube":"UCW8WKciBixmaqaGqrlTITRQ","twitter":"Izumi_Yunohara"},{"name_jp":"白宮みみ","name_en":"Shiromiya Mimi","youtube":"UCtzCQnCT9E4o6U3mHHSHbQQ","twitter":"shiromiya_mimi"},{"name_jp":"​羽柴なつみ","name_en":"Hashiba Natsumi","youtube":"UC_BlXOQe5OcRC7o0GX8kp8A","twitter":"Natsumi_Hashiba"}]
+[
+  {
+    "name": {
+      "en": "Inaba Haneru",
+      "jp": "因幡はねる"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC0Owc36U9lOyi9Gx9Ic-4qg",
+    "details": {
+      "twitter": "Haneru_Inaba"
+    }
+  },
+  {
+    "name": {
+      "en": "Souya Ichika",
+      "jp": "宗谷 いちか"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC2kyQhzGOB-JPgcQX9OMgEw",
+    "details": {
+      "twitter": "Ichika_Souya"
+    }
+  },
+  {
+    "name": {
+      "en": "Hinokuma Ran",
+      "jp": "日ノ隈らん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCRvpMpzAXBRKJQuk-8-Sdvg",
+    "details": {
+      "twitter": "Ran_Hinokuma"
+    }
+  },
+  {
+    "name": {
+      "en": "Kazami Kuku",
+      "jp": "風見くく"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCXp7sNC0F_qkjickvlYkg-Q",
+    "details": {
+      "twitter": "Kuku_Kazami"
+    }
+  },
+  {
+    "name": {
+      "en": "Yunohara Izumi",
+      "jp": "柚原いづみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCW8WKciBixmaqaGqrlTITRQ",
+    "details": {
+      "twitter": "Izumi_Yunohara"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiromiya Mimi",
+      "jp": "白宮みみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCtzCQnCT9E4o6U3mHHSHbQQ",
+    "details": {
+      "twitter": "shiromiya_mimi"
+    }
+  },
+  {
+    "name": {
+      "en": "Hashiba Natsumi",
+      "jp": "​羽柴なつみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC_BlXOQe5OcRC7o0GX8kp8A",
+    "details": {
+      "twitter": "Natsumi_Hashiba"
+    }
+  }
+]

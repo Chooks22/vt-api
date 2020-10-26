@@ -1,1 +1,68 @@
-[{"name_jp":"杏戸ゆげ","name_en":"And Uge","youtube":"UC3EhsuKdEkI99TWZwZgWutg","twitter":"uge_and"},{"name_jp":"鴨見カモミ","name_en":"Camomi Camomi","youtube":"UCL-2thbJ7grC9fmGF4OLuTg","twitter":"camomi_camomi"},{"name_jp":"花奏かのん","name_en":"Kanade Kanon","youtube":"UCmqrvfLMws-GLGHQcB5dasg","twitter":"_kanade_kanon"},{"name_jp":"季咲あんこ","name_en":"Kisaki Anko","youtube":"UChXm-xAYPfygrbyLo2yCASQ","twitter":"anko_kisaki"},{"name_jp":"小森めと","name_en":"Komori Met","youtube":"UCzUNASdzI4PV5SlqtYwAkKQ","twitter":"met_komori"},{"name_jp":"不磨わっと","name_en":"Wat Huma","youtube":"UCV4EoK6BVNl7wxuxpUvvSWA","twitter":"Wat_Huma"}]
+[
+  {
+    "name": {
+      "en": "And Uge",
+      "jp": "杏戸ゆげ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3EhsuKdEkI99TWZwZgWutg",
+    "details": {
+      "twitter": "uge_and"
+    }
+  },
+  {
+    "name": {
+      "en": "Camomi Camomi",
+      "jp": "鴨見カモミ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCL-2thbJ7grC9fmGF4OLuTg",
+    "details": {
+      "twitter": "camomi_camomi"
+    }
+  },
+  {
+    "name": {
+      "en": "Kanade Kanon",
+      "jp": "花奏かのん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCmqrvfLMws-GLGHQcB5dasg",
+    "details": {
+      "twitter": "_kanade_kanon"
+    }
+  },
+  {
+    "name": {
+      "en": "Kisaki Anko",
+      "jp": "季咲あんこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChXm-xAYPfygrbyLo2yCASQ",
+    "details": {
+      "twitter": "anko_kisaki"
+    }
+  },
+  {
+    "name": {
+      "en": "Komori Met",
+      "jp": "小森めと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCzUNASdzI4PV5SlqtYwAkKQ",
+    "details": {
+      "twitter": "met_komori"
+    }
+  },
+  {
+    "name": {
+      "en": "Wat Huma",
+      "jp": "不磨わっと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCV4EoK6BVNl7wxuxpUvvSWA",
+    "details": {
+      "twitter": "Wat_Huma"
+    }
+  }
+]

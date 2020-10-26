@@ -1,1 +1,24 @@
-[{"name_jp":"電脳少女シロ","name_en":"Dennou Shojo Shiro","youtube":"UCLhUvJ_wO9hOvv_yYENu4fQ","twitter":"SIROyoutuber"},{"name_jp":"メリーミルク","name_en":"Merry Milk","youtube":"UCju7v8SkoWUQ5ITCQwmYpYg","twitter":"milk_merry_"}]
+[
+  {
+    "name": {
+      "en": "Dennou Shojo Shiro",
+      "jp": "電脳少女シロ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCLhUvJ_wO9hOvv_yYENu4fQ",
+    "details": {
+      "twitter": "SIROyoutuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Merry Milk",
+      "jp": "メリーミルク"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCju7v8SkoWUQ5ITCQwmYpYg",
+    "details": {
+      "twitter": "milk_merry_"
+    }
+  }
+]

@@ -1,1 +1,35 @@
-[{"name_jp":"花丸はれる","name_en":"Hanamaru Hareru","youtube":"UCyIcOCH-VWaRKH9IkR8hz7Q","twitter":"hanamaruhareru"},{"name_jp":"鹿乃","name_en":"Kano","youtube":"UCfuz6xYbYFGsWWBi3SpJI1w","twitter":"kano_hanayori"},{"name_jp":"小東ひとな","name_en":"Kohigashi Hitona","youtube":"UCV2m2UifDGr3ebjSnDv5rUA","twitter":"kohigashihitona"}]
+[
+  {
+    "name": {
+      "en": "Hanamaru Hareru",
+      "jp": "花丸はれる"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCyIcOCH-VWaRKH9IkR8hz7Q",
+    "details": {
+      "twitter": "hanamaruhareru"
+    }
+  },
+  {
+    "name": {
+      "en": "Kano",
+      "jp": "鹿乃"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCfuz6xYbYFGsWWBi3SpJI1w",
+    "details": {
+      "twitter": "kano_hanayori"
+    }
+  },
+  {
+    "name": {
+      "en": "Kohigashi Hitona",
+      "jp": "小東ひとな"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCV2m2UifDGr3ebjSnDv5rUA",
+    "details": {
+      "twitter": "kohigashihitona"
+    }
+  }
+]
