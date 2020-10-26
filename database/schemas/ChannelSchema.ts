@@ -20,12 +20,12 @@ export const ChannelSchema = new Schema({
   },
   'details': Schema.Types.Mixed,
   'channel_stats': new Schema({
-    'published_at': Date,
+    'published_at': Number,
     'views': Number,
     'subscribers': Number,
     'videos': Number
   }, { _id: false }),
   'description': String,
   'thumbnail': String,
-  'updated_at': Date
+  'updated_at': Number
 });

@@ -11,7 +11,7 @@ export const VideoSchema = new Schema({
     type: String,
     required: true
   },
-  'group': {
+  'organization': {
     type: String,
     required: true
   },
@@ -20,10 +20,10 @@ export const VideoSchema = new Schema({
     required: true
   },
   'time': new Schema({
-    'published': Date,
-    'scheduled': Date,
-    'start': Date,
-    'end': Date,
+    'published': Number,
+    'scheduled': Number,
+    'start': Number,
+    'end': Number,
     'duration': {
       type: Number,
       default: function() {
@@ -38,5 +38,5 @@ export const VideoSchema = new Schema({
     enum: ['live', 'upcoming', 'ended', 'uploaded', 'missing']
   },
   'viewers': Number,
-  'updated_at': Date
+  'updated_at': Number
 });

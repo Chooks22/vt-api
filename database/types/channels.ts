@@ -1,6 +1,7 @@
-type Document = import('mongoose').Document;
+import { Document } from 'mongoose';
+import { BilibiliChannelId, MemberNames, PlatformId, TwitterHandle, YoutubeChannelId } from './members';
 
-interface ChannelObject {
+export interface ChannelObject {
   _id: number;
   name: MemberNames;
   group: string;
@@ -11,7 +12,7 @@ interface ChannelObject {
     [key: string]: unknown;
   };
   channel_stats?: {
-    published_at?: Date;
+    published_at?: number;
     views?: number;
     subscribers?: number;
     videos?: number;
@@ -20,8 +21,8 @@ interface ChannelObject {
   thumbnail?: string;
 }
 
-interface ChannelProps extends ChannelObject, Document {
+export interface ChannelProps extends ChannelObject, Document {
   _id: number;
   id: number;
-  updated_at: Date;
+  updated_at: number;
 }

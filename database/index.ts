@@ -6,17 +6,14 @@ const URI = `mongodb://${process.env.MONGO_HOST ?? 'localhost'}:${process.env.MO
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: false
 };
 
 // establish connection and log on status change
 connect(URI, options);
-connection.on('connected', () =>
-  db('Established connection to MongoDB.')
-);
-connection.on('disconnected', () =>
-  db('Lost connection to MongoDB.')
-);
+connection.on('connected', () => db('Established connection to MongoDB.'));
+connection.on('disconnected', () => db('Lost connection to MongoDB.'));
 
 // load middlewares
 import './middlewares/MemberMiddleware';

@@ -3,10 +3,15 @@ import { NameSchema } from './subschemas/NameSubschema';
 
 export const MemberSchema = new Schema({
   '_id': Number,
-  'name': NameSchema,
+  'name': {
+    type: NameSchema,
+    required: true
+  },
+  'organization': String,
   'platform_id': {
     type: String,
-    enum: ['yt', 'bb', 'tt']
+    enum: ['yt', 'bb', 'tt'],
+    required: true
   },
   'channel_id': {
     type: String,
@@ -14,6 +19,6 @@ export const MemberSchema = new Schema({
     unique: true
   },
   'details': Schema.Types.Mixed,
-  'crawled_at': Date,
-  'updated_at': Date
+  'crawled_at': Number,
+  'updated_at': Number
 });
