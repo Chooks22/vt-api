@@ -1,6 +1,6 @@
 import memcached from 'memcached';
 
-const { MEMCACHED_HOST, MEMCACHED_PORT } = process.env;
+const { MEMCACHED_HOST = 'localhost', MEMCACHED_PORT = '11211' } = process.env;
 const URI = `${MEMCACHED_HOST}:${MEMCACHED_PORT}`;
 const OPTIONS = {
   timeout: 1000,
