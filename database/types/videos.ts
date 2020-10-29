@@ -6,10 +6,10 @@ export type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing'|'new';
 
 export interface VideoObject {
   _id: VideoId;
-  platform?: PlatformId;
-  channel?: string;
-  organization?: string;
-  title?: string;
+  platform_id: PlatformId;
+  channel_id: string;
+  organization: string;
+  title: string;
   time?: {
     published?: number;
     scheduled?: number;
@@ -19,7 +19,7 @@ export interface VideoObject {
   };
   status?: VideoStatus;
   viewers?: number;
-  updated_at: number;
+  updated_at?: number;
 }
 
 export interface VideoProps extends Document, VideoObject {

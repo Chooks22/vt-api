@@ -2,12 +2,12 @@ import { Schema } from 'mongoose';
 
 export const VideoSchema = new Schema({
   '_id': String,
-  'platform': {
+  'platform_id': {
     type: String,
     enum: ['yt', 'bb', 'tt'],
     required: true
   },
-  'channel': {
+  'channel_id': {
     type: String,
     required: true
   },
@@ -35,7 +35,8 @@ export const VideoSchema = new Schema({
   }, { _id: false }),
   'status': {
     type: String,
-    enum: ['live', 'upcoming', 'ended', 'uploaded', 'missing']
+    enum: ['live', 'upcoming', 'ended', 'uploaded', 'missing', 'new'],
+    required: true
   },
   'viewers': Number,
   'updated_at': Number

@@ -4,7 +4,7 @@ import { BilibiliChannelId, MemberNames, PlatformId, TwitterHandle, YoutubeChann
 export interface ChannelObject {
   _id: number;
   name: MemberNames;
-  group: string;
+  organization: string;
   platform_id: PlatformId;
   channel_id: YoutubeChannelId|BilibiliChannelId;
   details?: {
@@ -19,10 +19,9 @@ export interface ChannelObject {
   };
   description?: string;
   thumbnail?: string;
+  updated_at?: number;
 }
 
 export interface ChannelProps extends ChannelObject, Document {
   _id: number;
-  id: number;
-  updated_at: number;
 }

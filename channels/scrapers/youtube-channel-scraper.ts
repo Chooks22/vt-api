@@ -43,8 +43,8 @@ const parseVideos = (
   organization: string
 ): YoutubeVideoObject => ({
   _id: resourceId.videoId,
-  platform: 'yt',
-  channel: channelId,
+  platform_id: 'yt',
+  channel_id: channelId,
   organization,
   title,
   updated_at: Date.now()

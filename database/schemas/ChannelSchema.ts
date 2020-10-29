@@ -4,7 +4,7 @@ import { NameSchema } from './subschemas/NameSubschema';
 export const ChannelSchema = new Schema({
   '_id': Number,
   'name': NameSchema,
-  'group': {
+  'organization': {
     type: String,
     required: true
   },

@@ -1,15 +1,28 @@
+import { VideoObject } from '../../../database/types/videos';
+export { ChannelProps } from '../../../database/types/channels';
+
+export {
+  YoutubeVideoResponse,
+  VideoResource,
+  YoutubeChannelResponse,
+  ChannelResource,
+  YoutubePlaylistItemsResponse,
+  PlaylistItemsResource
+} from '../../../modules/types/youtube';
+
 export type VideoId = string;
 export type ChannelId = string;
 export type DateString = string;
 
-export interface VideoObject {
-  videoId: VideoId;
-  channel: ChannelId;
-  title: string;
-  timestamp: number;
+export type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing'|'new';
+export interface YoutubeVideoObject extends VideoObject {
+  _id: VideoId;
+  platform_id: 'yt';
+  channel_id: ChannelId;
+  organization: string;
 }
 
-export interface VideoXMLEntry {
+export interface YoutubeXmlResponse {
   feed: {
     $: {
       'xmlns:yt': string;
@@ -30,11 +43,11 @@ export interface VideoXMLEntry {
       uri: string;
     };
     published: DateString;
-    entry: VideoEntry[];
+    entry: VideoXmlEntry[];
   };
 }
 
-export interface VideoEntry {
+export interface VideoXmlEntry {
   id: string;
   'yt:videoId': VideoId;
   'yt:channelId': ChannelId;
