@@ -4,7 +4,7 @@ export type ChannelId = string;
 export type UnsignedLong = string;
 export type UnsignedInteger = string;
 
-export interface SearchParams {
+interface DefaultParams {
   /**
    * Available parts:
    * - contentDetails
@@ -23,11 +23,14 @@ export interface SearchParams {
    */
   part: string;
   fields?: string;
-  id?: string;
+}
+
+export interface SearchParams extends DefaultParams {
+  id: string;
   hl?: string;
 }
 
-export interface PlaylistParams extends SearchParams {
+export interface PlaylistParams extends DefaultParams {
   playlistId: string;
   pageToken?: string;
   maxResults?: number;
@@ -50,6 +53,15 @@ export interface YoutubeVideoResponse extends YoutubeDefaultResponse {
   items: VideoResource[];
 }
 
+export interface LiveStreamingDetails {
+  actualStartTime: DateString;
+  actualEndTime: DateString;
+  scheduledStartTime: DateString;
+  scheduledEndTime: DateString;
+  concurrentViewers: UnsignedLong;
+  activeLiveChatId: string;
+}
+
 export interface VideoResource {
   kind: 'youtube#video';
   etag: string;
@@ -59,7 +71,7 @@ export interface VideoResource {
     channelId: ChannelId;
     title: string;
     description: string;
-    thumbnails: Thumbnails;
+    thumbnails: VideoThumbnail;
     channelTitle: string;
     tags: string[];
     categoryId: string;
@@ -87,14 +99,7 @@ export interface VideoResource {
   fileDetails: Record<string, any>;
   processingDetails: Record<string, any>;
   suggestions: Record<string, any>;
-  liveStreamingDetails: {
-    actualStartTime: DateString;
-    actualEndTime: DateString;
-    scheduledStartTime: DateString;
-    scheduledEndTime: DateString;
-    concurrentViewers: UnsignedLong;
-    activeLiveChatId: string;
-  };
+  liveStreamingDetails: LiveStreamingDetails;
   localizations: {
     [key: string]: {
       title: string;
@@ -117,7 +122,7 @@ export interface ChannelResource {
     description: string;
     customUrl: string;
     publishedAt: DateString;
-    thumbnails: Thumbnails;
+    thumbnails: ChannelThumbnail;
     defaultLanguage: string;
     localized: {
       title: string;
@@ -171,7 +176,7 @@ export interface PlaylistItemsResource {
     channelId: ChannelId;
     title: string;
     description: string;
-    thumbnails: Thumbnails;
+    thumbnails: VideoThumbnail;
     channelTitle: string;
     playlistId: string;
     position: UnsignedInteger;
@@ -192,12 +197,12 @@ export interface PlaylistItemsResource {
   };
 }
 
-interface Thumbnails {
-  thumbnails: {
-    [key in 'default'|'medium'|'high'|'standard'|'maxres']: {
-      url: string;
-      width: UnsignedInteger;
-      height: UnsignedInteger;
-    };
-  };
+interface ThumbnailData {
+  url: string;
+  width: UnsignedInteger;
+  height: UnsignedInteger;
 }
+
+type ThumbnailResolution = 'default'|'medium'|'high';
+type VideoThumbnail = { [key in ThumbnailResolution|'standard'|'maxres']: ThumbnailData; }
+type ChannelThumbnail = { [key in ThumbnailResolution]: ThumbnailData; }

@@ -26,9 +26,9 @@ export const VideoSchema = new Schema({
     'end': Number,
     'duration': {
       type: Number,
-      default: function() {
+      default: function(this: {start: string; end: string;}) {
         if (this.start && this.end) {
-          return this.end - this.start;
+          return +this.end - +this.start;
         }
       }
     }

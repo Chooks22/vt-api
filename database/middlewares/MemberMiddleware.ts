@@ -6,18 +6,17 @@ async function getId(increment = true) {
   return Counter.findByIdAndUpdate('member_id',
     { $inc: { index: increment ? 1 : -1 } },
     { upsert: true }
-  ).then(counter => counter.index);
+  ).then(counter => counter?.index ?? 0);
 }
 
 MemberSchema.pre<MemberProps>('save', async function() {
+  this.updated_at = Date.now();
   if (this.isNew) this._id = await getId();
 });
 
 // On duplicate error, decrement id to prevent id jumping.
 MemberSchema.post('save', function(err, doc, next) {
   if (err.name === 'MongoError' && err.code === 11000) {
-    getId(false);
-  } else {
-    next();
-  }
+    return getId(false);
+  } else { return next(); }
 });

@@ -1,4 +1,4 @@
 export * from '../database';
-export * as logger from './loggers';
 export * as memcache from './cache';
+export { default as debug } from './logger';
 export * as youtube from './youtube';

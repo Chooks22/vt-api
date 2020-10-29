@@ -13,6 +13,7 @@ export const ChannelSchema = new Schema({
     enum: ['yt', 'bb', 'tt'],
     required: true
   },
+  'channel_name': String,
   'channel_id': {
     type: String,
     required: true,

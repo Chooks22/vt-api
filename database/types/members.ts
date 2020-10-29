@@ -13,10 +13,10 @@ export type BilibiliChannelId = string;
 export type TwitterHandle = string;
 
 export interface MemberObject {
-  name: MemberNames;
-  organization: string;
-  platform_id: PlatformId;
-  channel_id: YoutubeChannelId;
+  name?: MemberNames;
+  organization?: string;
+  platform_id?: PlatformId;
+  channel_id?: YoutubeChannelId;
   details?: {
     twitter?: TwitterHandle;
     [key: string]: unknown;

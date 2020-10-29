@@ -1,24 +1,91 @@
 import { config } from 'dotenv';
 config();
 
-if (!process.env.GOOGLE_API_KEY) throw new Error('GOOGLE_API_KEY is undefined!');
-
+process.env.DEBUG += ',-db:*';
 import { readdirSync, readFileSync } from 'fs';
-import { MemberObject, PlatformId } from '../database/types/members';
-import { Members } from '../modules';
+import { createInterface } from 'readline';
+import { MemberObject, MemberProps, PlatformId } from '../database/types/members';
+import { Counter, debug, Members } from '../modules';
 import { ChannelId } from '../modules/types/youtube';
-import scrapeChannel from './scrapers/youtube-channel-scraper';
+import updateYoutube from './apps/updaters/youtube-updater';
+import youtubeChannelScraper from './apps/scrapers/youtube-scraper';
 
+if (!process.env.GOOGLE_API_KEY) throw new Error('GOOGLE_API_KEY is undefined!');
+function main() {
+  console.clear();
+  console.log(
+    '----------------------------   Manage Channels   ----------------------------\n' +
+    ' Make sure you\'ve set up the .json files in channels/organizations directory.\n' +
+    ' Check templates.json to see how to make custom channels, or move the files\n' +
+    ' from the default directory to the organizations directory.\n' +
+    '-----------------------------------------------------------------------------\n' +
+    ' [1] Initialize (Run Everything)\n' +
+    ' [2] Validate JSON Files\n' +
+    ' [3] Save Channels\n' +
+    ' [4] Update Channels\n' +
+    ' [5] Scrape Channels\n' +
+    ' [6] Drop Members and Channels Collection\n' +
+    ' [7] Exit\n'
+  );
+  const rl = createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  rl.question('Selection: ', async input => {
+    process.env.DEBUG = process.env.DEBUG.slice(0, -6);
+    rl.close();
+    switch (input) {
+    default:
+      return main();
+    case '1':
+      await init();
+      break;
+    case '2':
+      validateChannels();
+      break;
+    case '3':
+      await Promise.all(saveChannels({}, true));
+      break;
+    case '4':
+      await updateChannels(true);
+      break;
+    case '5':
+      await scrapeChannels();
+      break;
+    case '6':
+      await dropCollections();
+      break;
+    case '7':
+    }
+    console.log('Press any key to continue: ');
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.on('data', process.exit.bind(process, 0));
+  });
+}
+
+main();
+
+const logger = debug('channels');
 const ROOT_DIR = 'channels/organizations';
 
-function saveChannel(filename: string, dry = false, save = true): [ChannelId, string, PlatformId][] {
+type ChannelPlatform<T> = {[key in PlatformId]: T[]};
+type BasicChannelData = [ChannelId, string, PlatformId];
+
+function saveChannel(filename: string, dry = false, save = true, async = false) {
   const groupName = filename.slice(0, -5);
   const channelList: MemberObject[] = JSON.parse(readFileSync(`${ROOT_DIR}/${filename}`, 'utf-8'));
   const parseChannel = (channel: MemberObject): any => { channel.organization = groupName; return channel; };
-  const parsedChannels = channelList.map(parseChannel);
+  const parsedChannels: MemberObject[] = channelList.map(parseChannel);
   if (dry) return parsedChannels;
-  if (save) Members.create(parsedChannels);
-  return channelList.map(channel => [channel.channel_id, groupName, channel.platform_id]);
+  if (save) {
+    const writeOp = Members
+      .create(<any[]>parsedChannels)
+      .then(() => logger.info(`${filename} OK`))
+      .catch(() => logger.error(`${filename} EXISTS`));
+    if (async) return writeOp;
+  }
+  return channelList.map((channel): BasicChannelData => [channel.channel_id, groupName, channel.platform_id]);
 }
 
 function checkChannels<T>(channelList: T[]): T[]|never {
@@ -27,49 +94,100 @@ function checkChannels<T>(channelList: T[]): T[]|never {
   } else { return channelList; }
 }
 
-interface saveOptions { dry?: boolean; save?: boolean; }
-export const saveChannels = (options: saveOptions = { dry: false, save: true }) => checkChannels(
-  readdirSync(`${ROOT_DIR}`)
+function saveChannels<T1 extends boolean, T2 extends boolean = false>(
+  options: { dry?: T1; save?: boolean; } = { dry: <T1>false, save: true },
+  async: T2 = <T2>false
+): T2 extends true ? Promise<MemberProps[]>[] : T1 extends true ? MemberObject[] : BasicChannelData[] {
+  return checkChannels(readdirSync(ROOT_DIR)
     .filter(file => file.endsWith('.json'))
-    .flatMap(groups => saveChannel(groups, options.dry, options.save))
-);
+    .flatMap((group): any => saveChannel(group, options.dry, options.save, async))
+  ) as T2 extends true ? Promise<MemberProps[]>[] : T1 extends true ? MemberObject[] : BasicChannelData[];
+}
 
-export const validateChannels = () => {
+function validateChannels() {
   const channels = saveChannels({ dry: true });
-  let errors = 0;
+  if (!channels.length) {
+    logger.error(new Error('No channel jsons found.'));
+    return;
+  }
+  logger.info(`Found ${channels.length} channels.`);
+  let errorCount = 0;
   for (let i = channels.length; i--;) {
     const err = new Members(channels[i]).validateSync();
     if (!err) continue;
-    console.log({ error: err.message, channel: channels[i] });
-    errors++;
+    logger.error({ error: err.message, channel: channels[i] });
+    errorCount++;
   }
-  if (errors) {
-    console.info(`Failed to validate ${errors} channels.`);
-  } else { console.info('All channels validated successfully.'); }
-};
-
-export async function scrapeChannels(channelList?: [ChannelId, string, PlatformId][]) {
-  const channelIds = channelList ?? await Members.find({ crawled_at: { $exists: false } })
-    .then(channels => channels.map(channel => [channel.channel_id, channel.organization, channel.platform_id]));
-  const RESULTS = { OK: <ChannelId[]>[], FAIL: <ChannelId[]>[], videoCount: 0 };
-  for (let i = channelIds.length; i--;) {
-    const [currentChannel, organization, platform] = channelIds[i];
-    switch (platform) {
-    case 'yt': {
-      const [status, videoCount] = await scrapeChannel(currentChannel, organization);
-      RESULTS[status].push(currentChannel);
-      RESULTS.videoCount += videoCount;
-    } break;
-    case 'bb': {
-    } break;
-    case 'tt':
-    }
-  }
-  console.log(`Finished scraping ${channelIds.length}.`);
-  console.log(`Failed to scrape ${RESULTS.FAIL.length} channels, and got a total of ${RESULTS.videoCount.toLocaleString()} new videos.`);
+  if (errorCount) {
+    logger.info(`Failed to validate ${errorCount} channels.`);
+  } else { logger.info('All channels validated successfully.'); }
 }
 
-export default async function init() {
-  const channelIds = saveChannels({ save: false });
-  scrapeChannels(channelIds);
+async function scrapeChannels() {
+  const channelList = await Members
+    .find({ crawled_at: { $exists: false } })
+    .then(groupMemberObject);
+  if (!Object.values(channelList).flat().length) {
+    logger.error(new Error('No saved members found.'));
+    return;
+  }
+  const scraper = {
+    RESULTS: { OK: [], FAIL: [], videoCount: 0 },
+    async youtube(channels: MemberObject[]) {
+      for (let i = channels.length; i--;) {
+        const currentChannel = channels[i];
+        const [STATUS, VIDEO_COUNT] = await youtubeChannelScraper(currentChannel);
+        this.RESULTS[STATUS].push(currentChannel.channel_id);
+        this.RESULTS.videoCount += VIDEO_COUNT;
+      }
+    },
+    // async bilibili(channels: MemberObject[]) {
+    // },
+    // async twitchtv(channels: MemberObject[]) {
+    // }
+  };
+  await Promise.all([
+    scraper.youtube(channelList.yt),
+    // scraper.bilibili(channelList.bb),
+    // scraper.twitchtv(channelList.tt)
+  ]);
+  logger.info(scraper.RESULTS);
+}
+
+async function updateChannels(async = false) {
+  const CHANNEL_PLATFORMS = await Members.find()
+    .then(groupMemberObject) as ChannelPlatform<MemberProps>;
+  await Promise.all([
+    updateYoutube(CHANNEL_PLATFORMS.yt, async),
+    // @TODO: Implement bb and ttv apis
+    // updateBilibili(CHANNEL_PLATFORMS.bb),
+    // updateTwitch(CHANNEL_PLATFORMS.tt)
+  ]);
+}
+
+async function dropCollections() {
+  const { connection } = await require('mongoose');
+  logger.info('Dropping channel related collections...');
+  await Promise.all([
+    connection.dropCollection('members'),
+    connection.dropCollection('channels'),
+    Counter.deleteOne({ _id: 'member_id' })
+  ]);
+  logger.info('Dropped members and channels collection.');
+}
+
+function groupMemberObject(memberList: MemberObject[]): ChannelPlatform<MemberObject> {
+  return memberList.reduce(
+    (platforms, channel) => {
+      platforms[channel.platform_id].push(channel);
+      return platforms;
+    }, { yt: [], bb: [], tt: [] }
+  );
+}
+
+async function init() {
+  validateChannels();
+  await Promise.all(saveChannels({}, true));
+  await updateChannels();
+  await scrapeChannels();
 }
