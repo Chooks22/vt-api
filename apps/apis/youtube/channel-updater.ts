@@ -9,9 +9,7 @@ export default async function() {
     .find({ platform_id: 'yt' })
     .then(channelList => channelList.map(channel => channel.channel_id));
   const youtubeRequests: Promise<YoutubeChannelData[]>[] = [];
-  while (memberList.length) {
-    youtubeRequests.push(fetchYoutubeChannel(memberList.splice(0, 50)));
-  }
+  while (memberList.length) youtubeRequests.push(fetchYoutubeChannel(memberList.splice(0, 50)));
   const updatedChannelData = await Promise.all(youtubeRequests);
   database.emit('update-channels', updatedChannelData.flat());
 }
@@ -45,7 +43,7 @@ const parseYoutubeChannelData = (
       videos: +videoCount,
       views: +viewCount
     },
-    description: description,
+    description,
     thumbnail: thumbnails.high.url
   };
 };
