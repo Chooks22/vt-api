@@ -57,10 +57,12 @@ function main() {
       break;
     case '7':
     }
-    console.log('Press any key to continue: ');
-    process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('data', process.exit.bind(process, 0));
+    setTimeout(() => {
+      console.log('Press any key to continue: ');
+      process.stdin.setRawMode(true);
+      process.stdin.resume();
+      process.stdin.on('data', process.exit.bind(process, 0));
+    }, 600);
   });
 }
 
