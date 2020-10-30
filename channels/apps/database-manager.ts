@@ -28,10 +28,8 @@ export default database;
 
 database.on('save-videos', async newVideos => {
   logger.info(`Saving ${newVideos.length} videos...`);
-  const result = await db.Videos.create(newVideos)
-    .catch(err => logger.error(err));
-  if (!result) return;
-  logger.info(`Finished saving ${result.length} videos.`);
+  const result = await db.Videos.create(newVideos).catch(logger.error);
+  if (result) logger.info(`Finished saving ${result.length} videos.`);
 });
 
 database.on('update-channels', async channelData => {
