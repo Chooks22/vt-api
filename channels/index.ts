@@ -107,22 +107,31 @@ function saveChannels<T1 extends boolean, T2 extends boolean = false>(
 }
 
 function validateChannels() {
-  const channels = saveChannels({ dry: true });
-  if (!channels.length) {
-    logger.error(new Error('No channel jsons found.'));
-    return;
+  try {
+    const channels = saveChannels({ dry: true });
+    if (!channels.length) {
+      logger.error(new Error('No channel jsons found.'));
+      return;
+    }
+    logger.info(`Found ${channels.length} channels.`);
+    let errorCount = 0;
+    for (let i = channels.length; i--;) {
+      const err = new Members(channels[i]).validateSync();
+      if (!err) continue;
+      logger.error({ error: err.message, channel: channels[i] });
+      errorCount++;
+    }
+    if (errorCount) {
+      logger.info(`Failed to validate ${errorCount} channels.`);
+      return false;
+    } else {
+      logger.info('All channels validated successfully.');
+      return true;
+    }
+  } catch(err) {
+    logger.error(err);
+    return false;
   }
-  logger.info(`Found ${channels.length} channels.`);
-  let errorCount = 0;
-  for (let i = channels.length; i--;) {
-    const err = new Members(channels[i]).validateSync();
-    if (!err) continue;
-    logger.error({ error: err.message, channel: channels[i] });
-    errorCount++;
-  }
-  if (errorCount) {
-    logger.info(`Failed to validate ${errorCount} channels.`);
-  } else { logger.info('All channels validated successfully.'); }
 }
 
 async function scrapeChannels() {
