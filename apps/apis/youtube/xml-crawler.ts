@@ -2,9 +2,12 @@ import { config } from 'dotenv';
 config();
 
 import fetch from 'node-fetch';
-import { memcache } from '../../../modules';
+import schedule from 'node-schedule';
 import { parseString } from 'xml2js';
-import { ChannelId, VideoEntry, VideoObject } from './types';
+import { Channels, debug, memcache } from '../../../modules';
+import { ChannelId } from '../../../modules/types/youtube';
+import database from '../../database-managers/youtube';
+import { VideoXmlEntry, YoutubeVideoObject } from './types';
 
 const channel = 'UC5CwaMl1eIgY8h02uZw7u8A';
 const getXmlLink = (channelId: ChannelId) => `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&t=${Date.now()}`;

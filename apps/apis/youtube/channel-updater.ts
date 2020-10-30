@@ -1,5 +1,5 @@
 import { debug, Members, youtube } from '../../../modules';
-import database from './database-manager';
+import database from '../../database-managers/youtube';
 import { ChannelResource, YoutubeChannelData, YoutubeChannelId } from './types';
 
 const logger = debug('api:youtube:channel-updater');
