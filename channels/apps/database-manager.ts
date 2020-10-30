@@ -27,13 +27,13 @@ const database = new DatabaseManager();
 export default database;
 
 database.on('save-videos', async newVideos => {
-  logger.info(`Saving ${newVideos.length} videos...`);
+  logger.log(`Saving ${newVideos.length} videos...`);
   const result = await db.Videos.create(newVideos).catch(logger.error);
-  if (result) logger.info(`Finished saving ${result.length} videos.`);
+  if (result) logger.log(`Finished saving ${result.length} videos.`);
 });
 
 database.on('update-channels', async channelData => {
-  logger.info(`Updating ${channelData.length} channels...`);
+  logger.log(`Updating ${channelData.length} channels...`);
   const results = await Promise.all(channelData
     .map(channel => db.Channels.updateOne(
       { _id: channel._id },
@@ -42,16 +42,16 @@ database.on('update-channels', async channelData => {
     ))).then(writeResults => writeResults.reduce(
     (total, result) => total + (result.upserted?.length ?? result.nModified), 0)
   ).catch(logger.error);
-  if (!isNaN(results)) logger.info(`Updated ${results} channels.`);
+  if (!isNaN(results)) logger.log(`Updated ${results} channels.`);
 });
 
 database.on('update-member', channelData => {
   const { channel_id } = channelData;
-  logger.info(`Updating member data for ${channel_id}...`);
+  logger.log(`Updating member data for ${channel_id}...`);
   db.Members.updateOne(
     { channel_id },
     { $set: channelData }
-  ).then(result => logger.info(result.nModified
+  ).then(result => logger.log(result.nModified
     ? `Updated member: ${channel_id}.`
     : `No new data for ${channel_id}.`
   )).catch(err => logger.error(err, `channel_id: ${channel_id}`));
