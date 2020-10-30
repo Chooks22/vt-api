@@ -9,11 +9,7 @@ const logger = debug('channels:database-manager');
 
 interface DatabaseEvents {
   'save-videos': (newVideos: VideoObject[]) => void;
-  'update-channels': (
-    channels: ChannelObject[],
-    res: (value: unknown) => any,
-    rej: (reason?: any) => any
-  ) => void;
+  'update-channels': (channels: ChannelObject[]) => void;
   'update-member': (channels: MemberObject) => void;
 }
 
@@ -38,7 +34,7 @@ database.on('save-videos', async newVideos => {
   logger.info(`Finished saving ${result.length} videos.`);
 });
 
-database.on('update-channels', async (channelData, res, rej) => {
+database.on('update-channels', async channelData => {
   logger.info(`Updating ${channelData.length} channels...`);
   const results = await Promise.all(channelData
     .map(channel => db.Channels.updateOne(
@@ -46,11 +42,9 @@ database.on('update-channels', async (channelData, res, rej) => {
       { $set: channel },
       { upsert: true }
     ))).then(writeResults => writeResults.reduce(
-    (total, result) => total + result.nModified, 0)
-  ).catch(err => logger.error(err));
-  if (isNaN(results)) return rej();
-  logger.info(`Updated ${results} channels.`);
-  res(results);
+    (total, result) => total + (result.upserted?.length ?? result.nModified), 0)
+  ).catch(logger.error);
+  if (!isNaN(results)) logger.info(`Updated ${results} channels.`);
 });
 
 database.on('update-member', channelData => {
