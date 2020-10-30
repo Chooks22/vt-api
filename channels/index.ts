@@ -21,11 +21,13 @@ function main() {
     '-----------------------------------------------------------------------------\n' +
     ' [1] Initialize (Run Everything)\n' +
     ' [2] Validate JSON Files\n' +
-    ' [3] Save Channels\n' +
-    ' [4] Update Channels\n' +
-    ' [5] Scrape Channels\n' +
-    ' [6] Drop Members and Channels Collection\n' +
-    ' [7] Exit\n'
+    ' [3] Save + Update\n' +
+    ' [4] Save Channels\n' +
+    ' [5] Update Channels\n' +
+    ' [6] Scrape Channels\n' +
+    ' [7] Drop Members and Channels Collection\n' +
+    ' [8] Drop vt-api Database\n' +
+    ' [9] Exit\n'
   );
   const rl = createInterface({
     input: process.stdin,
@@ -44,18 +46,22 @@ function main() {
       validateChannels();
       break;
     case '3':
-      await Promise.all(saveChannels({}, true));
-      break;
     case '4':
-      await updateChannels(true);
-      break;
+      await Promise.all(saveChannels({}, true));
+      if (input === '4') break;
     case '5':
-      await scrapeChannels();
+      await updateChannels();
       break;
     case '6':
-      await dropCollections();
+      await scrapeChannels();
       break;
     case '7':
+      await dropCollections();
+      break;
+    case '8':
+      await dropDatabase();
+      break;
+    case '9': process.exit();
     }
     setTimeout(() => {
       console.log('Press any key to continue: ');
@@ -84,7 +90,7 @@ function saveChannel(filename: string, dry = false, save = true, async = false) 
     const writeOp = Members
       .create(<any[]>parsedChannels)
       .then(() => logger.info(`${filename} OK`))
-      .catch(() => logger.error(`${filename} EXISTS`));
+      .catch(err => logger.error(`${filename} CODE: ${err.code}`, err?.keyValue ?? ''));
     if (async) return writeOp;
   }
   return channelList.map((channel): BasicChannelData => [channel.channel_id, groupName, channel.platform_id]);
@@ -187,6 +193,13 @@ async function dropCollections() {
   logger.info('Dropped members and channels collection.');
 }
 
+async function dropDatabase() {
+  const { connection } = await require('mongoose');
+  logger.info('Dropping vt-api database...');
+  await connection.dropDatabase();
+  logger.info('Dropped vt-api database.');
+}
+
 function groupMemberObject(memberList: MemberObject[]): ChannelPlatform<MemberObject> {
   return memberList.reduce(
     (platforms, channel) => {
@@ -197,7 +210,7 @@ function groupMemberObject(memberList: MemberObject[]): ChannelPlatform<MemberOb
 }
 
 async function init() {
-  validateChannels();
+  if(!validateChannels()) return;
   await Promise.all(saveChannels({}, true));
   await updateChannels();
   await scrapeChannels();
