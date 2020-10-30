@@ -12,6 +12,17 @@
   },
   {
     "name": {
+      "en": "Dennou Shojo Shiro",
+      "jp": "電脳少女シロ"
+    },
+    "platform_id": "bb",
+    "channel_id": "391876799",
+    "details": {
+      "twitter": "SIROyoutuber"
+    }
+  },
+  {
+    "name": {
       "en": "Merry Milk",
       "jp": "メリーミルク"
     },

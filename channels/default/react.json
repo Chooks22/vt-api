@@ -145,13 +145,13 @@
   },
   {
     "name": {
-      "en": "Inumoti Tirol",
+      "en": "Inumochi Chiroru",
       "jp": "犬望チロル"
     },
     "platform_id": "yt",
     "channel_id": "UC46Wizhr_xgL9Rm9onVkPQQ",
     "details": {
-      "twitter": "tirol_inunmoti",
+      "twitter": "tirol_inumoti",
       "group": "Maruchiizu"
     }
   },
@@ -188,7 +188,31 @@
     "channel_id": "UCXtQTtPJedfjqEPysorbsMg",
     "details": {
       "twitter": "Qu_Qualia",
-      "group": "Maruchiizu"
+      "group": "Solo 2020 Debuts"
+    }
+  },
+  {
+    "name": {
+      "en": "Kazami Mikan",
+      "jp": "風海みかん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCa5g-Q_NT2COXiSS55bwXVQ",
+    "details": {
+      "twitter": "Kazami_Mikan83",
+      "group": "Solo 2020 Debuts"
+    }
+  },
+  {
+    "name": {
+      "en": "Hekina Airu",
+      "jp": "碧那アイル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCpBCiBjOoZanFhj-49LgcDg",
+    "details": {
+      "twitter": "Ail_Hekina",
+      "group": "Solo 2020 Debuts"
     }
   },
   {

@@ -7,16 +7,30 @@
     "platform_id": "yt",
     "channel_id": "UCt30jJgChL8qeT9VPadidSw",
     "details": {
-      "twitter": "ui_shig"
+      "twitter": "ui_shig",
+      "pixiv": "ui_shig"
     }
   },
   {
     "name": {
       "en": "Kagura Nana",
-      "jp": "カグラナナ"
+      "jp": "カグラナナ",
+      "cn": "神楽七奈"
     },
     "platform_id": "yt",
     "channel_id": "UCbfv8uuUXt3RSJGEwxny5Rw",
+    "details": {
+      "twitter": "nana_kaguraaa"
+    }
+  },
+  {
+    "name": {
+      "en": "Kagura Nana",
+      "jp": "カグラナナ",
+      "cn": "神楽七奈"
+    },
+    "platform_id": "bb",
+    "channel_id": "386900246",
     "details": {
       "twitter": "nana_kaguraaa"
     }
@@ -34,13 +48,13 @@
   },
   {
     "name": {
-      "en": "Takamine Iori",
-      "jp": "高峰伊織"
+      "en": "Chimugi",
+      "jp": "ちむぎ"
     },
-    "platform_id": "yt",
-    "channel_id": "UCksCLL04bRIe61wnzZ7vXRg",
+    "platform_id": "tt",
+    "channel_id": "chimugi",
     "details": {
-      "twitter": "takamineiori"
+      "twitter": "chimugixxx"
     }
   },
   {
@@ -78,22 +92,35 @@
   },
   {
     "name": {
-      "en": "Hatoba Tsugu",
-      "jp": "鳩羽つぐ"
+      "en": "Kagura Mea",
+      "jp": "神楽めあ"
     },
-    "platform_id": "yt",
-    "channel_id": "UCGaUWM5OQ7hU1JwbqvNBR4w",
+    "platform_id": "bb",
+    "channel_id": "349991143",
     "details": {
-      "twitter": "HatobaTsugu"
+      "twitter": "KaguraMea_VoV"
     }
   },
   {
     "name": {
       "en": "Hanazono Serena",
-      "jp": "花園セレナ"
+      "jp": "花園セレナ",
+      "cn": "花园Serena"
     },
     "platform_id": "yt",
     "channel_id": "UCRXBTd80F5IIWWY4HatJ5Ug",
+    "details": {
+      "twitter": "hanazono_serena"
+    }
+  },
+  {
+    "name": {
+      "en": "Hanazono Serena",
+      "jp": "花園セレナ",
+      "cn": "花园Serena"
+    },
+    "platform_id": "bb",
+    "channel_id": "380829248",
     "details": {
       "twitter": "hanazono_serena"
     }
@@ -112,10 +139,23 @@
   {
     "name": {
       "en": "Hourei Tenten",
-      "jp": "鳳玲天々"
+      "jp": "鳳玲天々",
+      "cn": "凤玲天天"
     },
     "platform_id": "yt",
     "channel_id": "UCw-jEa3_788VkvM2zHzrDnw",
+    "details": {
+      "twitter": "hourei_1010"
+    }
+  },
+  {
+    "name": {
+      "en": "Hourei Tenten",
+      "jp": "鳳玲天々",
+      "cn": "凤玲天天"
+    },
+    "platform_id": "bb",
+    "channel_id": "623441609",
     "details": {
       "twitter": "hourei_1010"
     }
@@ -129,17 +169,6 @@
     "channel_id": "UCSH4t_nhsNIoxPza4ooYqaA",
     "details": {
       "twitter": "hana_healthy"
-    }
-  },
-  {
-    "name": {
-      "en": "Otomata Ruka",
-      "jp": "音俣るか"
-    },
-    "platform_id": "yt",
-    "channel_id": "UCNSr_pgMH3in2d0RGtcdEEg",
-    "details": {
-      "twitter": "oto_ruka"
     }
   },
   {
@@ -173,17 +202,6 @@
     "channel_id": "UCMAc88lqzqGV0uxgw9JDj0w",
     "details": {
       "twitter": "kotonoha_yukino"
-    }
-  },
-  {
-    "name": {
-      "en": "Minase Rui",
-      "jp": "水無瀬るい"
-    },
-    "platform_id": "yt",
-    "channel_id": "UCxavYpm91UOgngdMCGQt0Xg",
-    "details": {
-      "twitter": "v_minaserui"
     }
   },
   {
@@ -237,6 +255,17 @@
     },
     "platform_id": "yt",
     "channel_id": "UCc5H1WmEARIj2R16mvut0ZA",
+    "details": {
+      "twitter": "lyrica_ch"
+    }
+  },
+  {
+    "name": {
+      "en": "Lyrica",
+      "jp": "リリカ"
+    },
+    "platform_id": "tt",
+    "channel_id": "lyrica_ch",
     "details": {
       "twitter": "lyrica_ch"
     }
