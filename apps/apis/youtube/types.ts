@@ -13,17 +13,42 @@ export {
 } from '../../../modules/types/youtube';
 
 export type VideoId = string;
-export type ChannelId = string;
 export type DateString = string;
 
+// #region Youtube Video
 export type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing'|'new';
 export interface YoutubeVideoObject extends VideoObject {
   _id: VideoId;
   platform_id: 'yt';
-  channel_id: ChannelId;
+  channel_id: YoutubeChannelId;
   organization: string;
 }
-
+// #endregion Youtube Video
+// #region Youtube Channel
+export interface YoutubeChannelData {
+  channel_name: string;
+  channel_id: YoutubeChannelId;
+  channel_stats: {
+    published_at: number;
+    views: number;
+    subscribers: number;
+    videos: number;
+  };
+  description: string;
+  thumbnail: string;
+}
+export interface BlankYoutubeChannel {
+  name: MemberNames;
+  organization: string;
+  platform_id: 'yt';
+  channel_id: YoutubeChannelId;
+  details: {
+    twitter: TwitterHandle;
+    [key: string]: unknown;
+  };
+}
+// #endregion Youtube Channel
+// #region Youtube Xml
 export interface YoutubeXmlResponse {
   feed: {
     $: {
@@ -38,7 +63,7 @@ export interface YoutubeXmlResponse {
        };
     }[];
     id: string;
-    'yt:channelId': ChannelId;
+    'yt:channelId': YoutubeChannelId;
     title: string;
     author: {
       name: string;
@@ -52,7 +77,7 @@ export interface YoutubeXmlResponse {
 export interface VideoXmlEntry {
   id: string;
   'yt:videoId': VideoId;
-  'yt:channelId': ChannelId;
+  'yt:channelId': YoutubeChannelId;
   title: string;
   link: { $: Record<string, unknown>; };
   author: {
@@ -69,3 +94,4 @@ export interface VideoXmlEntry {
     'media:community': Record<string, unknown>;
   };
 }
+// #endregion Youtube Xml
