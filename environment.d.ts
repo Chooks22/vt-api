@@ -4,6 +4,7 @@ declare global {
     interface ProcessEnv {
       GOOGLE_API_KEY: string;
       PORT: string;
+      LOG_LEVEL: string;
       MONGO_HOST: string;
       MONGO_PORT: string;
       MEMCACHED_HOST: string;
