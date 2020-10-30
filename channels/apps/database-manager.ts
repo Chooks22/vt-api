@@ -4,6 +4,7 @@ import { ChannelObject } from '../../database/types/channels';
 import { MemberObject } from '../../database/types/members';
 import { VideoObject } from '../../database/types/videos';
 import debug from '../../modules/logger';
+
 const logger = debug('channels:database-manager');
 
 interface DatabaseEvents {

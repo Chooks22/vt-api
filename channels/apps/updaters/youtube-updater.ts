@@ -1,9 +1,10 @@
 import { ChannelObject } from '../../../database/types/channels';
 import { MemberProps } from '../../../database/types/members';
 import { youtube } from '../../../modules';
+import debug from '../../../modules/logger';
 import { ChannelResource } from '../../../modules/types/youtube';
 import database from '../database-manager';
-import debug from '../../../modules/logger';
+
 const logger = debug('api:youtube');
 
 export default async function(channelData: MemberProps[], async = false) {

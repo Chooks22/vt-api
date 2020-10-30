@@ -7,8 +7,8 @@ import { createInterface } from 'readline';
 import { MemberObject, MemberProps, PlatformId } from '../database/types/members';
 import { Counter, debug, Members } from '../modules';
 import { ChannelId } from '../modules/types/youtube';
-import updateYoutube from './apps/updaters/youtube-updater';
 import youtubeChannelScraper from './apps/scrapers/youtube-scraper';
+import updateYoutube from './apps/updaters/youtube-updater';
 
 if (!process.env.GOOGLE_API_KEY) throw new Error('GOOGLE_API_KEY is undefined!');
 function main() {

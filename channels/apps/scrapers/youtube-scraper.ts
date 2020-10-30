@@ -1,8 +1,8 @@
-import database from '../database-manager';
 import { PlaylistItemsResource, VideoResource, YoutubeVideoObject } from '../../../apps/apis/youtube/types';
-import { youtube, debug } from '../../../modules';
 import { getVideoStatus } from '../../../apps/apis/youtube/video-updater';
 import { MemberObject } from '../../../database/types/members';
+import { debug, youtube } from '../../../modules';
+import database from '../database-manager';
 
 const logger = debug('api:youtube');
 const playlistList = logger.extend('playlistList');

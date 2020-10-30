@@ -1,13 +1,15 @@
+import { MemberNames, TwitterHandle, YoutubeChannelId } from '../../../database/types/members';
 import { VideoObject } from '../../../database/types/videos';
-export { ChannelProps } from '../../../database/types/channels';
 
+export { ChannelProps } from '../../../database/types/channels';
+export { YoutubeChannelId } from '../../../database/types/members';
 export {
-  YoutubeVideoResponse,
+  ChannelResource,
+  PlaylistItemsResource,
   VideoResource,
   YoutubeChannelResponse,
-  ChannelResource,
   YoutubePlaylistItemsResponse,
-  PlaylistItemsResource
+  YoutubeVideoResponse
 } from '../../../modules/types/youtube';
 
 export type VideoId = string;
