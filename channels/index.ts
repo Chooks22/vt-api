@@ -165,11 +165,11 @@ async function scrapeChannels() {
   logger.info(scraper.RESULTS);
 }
 
-async function updateChannels(async = false) {
+async function updateChannels() {
   const CHANNEL_PLATFORMS = await Members.find()
     .then(groupMemberObject) as ChannelPlatform<MemberProps>;
   await Promise.all([
-    updateYoutube(CHANNEL_PLATFORMS.yt, async),
+    updateYoutube(CHANNEL_PLATFORMS.yt),
     // @TODO: Implement bb and ttv apis
     // updateBilibili(CHANNEL_PLATFORMS.bb),
     // updateTwitch(CHANNEL_PLATFORMS.tt)

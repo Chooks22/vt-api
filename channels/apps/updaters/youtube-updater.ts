@@ -7,17 +7,13 @@ import database from '../database-manager';
 
 const logger = debug('api:youtube');
 
-export default async function(channelData: MemberProps[], async = false) {
+export default async function(channelData: MemberProps[]) {
   const youtubeRequests: Promise<ChannelObject[]>[] = [];
   while (channelData.length) {
     youtubeRequests.push(fetchChannelData(channelData.splice(0, 50)));
   }
   const newVideos = (await Promise.all(youtubeRequests)).flat();
-  // Hacky way to stop pre-maturely killing process before saving finishes.
-  const results = new Promise((res, rej) =>
-    database.emit('update-channels', newVideos, res, rej)
-  );
-  if (async) await results;
+  database.emit('update-channels', newVideos);
 }
 
 async function fetchChannelData(channels: MemberProps[]) {
