@@ -269,5 +269,31 @@
     "details": {
       "twitter": "lyrica_ch"
     }
+  },
+  {
+    "name": {
+      "en": "Artemis of the Blue",
+      "jp": "",
+      "kr": "",
+      "cn": ""
+    },
+    "platform_id": "yt",
+    "channel_id": "UCWImOidHDmm0KK20bkF-rSQ",
+    "details": {
+      "twitter": "artemisvtuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Artemis of the Blue",
+      "jp": "",
+      "kr": "",
+      "cn": ""
+    },
+    "platform_id": "tt",
+    "channel_id": "artemisoftheblue",
+    "details": {
+      "twitter": "artemisvtuber"
+    }
   }
 ]
