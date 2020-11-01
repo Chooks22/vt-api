@@ -272,28 +272,44 @@
   },
   {
     "name": {
-      "en": "Artemis of the Blue",
-      "jp": "",
-      "kr": "",
-      "cn": ""
+      "en": "Nyatasha Nyanners"
     },
     "platform_id": "yt",
-    "channel_id": "UCWImOidHDmm0KK20bkF-rSQ",
+    "channel_id": "UCO5Jvsc_sKuZi3MhnJxrlzQ",
     "details": {
-      "twitter": "artemisvtuber"
+      "twitter": "NyanNyanners"
     }
   },
   {
     "name": {
-      "en": "Artemis of the Blue",
-      "jp": "",
-      "kr": "",
-      "cn": ""
+      "en": "Nyatasha Nyanners"
     },
     "platform_id": "tt",
-    "channel_id": "artemisoftheblue",
+    "channel_id": "nyanners",
     "details": {
-      "twitter": "artemisvtuber"
+      "twitter": "NyanNyanners"
+    }
+  },
+  {
+    "name": {
+      "en": "Projekt Melody",
+      "jp": "メロディー"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1yoRdFoFJaCY-AGfD9W0wQ",
+    "details": {
+      "twitter": "ProjektMelody"
+    }
+  },
+  {
+    "name": {
+      "en": "Projekt Melody",
+      "jp": "メロディー"
+    },
+    "platform_id": "tt",
+    "channel_id": "projektmelody",
+    "details": {
+      "twitter": "ProjektMelody"
     }
   }
 ]
