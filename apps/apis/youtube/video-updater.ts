@@ -8,11 +8,11 @@ const logger = debug('api:youtube:video-updater');
 const db = debug('api:youtube:mongoose');
 
 export default async function() {
-  db.info('Looking for videos to update...');
+  db.log('Looking for videos to update...');
   const videosToUpdate = await fetchVideosToUpdate();
-  if (!videosToUpdate.length) return db.info('No videos to update.');
+  if (!videosToUpdate.length) return db.log('No videos to update.');
   db.info(`Found ${videosToUpdate.length} videos to update.`);
-  logger.info(`Updating ${videosToUpdate.length} videos...`);
+  logger.log(`Updating ${videosToUpdate.length} videos...`);
   const updatedVideos = await fetchYoutubeVideoData(videosToUpdate);
   logger.info(`Updated ${updatedVideos.length} videos.`);
   database.emit('update-videos', updatedVideos);
@@ -27,14 +27,14 @@ const fetchVideosToUpdate = () => Videos
   .limit(50)
   .then(res => res.map(doc => doc._id));
 
-async function fetchYoutubeVideoData(ids: string[]) {
-  logger.info(`Fetching ${ids.length} videos from Youtube...`);
+  logger.log(`Fetching ${ids.length} videos from Youtube...`);
   const result = await youtube.videos({
     part: 'snippet,liveStreamingDetails',
     fields: 'items(id,snippet,liveStreamingDetails)',
     id: ids.join(','),
     hl: 'ja'
   }).then(res => res.items.map(parseVideo));
+  logger.log(`Fetched ${result?.length ?? 0} videos. Status: ${result ? 'OK' : 'ERROR'}`);
   logger.info(`Fetched ${result?.length ?? 0} videos. Status: ${result ? 'OK' : 'ERROR'}`);
   return result;
 }

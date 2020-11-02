@@ -15,7 +15,7 @@ export default async function() {
 }
 
 async function fetchYoutubeChannel(channelIds: YoutubeChannelId[]): Promise<YoutubeChannelData[]> {
-  logger.info(`Requesting channel data from ${channelIds.length} channels from youtube...`);
+  logger.log(`Requesting channel data from ${channelIds.length} channels from youtube...`);
   const results = await youtube.channels({
     part: 'snippet,statistics',
     fields: 'items(id,snippet(title,description,thumbnails/high/url,publishedAt),statistics(subscriberCount,videoCount,viewCount))',
@@ -25,7 +25,7 @@ async function fetchYoutubeChannel(channelIds: YoutubeChannelId[]): Promise<Yout
       logger.error(err);
       return [];
     });
-  logger.info(`Got ${results.length} channels back from youtube.`);
+  logger.log(`Got ${results.length} channels back from youtube.`);
   return results;
 }
 

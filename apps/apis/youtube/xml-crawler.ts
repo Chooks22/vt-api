@@ -58,7 +58,7 @@ async function crawler(this: XmlScraper) {
   logger.log(`Crawling ${this.channelId}...`);
   const latestTimestamp = (await memcache.get(this.cacheId)) ?? 0;
   const videoList = await this.fetchXml();
-  if (!videoList.length) return logger.warn(`${this.channelId} didn\'t return anything?`);
+  if (!videoList) return logger.warn(`${this.channelId} didn\'t return anything?`);
   const newVideos = videoList.filter(video => video.crawled_at > latestTimestamp);
   if (!newVideos.length) return logger.log(`${this.channelId} doesn\'t have new videos.`);
   logger.info(`Found ${newVideos.length} new videos from ${this.channelId}`);
