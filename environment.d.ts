@@ -11,6 +11,9 @@ declare global {
       MEMCACHED_PORT: string;
       TTL_SHORT: string;
       TTL_LONG: string;
+      TIMINGS_YOUTUBE_CHANNEL_UPDATER: string;
+      TIMINGS_YOUTUBE_VIDEO_UPDATER: string;
+      TIMINGS_YOUTUBE_XML_CRAWLER: string;
     }
   }
 }
