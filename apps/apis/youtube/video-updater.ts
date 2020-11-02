@@ -36,7 +36,7 @@ async function fetchYoutubeVideoData(ids: VideoId[]) {
     hl: 'ja'
   }).then(res => res.items.map(parseVideo));
   logger.log(`Fetched ${result?.length ?? 0} videos. Status: ${result ? 'OK' : 'ERROR'}`);
-  logger.info(`Fetched ${result?.length ?? 0} videos. Status: ${result ? 'OK' : 'ERROR'}`);
+  if (result.length !== ids.length) result.push(...parseMissingVideos(ids, result) as YoutubeVideoObject[]);
   return result;
 }
 
@@ -59,6 +59,11 @@ function parseVideo(
     status: getVideoStatus(liveStreamingDetails),
     viewers: +concurrentViewers || null
   };
+}
+
+function parseMissingVideos(idList: VideoId[], videoList: YoutubeVideoObject[]) {
+  const missingIds = idList.filter(_id => !videoList.find(video => video._id === _id));
+  return missingIds.map(_id => ({ _id, status: 'missing' }));
 }
 
 export function getVideoStatus(liveStreamingDetails: LiveStreamingDetails) {
