@@ -49,7 +49,6 @@ function parseVideo(
     _id: id,
     platform_id: 'yt',
     channel_id: channelId,
-    organization: 'hololive',
     title,
     time: {
       published: +new Date(publishedAt),
