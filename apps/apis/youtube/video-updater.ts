@@ -57,7 +57,7 @@ function parseVideo(
       end: +new Date(actualEndTime) || null
     },
     status: getVideoStatus(liveStreamingDetails),
-    viewers: +concurrentViewers
+    viewers: +concurrentViewers || null
   };
 }
 
