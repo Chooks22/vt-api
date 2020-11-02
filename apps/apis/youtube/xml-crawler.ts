@@ -1,6 +1,3 @@
-import { config } from 'dotenv';
-config();
-
 import fetch from 'node-fetch';
 import schedule from 'node-schedule';
 import { parseString } from 'xml2js';
