@@ -31,9 +31,10 @@ database.on('save-videos', async newVideos => {
       { channel_id: video.channel_id },
       { $setOnInsert: video },
       { upsert: true }
-    ))).then(writeResults => writeResults.reduce(
-    (total, result) => total + (result.upserted?.length ?? 0), 0
-  )).catch(logger.error);
+    ))
+  ).then(writeResults => writeResults.reduce(
+    (total, result) => total + (result.upserted?.length ?? 0), 0)
+  ).catch(logger.error);
   if (!isNaN(results)) logger.log(`Finished saving ${results} videos.`);
 });
 
@@ -43,7 +44,8 @@ database.on('update-videos', async videos => {
     .map(video => db.Videos.updateOne(
       { channel_id: video.channel_id },
       { $set: video }
-    ))).then(writeResults => writeResults.reduce(
+    ))
+  ).then(writeResults => writeResults.reduce(
     (total, result) => total + result.nModified, 0)
   ).catch(logger.error);
   if (results) logger.log(`Updated ${results} videos.`);
@@ -57,7 +59,7 @@ database.on('update-channels', async channels => {
       { $set: channel }
     ))
   ).then(writeResults => writeResults.reduce(
-    (total, result) => total + result.nModified, 0
-  )).catch(logger.error);
+    (total, result) => total + result.nModified, 0)
+  ).catch(logger.error);
   if (!isNaN(results)) logger.log(`Updated ${results} channels.`);
 });

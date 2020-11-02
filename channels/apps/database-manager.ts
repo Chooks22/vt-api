@@ -39,7 +39,8 @@ database.on('update-channels', async channelData => {
       { _id: channel._id },
       { $set: channel },
       { upsert: true }
-    ))).then(writeResults => writeResults.reduce(
+    ))
+  ).then(writeResults => writeResults.reduce(
     (total, result) => total + (result.upserted?.length ?? result.nModified), 0)
   ).catch(logger.error);
   if (!isNaN(results)) logger.log(`Updated ${results} channels.`);
