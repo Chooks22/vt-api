@@ -1,7 +1,7 @@
 import { debug, Videos, youtube } from '../../../modules';
 import type { LiveStreamingDetails, VideoResource } from '../../../modules/types/youtube';
 import database from '../../database-managers/youtube';
-import type { YoutubeVideoObject } from './types';
+import type { VideoId, YoutubeVideoObject } from './types';
 
 const ONE_HOUR = 36E5;
 const logger = debug('api:youtube:video-updater');
@@ -27,6 +27,7 @@ const fetchVideosToUpdate = () => Videos
   .limit(50)
   .then(res => res.map(doc => doc._id));
 
+async function fetchYoutubeVideoData(ids: VideoId[]) {
   logger.log(`Fetching ${ids.length} videos from Youtube...`);
   const result = await youtube.videos({
     part: 'snippet,liveStreamingDetails',
