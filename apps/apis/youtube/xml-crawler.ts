@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import schedule from 'node-schedule';
-import { parseString } from 'xml2js';
+import { parseStringPromise } from 'xml2js';
 import { Channels, debug, memcache } from '../../../modules';
 import { ChannelId } from '../../../modules/types/youtube';
 import database from '../../database-managers/youtube';
@@ -19,6 +19,7 @@ export async function init(timer = '1 * * * * *') {
   });
   logger.info(`Now scraping ${channelList.length} youtube channel xmls.`);
 }
+
 class XmlScraper {
   private rawXmlData = null;
   private xmlOptions = { explicitArray: false };
@@ -28,18 +29,15 @@ class XmlScraper {
   get cacheId() { return `yt-${this.channel_id}`; }
   async fetchXml(): Promise<YoutubeVideoObject[]> {
     this.rawXmlData = await fetch(this.xmlLink).then(res => res.text());
-    return this.parseXml().then(this.sortVideos);
+    return this.parseXml();
   }
-  private parseXml(): Promise<YoutubeVideoObject[]> {
-    const parseEntries = this.parseEntries.bind(this);
-    return new Promise((res, rej) => parseString(
-      this.rawXmlData,
-      this.xmlOptions,
-      (err, result) => err ? rej(err) : res(result?.feed?.entry?.map ? result.feed.entry.map(parseEntries) : [])
-    ));
+  private async parseXml(): Promise<YoutubeVideoObject[]> {
+    const parsedString = await parseStringPromise(this.rawXmlData, this.xmlOptions);
+    if (!parsedString.feed.entry?.map) return;
+    return parsedString.feed.entry.map(this.parseEntries.bind(this)).sort(this.videoSorter);
   }
-  private sortVideos(parsedXml: YoutubeVideoObject[]) {
-    return parsedXml.sort((video1, video2) => video2.crawled_at - video1.crawled_at);
+  private videoSorter(video1: YoutubeVideoObject, video2: YoutubeVideoObject) {
+    return video2.crawled_at - video1.crawled_at;
   }
   private parseEntries(entry: VideoXmlEntry): YoutubeVideoObject {
     return {
