@@ -40,7 +40,7 @@ class XmlScraper {
     ));
   }
   private sortVideos(parsedXml: YoutubeVideoObject[]) {
-    return parsedXml.sort((video1, video2) => video2.updated_at - video1.updated_at);
+    return parsedXml.sort((video1, video2) => video2.crawled_at - video1.crawled_at);
   }
   private parseEntries(entry: VideoXmlEntry): YoutubeVideoObject {
     return {
@@ -50,7 +50,7 @@ class XmlScraper {
       organization: this.organization,
       title: entry.title,
       status: 'new',
-      updated_at: +new Date(entry.updated)
+      crawled_at: +new Date(entry.updated)
     };
   }
 }
@@ -60,9 +60,9 @@ async function crawler(this: XmlScraper) {
   const latestTimestamp = (await memcache.get(this.cacheId)) ?? 0;
   const videoList = await this.fetchXml();
   if (!videoList.length) return logger.warn(`${this.channelId} didn\'t return anything?`);
-  const newVideos = videoList.filter(video => video.updated_at > latestTimestamp);
+  const newVideos = videoList.filter(video => video.crawled_at > latestTimestamp);
   if (!newVideos.length) return logger.log(`${this.channelId} doesn\'t have new videos.`);
   logger.info(`Found ${newVideos.length} new videos from ${this.channelId}`);
-  memcache.set(this.cacheId, newVideos[0].updated_at, CACHE_TTL);
+  memcache.set(this.cacheId, newVideos[0].crawled_at, CACHE_TTL);
   database.emit('save-videos', newVideos);
 }
