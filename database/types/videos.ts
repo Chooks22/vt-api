@@ -8,7 +8,7 @@ export interface VideoObject {
   _id: VideoId;
   platform_id: PlatformId;
   channel_id: string;
-  organization: string;
+  organization?: string;
   title: string;
   time?: {
     published?: number;

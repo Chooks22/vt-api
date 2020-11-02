@@ -21,7 +21,7 @@ export interface YoutubeVideoObject extends VideoObject {
   _id: VideoId;
   platform_id: 'yt';
   channel_id: YoutubeChannelId;
-  organization: string;
+  organization?: string;
   crawled_at?: number;
 }
 // #endregion Youtube Video
