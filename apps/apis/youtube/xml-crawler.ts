@@ -47,7 +47,7 @@ class XmlScraper {
       organization: this.organization,
       title: entry.title,
       status: 'new',
-      crawled_at: +new Date(entry.updated)
+      crawled_at: +new Date(entry.published)
     };
   }
 }
