@@ -9,17 +9,16 @@ import { VideoXmlEntry, YoutubeVideoObject } from './types';
 const logger = debug('api:youtube:xml-crawler');
 const CACHE_TTL = +process.env.TTL_LONG || 900;
 
-export default (timer = '1 * * * * *') => Channels
-  .find({ platform_id: 'yt' })
-  .then(channelList => {
-    channelList.forEach(channel => {
-      const { channel_id, organization } = channel;
-      const xmlScraper = new XmlScraper(channel_id, organization);
-      schedule.scheduleJob(`xml-crawler:${channel_id}`, timer, crawler.bind(xmlScraper));
-    });
-    logger.info(`Now scraping ${channelList.length} youtube channel xmls.`);
+export default init;
+export async function init(timer = '1 * * * * *') {
+  const channelList = await Channels.find({ platform_id: 'yt' });
+  channelList.forEach(channel => {
+    const { channel_id, organization } = channel;
+    const xmlScraper = new XmlScraper(channel_id, organization);
+    schedule.scheduleJob(`xml-crawler:${channel_id}`, timer, crawler.bind(xmlScraper));
   });
-
+  logger.info(`Now scraping ${channelList.length} youtube channel xmls.`);
+}
 class XmlScraper {
   private rawXmlData = null;
   private xmlOptions = { explicitArray: false };
