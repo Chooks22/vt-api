@@ -28,7 +28,7 @@ database.on('save-videos', async newVideos => {
   logger.log(`Saving ${newVideos.length} videos...`);
   const results = await Promise.all(newVideos
     .map(video => db.Videos.updateOne(
-      { channel_id: video.channel_id },
+      { _id: video._id },
       { $setOnInsert: video },
       { upsert: true }
     ))
@@ -42,7 +42,7 @@ database.on('update-videos', async videos => {
   logger.log(`Updating ${videos.length} videos...`);
   const results = await Promise.all(videos
     .map(video => db.Videos.updateOne(
-      { channel_id: video.channel_id },
+      { _id: video._id },
       { $set: video }
     ))
   ).then(writeResults => writeResults.reduce(
