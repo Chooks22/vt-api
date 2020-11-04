@@ -1,10 +1,8 @@
 import { debug as Debug } from 'debug';
-/* eslint-disable indent,no-multi-spaces */
-const LOG_LEVEL = !process.env.LOG_LEVEL     ? 2
-                : +process.env.LOG_LEVEL < 0 ? 0
-                : +process.env.LOG_LEVEL > 3 ? 3
-                : +process.env.LOG_LEVEL;
-/* eslint-enable indent,no-multi-spaces */
+
+let LOG_LEVEL = +process.env.LOG_LEVEL;
+LOG_LEVEL = !LOG_LEVEL ? 2 : LOG_LEVEL < 0 ? 0 : LOG_LEVEL > 3 ? 3 : LOG_LEVEL;
+
 export default function debug(namespace: string) {
   const logger = Debug(namespace);
   const log = logger.extend('[ LOG ]:');
