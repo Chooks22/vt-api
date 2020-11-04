@@ -1,8 +1,8 @@
 import { ChannelObject } from '../../../database/types/channels';
 import { MemberProps } from '../../../database/types/members';
-import { youtube } from '../../../modules';
-import debug from '../../../modules/logger';
-import { ChannelResource } from '../../../modules/types/youtube';
+import { youtube } from '../../../src/modules';
+import debug from '../../../src/modules/logger';
+import { ChannelResource } from '../../../src/modules/types/youtube';
 import database from '../database-manager';
 
 const logger = debug('api:youtube');
@@ -50,6 +50,7 @@ const parseAndMergeChannelData = (
     videos: +statistics.videoCount,
     views: +statistics.viewCount
   },
+  details: memberData.details,
   description: snippet.description,
   thumbnail: snippet.thumbnails.high.url
 });

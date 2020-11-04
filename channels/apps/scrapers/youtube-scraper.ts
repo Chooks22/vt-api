@@ -1,7 +1,7 @@
-import { PlaylistItemsResource, VideoResource, YoutubeVideoObject } from '../../../apps/apis/youtube/types';
-import { getVideoStatus } from '../../../apps/apis/youtube/video-updater';
+import { PlaylistItemsResource, VideoResource, YoutubeVideoObject } from '../../../src/server/apis/youtube/types';
+import { getVideoStatus } from '../../../src/server/apis/youtube/video-updater';
 import { MemberObject } from '../../../database/types/members';
-import { debug, youtube } from '../../../modules';
+import { debug, youtube } from '../../../src/modules';
 import database from '../database-manager';
 
 const logger = debug('api:youtube');

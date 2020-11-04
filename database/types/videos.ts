@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 import { PlatformId } from './members';
-import type { VideoId } from '../../apps/apis/youtube/types';
+import type { VideoId } from '../../src/server/apis/youtube/types';
 
 export type VideoStatus = 'live'|'upcoming'|'ended'|'uploaded'|'missing'|'new';
 

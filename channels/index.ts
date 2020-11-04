@@ -5,8 +5,8 @@ process.env.DEBUG += ',-db:*';
 import { readdirSync, readFileSync } from 'fs';
 import { createInterface } from 'readline';
 import { MemberObject, MemberProps, PlatformId } from '../database/types/members';
-import { Counter, debug, Members } from '../modules';
-import { ChannelId } from '../modules/types/youtube';
+import { Counter, debug, Members } from '../src/modules';
+import { ChannelId } from '../src/modules/types/youtube';
 import youtubeChannelScraper from './apps/scrapers/youtube-scraper';
 import updateYoutube from './apps/updaters/youtube-updater';
 

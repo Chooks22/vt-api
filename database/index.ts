@@ -1,5 +1,5 @@
 import { connect, connection } from 'mongoose';
-import debug from '../modules/logger';
+import debug from '../src/modules/logger';
 const logger = debug('db:mongoose');
 
 const URI = `mongodb://${process.env.MONGO_HOST ?? 'localhost'}:${process.env.MONGO_PORT ?? '27017'}/vt-api`;
