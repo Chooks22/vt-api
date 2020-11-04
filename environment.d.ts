@@ -15,6 +15,7 @@ declare global {
       TIMINGS_YOUTUBE_VIDEO_UPDATER: string;
       TIMINGS_YOUTUBE_XML_CRAWLER: string;
       GQL_CACHE_INVALIDATE: string;
+      CACHE_MINUTE: string;
     }
   }
 }
