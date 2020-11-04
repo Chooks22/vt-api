@@ -1,8 +1,8 @@
-import { MemberNames, TwitterHandle, YoutubeChannelId } from '../../../database/types/members';
-import { VideoObject } from '../../../database/types/videos';
+import { MemberNames, TwitterHandle, YoutubeChannelId } from '../../../../database/types/members';
+import { VideoObject } from '../../../../database/types/videos';
 
-export { ChannelProps } from '../../../database/types/channels';
-export { YoutubeChannelId } from '../../../database/types/members';
+export { ChannelProps } from '../../../../database/types/channels';
+export { YoutubeChannelId } from '../../../../database/types/members';
 export {
   ChannelResource,
   PlaylistItemsResource,

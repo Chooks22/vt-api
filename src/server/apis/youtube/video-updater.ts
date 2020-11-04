@@ -21,9 +21,9 @@ export default async function() {
 const fetchVideosToUpdate = () => Videos
   .find({ $or: [
     { status: { $in: ['new', 'live'] } },
-    { status: 'upcoming', 'time.start': { $gte: Date.now() - ONE_HOUR } }
+    { status: 'upcoming', 'time.scheduled': { $lte: Date.now() + ONE_HOUR } }
   ] })
-  .sort({ updated_at: -1 })
+  .sort({ updated_at: 1 })
   .limit(50)
   .then(res => res.map(doc => doc._id));
 

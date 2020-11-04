@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import { YoutubeChannelData, YoutubeVideoObject } from '../apis/youtube/types';
 import { debug } from '../../modules';
-import * as db from '../../database';
+import * as db from '../../../database';
 
 const logger = debug('apis:youtube:database-manager');
 
