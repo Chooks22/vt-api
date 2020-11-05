@@ -4,9 +4,18 @@
   "description": "Simple API for getting VTuber livefeeds, channels, and videos.",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "build": "tsc",
     "watch": "tsc -w",
-    "channel-manager": "node -e \"require('./dist/channels');\""
+    "dev": "concurrently -r npm:dev-*",
+    "dev-server": "NODE_ENV=development nodemon dist/src/server",
+    "dev-graphql": "NODE_ENV=development nodemon dist/src/graphql",
+    "start": "concurrently -r npm:start-*",
+    "start-server": "NODE_ENV=production node dist/src/server",
+    "start-graphql": "NODE_ENV=production node dist/src/graphql",
+    "copy-default": "cp -rT channels/default/ channels/organizations/",
+    "channel-manager": "node -e \"require('./dist/channels').channelManager();\"",
+    "init": "node -e \"require('./dist/channels').init();\""
   },
   "keywords": [],
   "author": "",
@@ -33,6 +42,7 @@
     "@types/xml2js": "^0.4.5",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
+    "concurrently": "^5.3.0",
     "eslint": "^7.12.1",
     "nodemon": "^2.0.6",
     "typescript": "^4.0.5"
