@@ -2,6 +2,7 @@ export {};
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      NODE_ENV: 'development'|'production';
       GOOGLE_API_KEY: string;
       PORT: string;
       LOG_LEVEL: string;
