@@ -11,7 +11,8 @@ import youtubeChannelScraper from './apps/scrapers/youtube-scraper';
 import updateYoutube from './apps/updaters/youtube-updater';
 
 if (!process.env.GOOGLE_API_KEY) throw new Error('GOOGLE_API_KEY is undefined!');
-function main() {
+
+export function channelManager() {
   console.clear();
   console.log(
     '----------------------------   Manage Channels   ----------------------------\n' +
@@ -38,7 +39,7 @@ function main() {
     rl.close();
     switch (input) {
     default:
-      return main();
+      return channelManager();
     case '1':
       await init();
       break;
@@ -63,16 +64,16 @@ function main() {
       break;
     case '9': process.exit();
     }
-    setTimeout(() => {
-      console.log('Press any key to continue: ');
-      process.stdin.setRawMode(true);
-      process.stdin.resume();
-      process.stdin.on('data', process.exit.bind(process, 0));
-    }, 600);
+    delayEnd();
   });
 }
 
-main();
+const delayEnd = () => setTimeout(() => {
+  console.log('Press any key to continue: ');
+  process.stdin.setRawMode(true);
+  process.stdin.resume();
+  process.stdin.on('data', process.exit.bind(process, 0));
+}, 600);
 
 const logger = debug('channels');
 const ROOT_DIR = 'channels/organizations';
@@ -209,9 +210,10 @@ function groupMemberObject(memberList: MemberObject[]): ChannelPlatform<MemberOb
   );
 }
 
-async function init() {
+export async function init(script = false) {
   if(!validateChannels()) return;
   await Promise.all(saveChannels({}, true));
   await updateChannels();
   await scrapeChannels();
+  if (script) delayEnd();
 }
