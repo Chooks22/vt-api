@@ -1,8 +1,7 @@
 {
   "name": "vt-api",
-  "version": "0.6.0",
-  "description": "Simple API for getting VTuber livefeeds, channels, and videos.",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Simple GraphQL API for getting VTuber livefeeds, channels, and videos.",
   "scripts": {
     "postinstall": "npm run build",
     "build": "tsc",
