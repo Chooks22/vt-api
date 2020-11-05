@@ -39,7 +39,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "channels/"
+      "channels/default",
+      "channels/organizations"
     ],
     "events": {
       "start": "clear",
