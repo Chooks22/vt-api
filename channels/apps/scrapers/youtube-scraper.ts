@@ -1,8 +1,8 @@
-import database from '../database-manager';
-import { PlaylistItemsResource, VideoResource, YoutubeVideoObject } from '../../../apps/apis/youtube/types';
-import { youtube, debug } from '../../../modules';
-import { getVideoStatus } from '../../../apps/apis/youtube/video-updater';
+import { PlaylistItemsResource, VideoResource, YoutubeVideoObject } from '../../../src/server/apis/youtube/types';
+import { getVideoStatus } from '../../../src/server/apis/youtube/video-updater';
 import { MemberObject } from '../../../database/types/members';
+import { debug, youtube } from '../../../src/modules';
+import database from '../database-manager';
 
 const logger = debug('api:youtube');
 const playlistList = logger.extend('playlistList');
@@ -79,7 +79,8 @@ function parseVideos(
       end: +new Date(actualEndTime) || null
     },
     status: getVideoStatus(liveStreamingDetails),
-    viewers: +concurrentViewers || null
+    viewers: +concurrentViewers || null,
+    updated_at: Date.now()
   };
 }
 

@@ -1,6 +1,6 @@
 import { connect, connection } from 'mongoose';
-import debug from '../modules/logger';
-const logger = debug('db:mongo');
+import debug from '../src/modules/logger';
+const logger = debug('db:mongoose');
 
 const URI = `mongodb://${process.env.MONGO_HOST ?? 'localhost'}:${process.env.MONGO_PORT ?? '27017'}/vt-api`;
 
@@ -13,8 +13,8 @@ const options = {
 
 // establish connection and log on status change
 connect(URI, options);
-connection.on('connected', () => logger.info('Established connection to MongoDB.'));
-connection.on('disconnected', () => logger.info('Lost connection to MongoDB.'));
+connection.on('connected', () => logger.log('Established connection to MongoDB.'));
+connection.on('disconnected', () => logger.warn('Lost connection to MongoDB.'));
 
 // load middlewares
 import './middlewares/ChannelMiddleware';

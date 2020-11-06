@@ -38,10 +38,24 @@
   {
     "name": {
       "en": "Higuchi Kaede",
-      "jp": "樋口楓"
+      "jp": "樋口楓",
+      "cn": "樋口枫"
     },
     "platform_id": "yt",
     "channel_id": "UCsg-YqdqQ-KFF0LNk23BY4A",
+    "details": {
+      "twitter": "HiguchiKaede",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Higuchi Kaede",
+      "jp": "樋口楓",
+      "cn": "樋口枫"
+    },
+    "platform_id": "bb",
+    "channel_id": "410455162",
     "details": {
       "twitter": "HiguchiKaede",
       "group": "Nijisanji JP"
@@ -61,11 +75,35 @@
   },
   {
     "name": {
+      "en": "Shizuka Rin",
+      "jp": "静凛"
+    },
+    "platform_id": "bb",
+    "channel_id": "403921378",
+    "details": {
+      "twitter": "ShizuRin23",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Shibuya Hajime",
       "jp": "渋谷ハジメ"
     },
     "platform_id": "yt",
     "channel_id": "UCeK9HFcRZoTrvqcUCtccMoQ",
+    "details": {
+      "twitter": "sibuya_hajime",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Shibuya Hajime",
+      "jp": "渋谷ハジメ"
+    },
+    "platform_id": "tt",
+    "channel_id": "sibuyahajime",
     "details": {
       "twitter": "sibuya_hajime",
       "group": "Nijisanji JP"
@@ -109,6 +147,18 @@
   },
   {
     "name": {
+      "en": "Mononobe Alice",
+      "jp": "物述有栖"
+    },
+    "platform_id": "bb",
+    "channel_id": "434565011",
+    "details": {
+      "twitter": "AliceMononobe",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Fushimi Gaku",
       "jp": "伏見ガク"
     },
@@ -122,10 +172,24 @@
   {
     "name": {
       "en": "Ienaga Mugi",
-      "jp": "家長むぎ"
+      "jp": "家長むぎ",
+      "cn": "家长麦"
     },
     "platform_id": "yt",
     "channel_id": "UC_GCs6GARLxEHxy1w40d6VQ",
+    "details": {
+      "twitter": "ienaga_mugi23",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Ienaga Mugi",
+      "jp": "家長むぎ",
+      "cn": "家长麦"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596837",
     "details": {
       "twitter": "ienaga_mugi23",
       "group": "Nijisanji JP"
@@ -145,11 +209,37 @@
   },
   {
     "name": {
+      "en": "Morinaka Kazaki",
+      "jp": "森中花咲"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596836",
+    "details": {
+      "twitter": "森中花咲",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Suzuka Utako",
-      "jp": "鈴鹿詩子"
+      "jp": "鈴鹿詩子",
+      "cn": "铃鹿诗子"
     },
     "platform_id": "yt",
     "channel_id": "UCwokZsOK_uEre70XayaFnzA",
+    "details": {
+      "twitter": "suzukautako",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Suzuka Utako",
+      "jp": "鈴鹿詩子",
+      "cn": "铃鹿诗子"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154144",
     "details": {
       "twitter": "suzukautako",
       "group": "Nijisanji JP"
@@ -229,6 +319,30 @@
   },
   {
     "name": {
+      "en": "Kanae",
+      "jp": "叶"
+    },
+    "platform_id": "bb",
+    "channel_id": "434563934",
+    "details": {
+      "twitter": "Kanae_2434",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Kanae",
+      "jp": "叶"
+    },
+    "platform_id": "tt",
+    "channel_id": "kanae_2434",
+    "details": {
+      "twitter": "Kanae_2434",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Akabane Youko",
       "jp": "赤羽葉子"
     },
@@ -253,11 +367,37 @@
   },
   {
     "name": {
+      "en": "Sasaki Saku",
+      "jp": "笹木 咲"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596839",
+    "details": {
+      "twitter": "saku_sasaki",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Honma Himawari",
-      "jp": "本間ひまわり"
+      "jp": "本間ひまわり",
+      "cn": "本间向日葵"
     },
     "platform_id": "yt",
     "channel_id": "UC0g1AE0DOjBYnLhkgoRWN1w",
+    "details": {
+      "twitter": "honmahimawari",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Honma Himawari",
+      "jp": "本間ひまわり",
+      "cn": "本间向日葵"
+    },
+    "platform_id": "bb",
+    "channel_id": "403928672",
     "details": {
       "twitter": "honmahimawari",
       "group": "Nijisanji JP"
@@ -277,8 +417,21 @@
   },
   {
     "name": {
+      "en": "Makaino Ririmu",
+      "jp": "魔界ノりりむ"
+    },
+    "platform_id": "tt",
+    "channel_id": "makaino_ririmu",
+    "details": {
+      "twitter": "makaino_ririmu",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Kuzuha",
-      "jp": "葛葉"
+      "jp": "葛葉",
+      "cn": "葛叶"
     },
     "platform_id": "yt",
     "channel_id": "UCSFCh5NL4qXrAy9u-u2lX3g",
@@ -289,11 +442,38 @@
   },
   {
     "name": {
+      "en": "Kuzuha",
+      "jp": "葛葉",
+      "cn": "葛叶"
+    },
+    "platform_id": "bb",
+    "channel_id": "434563422",
+    "details": {
+      "twitter": "Vamp_Kuzu",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Shiina Yuika",
-      "jp": "椎名唯華"
+      "jp": "椎名唯華",
+      "cn": "椎名唯华"
     },
     "platform_id": "yt",
     "channel_id": "UC_4tXjqecqox5Uc05ncxpxg",
+    "details": {
+      "twitter": "yuika_siina",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiina Yuika",
+      "jp": "椎名唯華",
+      "cn": "椎名唯华"
+    },
+    "platform_id": "bb",
+    "channel_id": "403927583",
     "details": {
       "twitter": "yuika_siina",
       "group": "Nijisanji JP"
@@ -361,8 +541,21 @@
   },
   {
     "name": {
+      "en": "Ryushen",
+      "jp": "緑仙"
+    },
+    "platform_id": "bb",
+    "channel_id": "403930401",
+    "details": {
+      "twitter": "midori_2434",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Sister Cleaire",
-      "jp": "シスタ クレア"
+      "jp": "シスタ クレア",
+      "cn": "修女克蕾雅"
     },
     "platform_id": "yt",
     "channel_id": "UC1zFJrfEKvCixhsjNSb1toQ",
@@ -373,8 +566,22 @@
   },
   {
     "name": {
+      "en": "Sister Cleaire",
+      "jp": "シスタ クレア",
+      "cn": "修女克蕾雅"
+    },
+    "platform_id": "bb",
+    "channel_id": "477780496",
+    "details": {
+      "twitter": "SisterCleaire",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Suzuki Masaru",
-      "jp": "鈴木勝"
+      "jp": "鈴木勝",
+      "cn": "铃木胜"
     },
     "platform_id": "yt",
     "channel_id": "UCryOPk2GZ1meIDt53tL30Tw",
@@ -385,11 +592,38 @@
   },
   {
     "name": {
+      "en": "Suzuki Masaru",
+      "jp": "鈴木勝",
+      "cn": "铃木胜"
+    },
+    "platform_id": "bb",
+    "channel_id": "586880205",
+    "details": {
+      "twitter": "darkness_eater",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Todoroki Kyoko",
-      "jp": "轟京子"
+      "jp": "轟京子",
+      "cn": "轰京子"
     },
     "platform_id": "yt",
     "channel_id": "UCRV9d6YCYIMUszK-83TwxVA",
+    "details": {
+      "twitter": "KT_seeds",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Todoroki Kyoko",
+      "jp": "轟京子",
+      "cn": "轰京子"
+    },
+    "platform_id": "bb",
+    "channel_id": "586880203",
     "details": {
       "twitter": "KT_seeds",
       "group": "Nijisanji JP"
@@ -410,10 +644,24 @@
   {
     "name": {
       "en": "Yashiro Kizuku",
-      "jp": "社築"
+      "jp": "社築",
+      "cn": "社筑"
     },
     "platform_id": "yt",
     "channel_id": "UCKMYISTJAQ8xTplUPHiABlA",
+    "details": {
+      "twitter": "846kizuQ",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Yashiro Kizuku",
+      "jp": "社築",
+      "cn": "社筑"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154141",
     "details": {
       "twitter": "846kizuQ",
       "group": "Nijisanji JP"
@@ -446,10 +694,37 @@
   {
     "name": {
       "en": "Takamiya Rion",
-      "jp": "鷹宮リオン"
+      "jp": "鷹宮リオン",
+      "cn": "鹰宫莉音"
     },
     "platform_id": "yt",
     "channel_id": "UCV5ZZlLjk5MKGg3L0n0vbzw",
+    "details": {
+      "twitter": "TakamiyaRion",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Takamiya Rion",
+      "jp": "鷹宮リオン",
+      "cn": "鹰宫莉音"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596840",
+    "details": {
+      "twitter": "TakamiyaRion",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Takamiya Rion",
+      "jp": "鷹宮リオン",
+      "cn": "鹰宫莉音"
+    },
+    "platform_id": "tt",
+    "channel_id": "takamiyarion",
     "details": {
       "twitter": "TakamiyaRion",
       "group": "Nijisanji JP"
@@ -470,7 +745,8 @@
   {
     "name": {
       "en": "Maimoto Keisuke",
-      "jp": "舞元啓介"
+      "jp": "舞元啓介",
+      "cn": "舞元启介"
     },
     "platform_id": "yt",
     "channel_id": "UCJubINhCcFXlsBwnHp0wl_g",
@@ -481,8 +757,22 @@
   },
   {
     "name": {
+      "en": "Maimoto Keisuke",
+      "jp": "舞元啓介",
+      "cn": "舞元启介"
+    },
+    "platform_id": "bb",
+    "channel_id": "477780497",
+    "details": {
+      "twitter": "maimoto_k",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Debidebi Debiru",
-      "jp": "でびでび・でびる"
+      "jp": "でびでび・でびる",
+      "cn": "德比鲁"
     },
     "platform_id": "yt",
     "channel_id": "UCjlmCrq4TP1I4xguOtJ-31w",
@@ -493,11 +783,38 @@
   },
   {
     "name": {
+      "en": "Debidebi Debiru",
+      "jp": "でびでび・でびる",
+      "cn": "德比鲁"
+    },
+    "platform_id": "bb",
+    "channel_id": "441666968",
+    "details": {
+      "twitter": "debidebiru_sama",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Rindou Mikoto",
-      "jp": "竜胆尊"
+      "jp": "竜胆尊",
+      "cn": "龙胆尊"
     },
     "platform_id": "yt",
     "channel_id": "UCPvGypSgfDkVe7JG2KygK7A",
+    "details": {
+      "twitter": "RindouMikoto",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Rindou Mikoto",
+      "jp": "竜胆尊",
+      "cn": "龙胆尊"
+    },
+    "platform_id": "bb",
+    "channel_id": "434564604",
     "details": {
       "twitter": "RindouMikoto",
       "group": "Nijisanji JP"
@@ -542,10 +859,24 @@
   {
     "name": {
       "en": "Belmond Banderas",
-      "jp": "ベルモンド・バンデラス"
+      "jp": "ベルモンド・バンデラス",
+      "cn": "贝尔蒙德"
     },
     "platform_id": "yt",
     "channel_id": "UCbc8fwhdUNlqi-J99ISYu4A",
+    "details": {
+      "twitter": "belmond_b_2434",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Belmond Banderas",
+      "jp": "ベルモンド・バンデラス",
+      "cn": "贝尔蒙德"
+    },
+    "platform_id": "bb",
+    "channel_id": "441666967",
     "details": {
       "twitter": "belmond_b_2434",
       "group": "Nijisanji JP"
@@ -566,10 +897,24 @@
   {
     "name": {
       "en": "Yumeoi Kakeru",
-      "jp": "夢追翔"
+      "jp": "夢追翔",
+      "cn": "梦追翔"
     },
     "platform_id": "yt",
     "channel_id": "UCTIE7LM5X15NVugV7Krp9Hw",
+    "details": {
+      "twitter": "kakeru_yumeoi",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Yumeoi Kakeru",
+      "jp": "夢追翔",
+      "cn": "梦追翔"
+    },
+    "platform_id": "bb",
+    "channel_id": "511613154",
     "details": {
       "twitter": "kakeru_yumeoi",
       "group": "Nijisanji JP"
@@ -625,6 +970,18 @@
   },
   {
     "name": {
+      "en": "Warabeda Meiji",
+      "jp": "童田明治"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154140",
+    "details": {
+      "twitter": "warabeda_meiji",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Gundo Mirei",
       "jp": "郡道美玲"
     },
@@ -637,11 +994,37 @@
   },
   {
     "name": {
+      "en": "Gundo Mirei",
+      "jp": "郡道美玲"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154139",
+    "details": {
+      "twitter": "g9v9g_mirei",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Yuzuki Roa",
-      "jp": "夢月ロア"
+      "jp": "夢月ロア",
+      "cn": "梦月萝娅"
     },
     "platform_id": "yt",
     "channel_id": "UCCVwhI5trmaSxfcze_Ovzfw",
+    "details": {
+      "twitter": "yuzuki_roa",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Yuzuki Roa",
+      "jp": "夢月ロア",
+      "cn": "梦月萝娅"
+    },
+    "platform_id": "bb",
+    "channel_id": "477780499",
     "details": {
       "twitter": "yuzuki_roa",
       "group": "Nijisanji JP"
@@ -697,8 +1080,21 @@
   },
   {
     "name": {
+      "en": "Otogibara Era",
+      "jp": "御伽原江良"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596838",
+    "details": {
+      "twitter": "OtogibaraEra",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Inui Toko",
-      "jp": "戌亥とこ"
+      "jp": "戌亥とこ",
+      "cn": "戌亥床"
     },
     "platform_id": "yt",
     "channel_id": "UCXRlIK3Cw_TJIQC5kSJJQMg",
@@ -709,11 +1105,38 @@
   },
   {
     "name": {
+      "en": "Inui Toko",
+      "jp": "戌亥とこ",
+      "cn": "戌亥床"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154142",
+    "details": {
+      "twitter": "inui_toko",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Ange Katrina",
-      "jp": "アンジュ・カトリーナ"
+      "jp": "アンジュ・カトリーナ",
+      "cn": "安洁"
     },
     "platform_id": "yt",
     "channel_id": "UCHVXbQzkl3rDfsXWo8xi2qw",
+    "details": {
+      "twitter": "ange_katrina_",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Ange Katrina",
+      "jp": "アンジュ・カトリーナ",
+      "cn": "安洁"
+    },
+    "platform_id": "bb",
+    "channel_id": "458154143",
     "details": {
       "twitter": "ange_katrina_",
       "group": "Nijisanji JP"
@@ -726,6 +1149,18 @@
     },
     "platform_id": "yt",
     "channel_id": "UCZ1xuCK1kNmn5RzPYIZop3w",
+    "details": {
+      "twitter": "Lize_Helesta",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Lize Helesta",
+      "jp": "リゼ・ヘルエスタ"
+    },
+    "platform_id": "bb",
+    "channel_id": "436596841",
     "details": {
       "twitter": "Lize_Helesta",
       "group": "Nijisanji JP"
@@ -770,7 +1205,8 @@
   {
     "name": {
       "en": "Yukishiro Mahiro",
-      "jp": "雪城眞尋"
+      "jp": "雪城眞尋",
+      "cn": "雪城真寻"
     },
     "platform_id": "yt",
     "channel_id": "UCHX7YpFG8rVwhsHCx34xt7w",
@@ -781,11 +1217,38 @@
   },
   {
     "name": {
+      "en": "Yukishiro Mahiro",
+      "jp": "雪城眞尋",
+      "cn": "雪城真寻"
+    },
+    "platform_id": "bb",
+    "channel_id": "雪城真寻",
+    "details": {
+      "twitter": "MahiroYukishiro",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
       "en": "Ex Albio",
-      "jp": "エクス・アルビオ"
+      "jp": "エクス・アルビオ",
+      "cn": "艾克斯"
     },
     "platform_id": "yt",
     "channel_id": "UCIytNcoz4pWzXfLda0DoULQ",
+    "details": {
+      "twitter": "ex_albio",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Ex Albio",
+      "jp": "エクス・アルビオ",
+      "cn": "艾克斯"
+    },
+    "platform_id": "bb",
+    "channel_id": "477780498",
     "details": {
       "twitter": "ex_albio",
       "group": "Nijisanji JP"
@@ -890,10 +1353,24 @@
   {
     "name": {
       "en": "Aiba Uiha",
-      "jp": "相羽ういは"
+      "jp": "相羽ういは",
+      "cn": "相羽初叶"
     },
     "platform_id": "yt",
     "channel_id": "UCnRQYHTnRLSF0cLJwMnedCg",
+    "details": {
+      "twitter": "AibaUiha",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Aiba Uiha",
+      "jp": "相羽ういは",
+      "cn": "相羽初叶"
+    },
+    "platform_id": "bb",
+    "channel_id": "586880202",
     "details": {
       "twitter": "AibaUiha",
       "group": "Nijisanji JP"
@@ -1273,8 +1750,7 @@
   },
   {
     "name": {
-      "en": "Hana Macchia",
-      "jp": ""
+      "en": "Hana Macchia"
     },
     "platform_id": "yt",
     "channel_id": "UCpJtk0myFr5WnyfsmnInP-w",
@@ -1285,8 +1761,7 @@
   },
   {
     "name": {
-      "en": "ZEA Cornelia",
-      "jp": ""
+      "en": "ZEA Cornelia"
     },
     "platform_id": "yt",
     "channel_id": "UCA3WE2WRSpoIvtnoVGq4VAw",
@@ -1297,8 +1772,7 @@
   },
   {
     "name": {
-      "en": "Taka Radjiman",
-      "jp": ""
+      "en": "Taka Radjiman"
     },
     "platform_id": "yt",
     "channel_id": "UCZ5dNZsqBjBzbBl0l_IdmXg",
@@ -1309,8 +1783,7 @@
   },
   {
     "name": {
-      "en": "Rai Galilei",
-      "jp": ""
+      "en": "Rai Galilei"
     },
     "platform_id": "yt",
     "channel_id": "UC8Snw5i4eOJXEQqURAK17hQ",
@@ -1321,8 +1794,7 @@
   },
   {
     "name": {
-      "en": "Riksa Dhirendra",
-      "jp": ""
+      "en": "Riksa Dhirendra"
     },
     "platform_id": "yt",
     "channel_id": "UCkL9OLKjIQbKk2CztbpOCFg",
@@ -1333,8 +1805,7 @@
   },
   {
     "name": {
-      "en": "Amicia Michella",
-      "jp": ""
+      "en": "Amicia Michella"
     },
     "platform_id": "yt",
     "channel_id": "UCrR7JxkbeLY82e8gsj_I0pQ",
@@ -1345,8 +1816,7 @@
   },
   {
     "name": {
-      "en": "Miyu Ottavia",
-      "jp": ""
+      "en": "Miyu Ottavia"
     },
     "platform_id": "yt",
     "channel_id": "UCOmjciHZ8Au3iKMElKXCF_g",
@@ -1357,8 +1827,7 @@
   },
   {
     "name": {
-      "en": "Azura Cecillia",
-      "jp": ""
+      "en": "Azura Cecillia"
     },
     "platform_id": "yt",
     "channel_id": "UCk5r533QVMgJUdWwqegH2TA",
@@ -1369,8 +1838,7 @@
   },
   {
     "name": {
-      "en": "Layla Alstroemeria",
-      "jp": ""
+      "en": "Layla Alstroemeria"
     },
     "platform_id": "yt",
     "channel_id": "UCyRkQSuhJILuGOuXk10voPg",
@@ -1381,8 +1849,7 @@
   },
   {
     "name": {
-      "en": "Nara Haramaung",
-      "jp": ""
+      "en": "Nara Haramaung"
     },
     "platform_id": "yt",
     "channel_id": "UCoWH3sDpeXG1aXmOxveX4KA",
@@ -1393,8 +1860,7 @@
   },
   {
     "name": {
-      "en": "Etna Crimson",
-      "jp": ""
+      "en": "Etna Crimson"
     },
     "platform_id": "yt",
     "channel_id": "UCjFu-9GHnabzSFRAYm1B9Dw",
@@ -1405,8 +1871,7 @@
   },
   {
     "name": {
-      "en": "Bonnivier Pranaja",
-      "jp": ""
+      "en": "Bonnivier Pranaja"
     },
     "platform_id": "yt",
     "channel_id": "UCHjeZylSgXDSnor8wUnwU_g",
@@ -1417,8 +1882,7 @@
   },
   {
     "name": {
-      "en": "Siska Leontyne",
-      "jp": ""
+      "en": "Siska Leontyne"
     },
     "platform_id": "yt",
     "channel_id": "UC5qSx7KzdRwbsO1QmJc4d-w",
@@ -1429,8 +1893,7 @@
   },
   {
     "name": {
-      "en": "Aadya",
-      "jp": ""
+      "en": "Aadya"
     },
     "platform_id": "yt",
     "channel_id": "UC_aB_-PHLFHiP61djM0oOiQ",
@@ -1441,8 +1904,7 @@
   },
   {
     "name": {
-      "en": "Noor",
-      "jp": ""
+      "en": "Noor"
     },
     "platform_id": "yt",
     "channel_id": "UC6oW4FXETgEGOFTxWmI2h5Q",
@@ -1453,8 +1915,7 @@
   },
   {
     "name": {
-      "en": "Vihaan",
-      "jp": ""
+      "en": "Vihaan"
     },
     "platform_id": "yt",
     "channel_id": "UC0lik9pHju6ONgkBh7N5wHw",
@@ -1466,7 +1927,6 @@
   {
     "name": {
       "en": "Wiffy",
-      "jp": "",
       "kr": "위피"
     },
     "platform_id": "yt",
@@ -1478,8 +1938,19 @@
   },
   {
     "name": {
+      "en": "Wiffy",
+      "kr": "위피"
+    },
+    "platform_id": "tt",
+    "channel_id": "wiffy2434",
+    "details": {
+      "twitter": "Wiffy2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Shin Yuya",
-      "jp": "",
       "kr": "신유야"
     },
     "platform_id": "yt",
@@ -1491,8 +1962,19 @@
   },
   {
     "name": {
+      "en": "Shin Yuya",
+      "kr": "신유야"
+    },
+    "platform_id": "tt",
+    "channel_id": "yuyashin2434",
+    "details": {
+      "twitter": "YuyaShin2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Suha Min",
-      "jp": "",
       "kr": "민수하"
     },
     "platform_id": "yt",
@@ -1505,7 +1987,6 @@
   {
     "name": {
       "en": "Gaon",
-      "jp": "",
       "kr": "가온"
     },
     "platform_id": "yt",
@@ -1517,8 +1998,19 @@
   },
   {
     "name": {
+      "en": "Gaon",
+      "kr": "가온"
+    },
+    "platform_id": "tt",
+    "channel_id": "gaon_2434",
+    "details": {
+      "twitter": "Gaon2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Chiho Han",
-      "jp": "",
       "kr": "한치호"
     },
     "platform_id": "yt",
@@ -1530,8 +2022,19 @@
   },
   {
     "name": {
+      "en": "Chiho Han",
+      "kr": "한치호"
+    },
+    "platform_id": "tt",
+    "channel_id": "chihorahao",
+    "details": {
+      "twitter": "ChihoHan2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Siu Lee",
-      "jp": "",
       "kr": "이시우"
     },
     "platform_id": "yt",
@@ -1543,8 +2046,19 @@
   },
   {
     "name": {
+      "en": "Siu Lee",
+      "kr": "이시우"
+    },
+    "platform_id": "tt",
+    "channel_id": "siulee2434",
+    "details": {
+      "twitter": "SiuLee2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Nagi So",
-      "jp": "",
       "kr": "소나기"
     },
     "platform_id": "yt",
@@ -1556,12 +2070,35 @@
   },
   {
     "name": {
+      "en": "Nagi So",
+      "kr": "소나기"
+    },
+    "platform_id": "tt",
+    "channel_id": "nagiso2434",
+    "details": {
+      "twitter": "NagiSo2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Ara Chae",
-      "jp": "",
       "kr": "채아라"
     },
     "platform_id": "yt",
     "channel_id": "UCmWqYB6y8gSfPONWGspuOWQ",
+    "details": {
+      "twitter": "AraChae2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ara Chae",
+      "kr": "채아라"
+    },
+    "platform_id": "tt",
+    "channel_id": "arachae2434",
     "details": {
       "twitter": "AraChae2434",
       "group": "Nijisanji KR"
@@ -1582,8 +2119,20 @@
   },
   {
     "name": {
+      "en": "Ray Akira",
+      "jp": "明楽 レイ",
+      "kr": "아키라 레이"
+    },
+    "platform_id": "tt",
+    "channel_id": "rayakira2434",
+    "details": {
+      "twitter": "RayAkira2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Roha Lee",
-      "jp": "",
       "kr": "이로하"
     },
     "platform_id": "yt",
@@ -1595,14 +2144,73 @@
   },
   {
     "name": {
+      "en": "Roha Lee",
+      "kr": "이로하"
+    },
+    "platform_id": "tt",
+    "channel_id": "rohalee2434",
+    "details": {
+      "twitter": "rohalee2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Bora Nun",
-      "jp": "",
       "kr": "눈보라"
     },
     "platform_id": "yt",
     "channel_id": "UC1ZV7KBscK0EMoJKFu1DnDg",
     "details": {
       "twitter": "BoraNun2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Bora Nun",
+      "kr": "눈보라"
+    },
+    "platform_id": "tt",
+    "channel_id": "boranun2434",
+    "details": {
+      "twitter": "BoraNun2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Hari Ryu",
+      "kr": "류하리"
+    },
+    "platform_id": "yt",
+    "channel_id": "UClS6k3w1sPwlVFqK3-yID5A",
+    "details": {
+      "twitter": "HariRyu2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Nari Yang",
+      "kr": "양나리"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCCHH0nWYXFZmtDS_4tvMxHQ",
+    "details": {
+      "twitter": "NariYang2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Jiyu Oh",
+      "kr": "오지유"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCnzZmBOSrQf2wDBbnsDajVw",
+    "details": {
+      "twitter": "JiyuOh2434",
       "group": "Nijisanji KR"
     }
   },
@@ -2020,6 +2628,18 @@
     },
     "platform_id": "yt",
     "channel_id": "UCX7YkU9nEeaoZbkVLVajcMg",
+    "details": {
+      "twitter": "nijisanji_app",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Nijisanji",
+      "jp": "にじさんじ"
+    },
+    "platform_id": "bb",
+    "channel_id": "410484677",
     "details": {
       "twitter": "nijisanji_app",
       "group": "Nijisanji JP"

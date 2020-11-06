@@ -2,10 +2,23 @@
   {
     "name": {
       "en": "Inuyama Tamaki",
-      "jp": "犬山たまき"
+      "jp": "犬山たまき",
+      "cn": "犬山玉姬"
     },
     "platform_id": "yt",
     "channel_id": "UC8NZiqKx6fsDT3AVcMiVFyA",
+    "details": {
+      "twitter": "norioo_"
+    }
+  },
+  {
+    "name": {
+      "en": "Inuyama Tamaki",
+      "jp": "犬山たまき",
+      "cn": "犬山玉姬"
+    },
+    "platform_id": "bb",
+    "channel_id": "12362451",
     "details": {
       "twitter": "norioo_"
     }
@@ -23,11 +36,35 @@
   },
   {
     "name": {
+      "en": "Enomiya Milk",
+      "jp": "愛宮みるく"
+    },
+    "platform_id": "bb",
+    "channel_id": "419429042",
+    "details": {
+      "twitter": "Enomiya_MILK"
+    }
+  },
+  {
+    "name": {
       "en": "Shirayuki Mishiro",
-      "jp": "白雪みしろ"
+      "jp": "白雪みしろ",
+      "cn": "白雪深白"
     },
     "platform_id": "yt",
     "channel_id": "UCC0i9nECi4Gz7TU63xZwodg",
+    "details": {
+      "twitter": "mishiro_seiso"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirayuki Mishiro",
+      "jp": "白雪みしろ",
+      "cn": "白雪深白"
+    },
+    "platform_id": "bb",
+    "channel_id": "405981431",
     "details": {
       "twitter": "mishiro_seiso"
     }
@@ -45,8 +82,8 @@
   },
   {
     "name": {
-      "en": "熊谷タクマ",
-      "jp": "Kumagaya Takuma"
+      "en": "Kumagaya Takuma",
+      "jp": "熊谷タクマ"
     },
     "platform_id": "yt",
     "channel_id": "UCCXME7oZmXB2VFHJbz5496A",

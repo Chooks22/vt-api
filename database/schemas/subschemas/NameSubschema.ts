@@ -7,5 +7,5 @@ export const NameSchema = new Schema({
   },
   'jp': String,
   'kr': String,
-  'id': String
+  'cn': String
 }, { _id: false });

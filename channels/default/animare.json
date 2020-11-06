@@ -67,13 +67,46 @@
   },
   {
     "name": {
+      "en": "Shiromiya Mimi",
+      "jp": "白宮みみ"
+    },
+    "platform_id": "tt",
+    "channel_id": "shiromiyamimi",
+    "details": {
+      "twitter": "shiromiya_mimi"
+    }
+  },
+  {
+    "name": {
       "en": "Hashiba Natsumi",
-      "jp": "​羽柴なつみ"
+      "jp": "羽柴なつみ"
     },
     "platform_id": "yt",
     "channel_id": "UC_BlXOQe5OcRC7o0GX8kp8A",
     "details": {
       "twitter": "Natsumi_Hashiba"
+    }
+  },
+  {
+    "name": {
+      "en": "Seshima Rui",
+      "jp": "瀬島るい"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC_WOBIopwUih0rytRnr_1Ag",
+    "details": {
+      "twitter": "Rui_Seshima"
+    }
+  },
+  {
+    "name": {
+      "en": "Hira Hikari",
+      "jp": "飛良ひかり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCFsWaTQ7kT76jNNGeGIKNSA",
+    "details": {
+      "twitter": "Hikari_Hira"
     }
   }
 ]

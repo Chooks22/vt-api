@@ -1,175 +1,144 @@
 # VTuber API
+A Mongoose / GraphQL based API.
 
 ## Development
-* Prerequisites
+* Prerequisites:
   * Have `node` installed.
   * Have [MongoDB](https://docs.mongodb.com/manual/installation/) and [Memcached](https://www.howtoforge.com/how-to-install-memcached-on-ubuntu-2004-lts/) installed locally.
     * Optional: Download [MongoDB Compass](https://www.mongodb.com/try/download/compass) to access your database with a GUI.
   * Have a [Google Cloud Project](https://console.cloud.google.com/apis/credentials) API Key with Youtube API enabled.
   * Setup some channels first before starting.
 
-
-* Installation
+## Installation
 ```
 # Install dependencies and create your .env copy
 $ npm i
 $ cp .env.sample .env
-
 # Make sure to adjust your .env file before continuing!
 
-# Check the template.json file inside the channels folder first! Then run:
+# Create a directory called organizations inside channels, then move the files from
+# channels/default to channels/organizations, or check the template.json file to see how to create your own list.
+
+# After populating channels/organizations, run:
+$ npm run channel-manager
+# OR
 $ npm run init
 
 # If all things went well, you can then start the api.
 $ npm start
 ```
 
-## API Basics
-### Queries
-* `any[]` are queries split with `,`.
-  * Example: `status=live,upcoming`
-* Add queries by adding parameters to GET requests.
-  * Example using `node-js` with `axios`:
-```js
-const axios = require('axios');
-const parameters = { status: 'live,upcoming', title: 'apex' };
+## GraphQL Schema
 
-axios.get('http://localhost:2434/live', { params: parameters })
-  .then(res => console.log(res.data));
-```
-* Access nested `fields` query with `.` or `()`.
-  * Example:
-```js
-const singleFields = { id: 1, fields: 'id,channel_stats.views,channel_stats.subscribers' };
-const multipleFields = { id: 1, fields: 'id,channel_stats(views,subscribers)' };
-const eitherFields = { id: 1, fields: 'id,channel_stats(views),channel_stats.subscribers' }
-
-/**
- * Any of these queries will return:
- * [
- *   {
- *     id: 1,
- *     channel_stats: {
- *       views: number,
- *       subscribers: number
- *     }
- *   }
- * ]
- */
-```
-
-### Endpoints
-#### `/live`
-Displays live, upcoming, and ended videos.
-###### Query parameters:
-```json
+## Types
+```ts
 {
-  "status": "string[]",
-  "title": "string",
-  "group": "string"
-}
-```
-###### Returns:
-```json
-{
-  "live": "object[]",
-  "upcoming": "object[]",
-  "ended": "object[]"
-}
-```
-###### Video object:
-```json
-{
-  "id": "string",
-  "title": "string",
-  "channel": "string",
-  "group": "string",
-  "published_at": "number",
-  "scheduled_time": "number",
-  "start_time": "number",
-  "end_time": "number",
-  "length": "number",
-  "viewers": "number",
-  "status": "string"
+  VideoId: string
+  ChannelId: string
+  PlatformId: "yt"|"bb"|"tt"
+  VideoStatus: "live"|"upcoming"|"ended"|"uploaded"|"missing"
 }
 ```
 
-#### `/channels`
-Shows a list of all channels (Max 150).
-###### Query parameters:
-```json
+## `VideoObject` Schema
+```ts
 {
-  "id": "number[]",
-  "name": "string",
-  "group": "string",
-  "youtube": "string[]",
-  "channel": "string",
-  "fields": "string[]",
-  "limit": "number"
-}
-```
-You can use number ranges for `id` query, example:
-```js
-// Any of these queries will return channels with ids from 1 to 5
-const idArray = { id: '1,2,3,4,5' };
-const idRange = { id: '1-5' };
-const idBoth = { id: '1,2,3-5' };
-```
-###### Returns:
-```json
-[
-  {
-    "id": "number",
-    "name_jp": "string",
-    "name_en": "string",
-    "youtube": "string",
-    "twitter": "string",
-    "channel": "string",
-    "channel_stats": {
-      "published_at": "number",
-      "views": "number",
-      "subscribers": "number",
-      "videos": "number",
-    },
-    "description": "string",
-    "thumbnail": "string"
+  _id: VideoId!
+  platform_id: PlatformId!
+  channel_id: ChannelId!
+  organization: string!
+  title: string!
+  time: {
+    published: number
+    scheduled: number
+    start: number
+    end: number
+    duration: number
   }
-]
-```
-
-#### `/videos`
-Shows a list of all videos (Max 100).
-###### Query parameters:
-```json
-{
-  "group": "string[]",
-  "status": "string[]",
-  "channel": "string[]",
-  "title": "string",
-  "fields": "string[]",
-  "limit": "number"
+  status: VideoStatus!
+  viewers: number
 }
 ```
-###### Returns:
-```json
-[
-  {
-    "id": "string",
-    "title": "string",
-    "channel": "string",
-    "group": "string",
-    "published_at": "number",
-    "scheduled_time": "number",
-    "start_time": "number",
-    "end_time": "number",
-    "length": "number",
-    "status": "string"
+
+## `ChannelObject` Schema
+```ts
+{
+  _id: number!
+  name: {
+    en: string!
+    jp: string
+    kr: string
+    cn: string
+  }!
+  organization: string!
+  platform_id: PlatformId!
+  channel_name: string
+  channel_id: ChannelId!
+  details: {
+    [key: string]: any
   }
-]
+  channel_stats: {
+    published_at: number
+    views: number
+    subscribers: number
+    videos: number
+  }
+  description: string
+  thumbnail: string
+}
 ```
+
+## Live Query
+```
+{
+  live(
+    organizations: [String]
+    platforms: [PlatformId]
+  ): [VideoObject]
+}
+```
+
+## Videos Query
+```
+{
+  videos(
+    channel_id: [ChannelId]
+    status: [VideoStatus]
+    organization: [String]
+    platforms: [PlatformId]
+    max_upcoming_mins: Int
+    order_by: {
+      published: asc|desc
+      scheduled: asc|desc
+      start: asc|desc
+    }
+    limit: Int // 1-50
+  ): [VideoObject]
+}
+```
+
+## Channels Query
+```
+{
+  channels(
+    _id: [Int]
+    name: String
+    organizations: [String]
+    platforms: [PlatformId]
+    channel_id: [ChannelId]
+    order_by: {
+      _id: asc|desc
+      published_at: asc|desc
+      subscribers: asc|desc
+      videos: asc|desc
+    }
+    limit: Int // 1-50
+  ): [ChannelObject]
+}
+```
+
+##
 
 ## TO-DOs
-* Add support for Bilibili channels(?)
-* Sort queries
-* API documentation
-* Cooler name, maybe?
+* Channels/Videos pagination
+* Implement twitch and bilibili apis

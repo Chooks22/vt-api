@@ -12,6 +12,17 @@
   },
   {
     "name": {
+      "en": "Amano Pikamee",
+      "jp": "天野ピカミィ"
+    },
+    "platform_id": "tt",
+    "channel_id": "pikameeamano",
+    "details": {
+      "twitter": "amanopikamee"
+    }
+  },
+  {
+    "name": {
       "en": "Hikasa Tomoshika",
       "jp": "緋笠トモシカ"
     },
