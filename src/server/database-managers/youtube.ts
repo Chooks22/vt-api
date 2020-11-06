@@ -3,7 +3,7 @@ import { YoutubeChannelData, YoutubeVideoObject } from '../apis/youtube/types';
 import { debug } from '../../modules';
 import * as db from '../../../database';
 
-const logger = debug('apis:youtube:database-manager');
+const logger = debug('api:youtube:database-manager');
 
 interface DatabaseEvents {
   'save-videos': (newVideos: YoutubeVideoObject[]) => void;
