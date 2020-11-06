@@ -4,7 +4,7 @@ import { Channels, memcache } from '../../modules';
 import { ChannelId } from '../../modules/types/youtube';
 import { cutChannelIds, cutGroupString, firstField, getCacheKey, parseOrganization, Sort } from './consts';
 
-type Sort = 'asc'|'desc';
+const CACHE_TTL = +(process.env.TTL_LONG ?? 900);
 
 interface OrderBy {
   _id?: Sort;
@@ -31,7 +31,7 @@ export async function channels(_, query: ChannelsQuery) {
     }
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const ORGANIZATIONS = parseOrganization(organizations);
-    const CACHE_KEY = getCacheKey(`CHNLS:${_id}${name}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${ORDER_BY_KEY}`);
+    const CACHE_KEY = getCacheKey(`CHNLS:${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${ORDER_BY_KEY}`, false);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
@@ -46,7 +46,7 @@ export async function channels(_, query: ChannelsQuery) {
       .limit(limit)
       .lean();
 
-    memcache.set(CACHE_KEY, uncachedChannels);
+    memcache.set(CACHE_KEY, uncachedChannels, CACHE_TTL);
     return uncachedChannels;
   } catch(err) {
     throw new ApolloError(err);
