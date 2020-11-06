@@ -26,9 +26,9 @@ interface ChannelsQuery {
 export async function channels(_, query: ChannelsQuery) {
   try {
     const { _id = [], name = '', organizations = [], channel_id = [], platforms = [], limit } = query;
-
-    if (limit < 0 || limit > 50) return new UserInputError('limit must be between 0-50 inclusive.');
-
+    if (limit < 1 || limit > 50) {
+      return new UserInputError('limit must be between 1-50 inclusive.');
+    }
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const ORGANIZATIONS = parseOrganization(organizations);
     const CACHE_KEY = getCacheKey(`CHNLS:${_id}${name}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${ORDER_BY_KEY}`);
