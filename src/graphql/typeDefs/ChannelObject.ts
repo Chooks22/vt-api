@@ -9,7 +9,7 @@ export const typeDef = gql`
     channel_name: String
     channel_id: ID!
     details: JSON
-    channeL_stats: ChannelStats
+    channel_stats: ChannelStats
     description: String
     thumbnail: String
   }
