@@ -25,7 +25,7 @@ export const typeDef = gql`
     subscribers: Float
     videos: Float
   }
-  input SortFields {
+  input SortChannelsFields {
     _id: Sort
     published_at: Sort
     subscribers: Sort
@@ -42,7 +42,7 @@ export const typeDef = gql`
       organizations: [String]
       platforms: [PlatformId]
       channel_id: [ID]
-      order_by: SortFields = { _id: asc }
+      order_by: SortChannelsFields = { _id: asc }
       limit: Int = 25
     ): [ChannelObject]
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")

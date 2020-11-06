@@ -30,6 +30,11 @@ export const typeDef = gql`
     uploaded
     missing
   }
+  input SortVideosFields {
+    published: Sort
+    scheduled: Sort
+    start: Sort
+  }
   extend type Query {
     live(
       organizations: [String]
@@ -37,10 +42,13 @@ export const typeDef = gql`
     ): [VideoObject]
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
     videos(
+      channel_id: [ID]
       status: [VideoStatus]
-      organization: [String]
+      organizations: [String]
       platforms: [PlatformId]
-      limit: Int
+      max_upcoming_mins: Int = 0
+      order_by: SortVideosFields = { published: asc }
+      limit: Int = 25
     ): [VideoObject]
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
   }
