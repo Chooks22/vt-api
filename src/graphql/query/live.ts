@@ -1,5 +1,4 @@
 import { ApolloError } from 'apollo-server';
-import { Query } from 'mongoose';
 import { PlatformId } from '../../../database/types/members';
 import { memcache, Videos } from '../../modules';
 import { cutGroupString, getCacheKey, parseOrganization } from './consts';
@@ -20,8 +19,8 @@ export async function live(_, query: LiveQuery) {
 
     const uncachedVideos = await Videos.find({
       status: 'live',
-      organization: { [ORGANIZATIONS[0] ? '$in' : '$nin']: ORGANIZATIONS },
-      platform_id: { [platforms[0] ? '$in' : '$nin']: platforms }
+      ...platforms[0] && { platform_id: { $in: platforms } },
+      ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } }
     }).sort({ 'time.start': 1 })
       .lean();
 
