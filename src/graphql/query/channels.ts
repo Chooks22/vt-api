@@ -2,7 +2,7 @@ import { ApolloError, UserInputError } from 'apollo-server';
 import { PlatformId } from '../../../database/types/members';
 import { Channels, memcache } from '../../modules';
 import { ChannelId } from '../../modules/types/youtube';
-import { cutChannelIds, cutGroupString, getCacheKey, parseOrganization } from './consts';
+import { cutChannelIds, cutGroupString, firstField, getCacheKey, parseOrganization, Sort } from './consts';
 
 type Sort = 'asc'|'desc';
 
@@ -52,11 +52,6 @@ export async function channels(_, query: ChannelsQuery) {
     throw new ApolloError(err);
   }
 }
-
-const firstField = <T>(obj: {[key in keyof OrderBy]: T;}): [OrderBy, string] => {
-  const [key, value] = Object.entries(obj)[0];
-  return [{ [key]: value }, `${key.slice(0, 2)}-${value[0]}`];
-};
 
 const getNameQueries = (name: string) => [
   { 'name.en': { $regex: name, $options: 'i' } },
