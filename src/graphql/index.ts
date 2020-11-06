@@ -18,7 +18,7 @@ const server = new ApolloServer({
   resolvers,
   introspection: true,
   playground: {
-    endpoint: '/playground'
+    endpoint: '/v1'
   },
   tracing: NODE_ENV === 'development'
 });
