@@ -6,7 +6,7 @@
     "postinstall": "npm run build",
     "build": "tsc",
     "watch": "tsc -w",
-    "dev": "concurrently -r npm:dev-*",
+    "dev": "concurrently -r npm:watch npm:dev-*",
     "dev-server": "NODE_ENV=development nodemon dist/src/server",
     "dev-graphql": "NODE_ENV=development nodemon dist/src/graphql",
     "start": "concurrently -r npm:start-*",
