@@ -43,7 +43,7 @@ export const typeDef = gql`
     live(
       organizations: [String]
       platforms: [PlatformId]
-    ): [VideoObject]
+    ): [VideoObject]!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
     videos(
       channel_id: [ID]
