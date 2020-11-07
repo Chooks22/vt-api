@@ -22,7 +22,8 @@ export async function live(_, query: LiveQuery) {
       ...platforms[0] && { platform_id: { $in: platforms } },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } }
     }).sort({ 'time.start': 1 })
-      .lean();
+      .lean()
+      .exec();
 
     memcache.set(CACHE_KEY, uncachedVideos, 60);
     return uncachedVideos;

@@ -46,7 +46,8 @@ export async function videos(_, query: VideoQuery) {
       ...platforms[0] && { platform_id: { $in: platforms } },
       ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + max_upcoming_mins } }
     }).sort({ [`time.${ORDER_KEY}`]: ORDER_VALUE })
-      .limit(limit);
+      .limit(limit)
+      .exec();
 
     memcache.set(CACHE_KEY, uncachedVideos, 60);
     return uncachedVideos;

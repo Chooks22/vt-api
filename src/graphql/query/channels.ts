@@ -44,7 +44,8 @@ export async function channels(_, query: ChannelsQuery) {
       ...platforms[0] && { platform_id: { $in: platforms } }
     }).sort(ORDER_BY)
       .limit(limit)
-      .lean();
+      .lean()
+      .exec();
 
     memcache.set(CACHE_KEY, uncachedChannels, CACHE_TTL);
     return uncachedChannels;
