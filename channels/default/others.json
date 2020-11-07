@@ -311,5 +311,181 @@
     "details": {
       "twitter": "ProjektMelody"
     }
+  },
+  {
+    "name": {
+      "en": "Nijino Mahoro",
+      "jp": "虹乃まほろ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCtCXaX0zEvYSgdkp-Po24TQ",
+    "details": {
+      "twitter": "nijinomahoro"
+    }
+  },
+  {
+    "name": {
+      "en": "Kawashima Himawari",
+      "jp": "夏恋ひまわり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCPkhI1WcLilaKu44B5p0jZg",
+    "details": {
+      "twitter": "HIMA_ASMR"
+    }
+  },
+  {
+    "name": {
+      "en": "Choko",
+      "jp": "ちょこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCoupL81t75_Z4XRKzOSHLbg",
+    "details": {
+      "twitter": "cho_v_ko"
+    }
+  },
+  {
+    "name": {
+      "en": "Mameko",
+      "jp": "まめこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCxI2sKOL2JPX0SQwwKZFafQ",
+    "details": {
+      "twitter": "munimuni_mameko"
+    }
+  },
+  {
+    "name": {
+      "en": "Takakura Muki",
+      "jp": "高倉むき"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCEYU-OEI9FnbeC5hna_cbhw",
+    "details": {
+      "twitter": "takamukikurage"
+    }
+  },
+  {
+    "name": {
+      "en": "Chiem",
+      "jp": "チエム"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCK-J76mePKSWV4Sl6zV1Eiw",
+    "details": {
+      "twitter": "_Chiem_"
+    }
+  },
+  {
+    "name": {
+      "en": "Otome Oto",
+      "jp": "乙女おと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCvEX2UICvFAa_T6pqizC20g",
+    "details": {
+      "twitter": "0tome0to"
+    }
+  },
+  {
+    "name": {
+      "en": "Otome Oto",
+      "jp": "乙女おと"
+    },
+    "platform_id": "bb",
+    "channel_id": "406805563",
+    "details": {
+      "twitter": "0tome0to"
+    }
+  },
+  {
+    "name": {
+      "en": "Hiseki Erio",
+      "jp": "緋赤エリオ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCQ7KYc1-IMQ8_Uz7XTE5DWw",
+    "details": {
+      "twitter": "hiseki_erio"
+    }
+  },
+  {
+    "name": {
+      "en": "Amaori Hikaru",
+      "jp": "天居ひかる"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCORH-VrhMk_S24HzI0jSQEA",
+    "details": {
+      "twitter": "HikaruAmaori"
+    }
+  },
+  {
+    "name": {
+      "en": "Komori Chiyu",
+      "jp": "古守ちゆ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBIR44irWpj1eTx0ZQFofHg",
+    "details": {
+      "twitter": "komori_chiyu"
+    }
+  },
+  {
+    "name": {
+      "en": "Tetra",
+      "jp": "テトラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC5u-VD8k8i8xneMtnWet_9Q",
+    "details": {
+      "twitter": "Tetra_VTuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Korone Pochi",
+      "jp": "ころね ぽち"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCv2byPgvl60Mh1vQBnXuksA",
+    "details": {
+      "twitter": "virtualcat_poch"
+    }
+  },
+  {
+    "name": {
+      "en": "Alice White",
+      "jp": "アリス・ホワイト"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3M6qo4pfbnqDJGEREpf-RA",
+    "details": {
+      "twitter": "alice_white_V"
+    }
+  },
+  {
+    "name": {
+      "en": "Fumigami Nanana",
+      "jp": "風紙七鳴"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCOozmdnOhOrk3mojTazi-TQ",
+    "details": {
+      "twitter": "fugaminanana"
+    }
+  },
+  {
+    "name": {
+      "en": "Ouma Yuu",
+      "jp": "おうまゆう"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCw8bMzcXgX4SAQPraOJIVgA",
+    "details": {
+      "twitter": "oumayuu"
+    }
   }
 ]
