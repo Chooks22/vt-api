@@ -1,6 +1,10 @@
 import { gql } from 'apollo-server';
 
 export const typeDef = gql`
+  type ChannelsResource {
+    items: [ChannelObject]!
+    next_page_token: String
+  }
   type ChannelObject {
     _id: ID!
     name: Names!
@@ -43,8 +47,9 @@ export const typeDef = gql`
       platforms: [PlatformId]
       channel_id: [ID]
       order_by: SortChannelsFields = { _id: asc }
+      next_page_token: String
       limit: Int = 25
-    ): [ChannelObject]
+    ): ChannelsResource!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
   }
 `;

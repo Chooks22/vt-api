@@ -1,6 +1,10 @@
 import { gql } from 'apollo-server';
 
 export const typeDef = gql`
+  type VideosResource {
+    items: [VideoObject]!
+    next_page_token: String
+  }
   type VideoObject {
     _id: ID!
     platform_id: PlatformId!
@@ -48,8 +52,9 @@ export const typeDef = gql`
       platforms: [PlatformId]
       max_upcoming_mins: Int = 0
       order_by: SortVideosFields = { published: asc }
+      next_page_token: String
       limit: Int = 25
-    ): [VideoObject]
+    ): VideosResource!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
   }
 `;
