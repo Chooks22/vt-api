@@ -1,5 +1,5 @@
 # VTuber API
-A Mongoose / GraphQL based API.
+A Mongoose / GraphQL based API to serve VTuber information from multiple platforms.
 
 ## Development
 * Prerequisites:
@@ -88,6 +88,22 @@ $ npm start
 }
 ```
 
+## Videos Resource
+```
+{
+  items: [VideoObject]!
+  next_page_token: String
+}
+```
+
+## Channels Resource
+```
+{
+  items: [ChannelObject]!
+  next_page_token: String
+}
+```
+
 ## Live Query
 ```
 {
@@ -112,8 +128,9 @@ $ npm start
       scheduled: asc|desc
       start: asc|desc
     }
+    next_page_token: String
     limit: Int // 1-50
-  ): [VideoObject]
+  ): VideosResource!
 }
 ```
 
@@ -130,15 +147,15 @@ $ npm start
       _id: asc|desc
       published_at: asc|desc
       subscribers: asc|desc
-      videos: asc|desc
     }
+    next_page_token: String
     limit: Int // 1-50
-  ): [ChannelObject]
+  ): ChannelsResource!
 }
 ```
 
 ##
 
 ## TO-DOs
-* Channels/Videos pagination
 * Implement twitch and bilibili apis
+* Better documentation
