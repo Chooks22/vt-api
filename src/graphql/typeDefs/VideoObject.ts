@@ -38,6 +38,7 @@ export const typeDef = gql`
     published: Sort
     scheduled: Sort
     start: Sort
+    duration: Sort
   }
   extend type Query {
     live(

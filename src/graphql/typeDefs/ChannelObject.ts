@@ -33,7 +33,6 @@ export const typeDef = gql`
     _id: Sort
     published_at: Sort
     subscribers: Sort
-    videos: Sort
   }
   enum Sort {
     asc
