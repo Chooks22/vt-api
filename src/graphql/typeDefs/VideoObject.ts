@@ -52,7 +52,7 @@ export const typeDef = gql`
       organizations: [String]
       platforms: [PlatformId]
       max_upcoming_mins: Int = 0
-      order_by: SortVideosFields = { published: asc }
+      order_by: SortVideosFields = { published: desc }
       next_page_token: String
       limit: Int = 25
     ): VideosResource!
