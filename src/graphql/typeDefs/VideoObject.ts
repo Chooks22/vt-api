@@ -16,10 +16,10 @@ export const typeDef = gql`
     viewers: Float
   }
   type Time {
-    published: Float
-    scheduled: Float
-    start: Float
-    end: Float
+    published: DateTime
+    scheduled: DateTime
+    start: DateTime
+    end: DateTime
     duration: Float
   }
   enum PlatformId {

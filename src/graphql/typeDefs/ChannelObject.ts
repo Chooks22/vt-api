@@ -24,7 +24,7 @@ export const typeDef = gql`
     cn: String
   }
   type ChannelStats {
-    published_at: Float
+    published_at: DateTime
     views: Float
     subscribers: Float
     videos: Float
