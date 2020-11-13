@@ -37,8 +37,8 @@ export async function videos(_, query: VideoQuery) {
     if (limit < 1 || limit > 50) {
       return new UserInputError('limit must be between 1-50 inclusive.');
     }
-    if (max_upcoming_mins < 0 || max_upcoming_mins > 480) {
-      return new UserInputError('max_upcoming_mins must be between 0-480 inclusive.');
+    if (max_upcoming_mins < 0 || max_upcoming_mins > 2880) {
+      return new UserInputError('max_upcoming_mins must be between 0-2880 inclusive.');
     }
     const ORGANIZATIONS = parseOrganization(organizations);
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
