@@ -74,9 +74,9 @@ function parseVideos(
     title,
     time: {
       published: new Date(publishedAt),
-      scheduled: new Date(scheduledStartTime) || null,
-      start: new Date(actualStartTime) || null,
-      end: new Date(actualEndTime) || null
+      scheduled: scheduledStartTime ? new Date(scheduledStartTime) : undefined,
+      start: actualStartTime ? new Date(actualStartTime) : undefined,
+      end: actualEndTime ? new Date(actualEndTime) : undefined
     },
     status: getVideoStatus(liveStreamingDetails),
     viewers: +concurrentViewers || null,
