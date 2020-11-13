@@ -1,10 +1,12 @@
 import { gql } from 'apollo-server';
 import { GraphQLJSON } from 'graphql-type-json';
+import { GraphQLDateTime } from 'graphql-iso-date';
 import { Query } from './query';
 import { typeDefs as types } from './typeDefs';
 
 const root = gql`
   scalar JSON
+  scalar DateTime
   type Query {
     root: String
   }
@@ -20,5 +22,6 @@ const root = gql`
 export const typeDefs = types.concat(root);
 export const resolvers = {
   JSON: GraphQLJSON,
+  DateTime: GraphQLDateTime,
   Query
 };
