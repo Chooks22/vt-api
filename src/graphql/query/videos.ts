@@ -58,6 +58,7 @@ export async function videos(_, query: VideoQuery) {
       ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + max_upcoming_mins } }
     }).sort(orderBy)
       .limit(limit + 1)
+      .lean()
       .exec();
 
     const results = {
