@@ -465,5 +465,49 @@
     "details": {
       "twitter": "oumayuu"
     }
+  },
+  {
+    "name": {
+      "en": "Iida Pochi",
+      "jp": "飯田ぽち"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC22BVlBsZc6ta3Dqz75NU6Q",
+    "details": {
+      "twitter": "lizhi3"
+    }
+  },
+  {
+    "name": {
+      "en": "Yukimaru Sen",
+      "jp": "雪丸仟"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCsVUXbx_h0YEvfH41Zwa_5w",
+    "details": {
+      "twitter": "yukimarusen"
+    }
+  },
+  {
+    "name": {
+      "en": "Ashieda Lenri",
+      "jp": "芦枝レンリ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCOrjRyXJpMzfQFLWuWzGwlg",
+    "details": {
+      "twitter": ""
+    }
+  },
+  {
+    "name": {
+      "en": "Natsume Ulta",
+      "jp": "夏梅ウルタ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCghSSXNbZRmPAv3UaS8g21A",
+    "details": {
+      "twitter": "natsume_ulta"
+    }
   }
 ]
