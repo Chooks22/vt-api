@@ -40,6 +40,7 @@ export async function videos(_, query: VideoQuery) {
     if (max_upcoming_mins < 0 || max_upcoming_mins > 2880) {
       return new UserInputError('max_upcoming_mins must be between 0-2880 inclusive.');
     }
+    const MAX_UPCOMING = max_upcoming_mins * 6e4;
     const ORGANIZATIONS = parseOrganization(organizations);
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
@@ -55,7 +56,7 @@ export async function videos(_, query: VideoQuery) {
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
       ...platforms[0] && { platform_id: { $in: platforms } },
-      ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + max_upcoming_mins } }
+      ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + MAX_UPCOMING } }
     }).sort(orderBy)
       .limit(limit + 1)
       .lean()
