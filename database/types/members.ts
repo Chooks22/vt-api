@@ -21,8 +21,8 @@ export interface MemberObject {
     twitter?: TwitterHandle;
     [key: string]: unknown;
   };
-  crawled_at?: number;
-  updated_at?: number;
+  crawled_at?: Date;
+  updated_at?: Date;
 }
 
 export interface MemberProps extends Document, MemberObject {

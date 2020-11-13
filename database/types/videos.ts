@@ -11,15 +11,15 @@ export interface VideoObject {
   organization?: string;
   title: string;
   time?: {
-    published?: number;
-    scheduled?: number;
-    start?: number;
-    end?: number;
+    published?: Date;
+    scheduled?: Date;
+    start?: Date;
+    end?: Date;
     duration?: number;
   };
   status?: VideoStatus;
   viewers?: number;
-  updated_at?: number;
+  updated_at?: Date;
 }
 
 export interface VideoProps extends Document, VideoObject {

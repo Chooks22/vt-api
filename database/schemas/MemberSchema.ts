@@ -19,6 +19,6 @@ export const MemberSchema = new Schema({
     unique: true
   },
   'details': Schema.Types.Mixed,
-  'crawled_at': Number,
-  'updated_at': Number
+  'crawled_at': Date,
+  'updated_at': Date
 });

@@ -13,14 +13,14 @@ export interface ChannelObject {
     [key: string]: unknown;
   };
   channel_stats?: {
-    published_at?: number;
+    published_at?: Date;
     views?: number;
     subscribers?: number;
     videos?: number;
   };
   description?: string;
   thumbnail?: string;
-  updated_at?: number;
+  updated_at?: Date;
 }
 
 export interface ChannelProps extends ChannelObject, Document {

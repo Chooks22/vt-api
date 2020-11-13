@@ -20,13 +20,13 @@ export const VideoSchema = new Schema({
     required: true
   },
   'time': new Schema({
-    'published': Number,
-    'scheduled': Number,
-    'start': Number,
-    'end': Number,
+    'published': Date,
+    'scheduled': Date,
+    'start': Date,
+    'end': Date,
     'duration': {
       type: Number,
-      default: function(this: {start: string; end: string;}) {
+      default: function(this: {start: Date; end: Date;}) {
         if (this.start && this.end) {
           return +this.end - +this.start;
         }
@@ -39,5 +39,5 @@ export const VideoSchema = new Schema({
     required: true
   },
   'viewers': Number,
-  'updated_at': Number
+  'updated_at': Date
 });
