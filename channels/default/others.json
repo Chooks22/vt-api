@@ -402,17 +402,6 @@
   },
   {
     "name": {
-      "en": "Hiseki Erio",
-      "jp": "緋赤エリオ"
-    },
-    "platform_id": "yt",
-    "channel_id": "UCQ7KYc1-IMQ8_Uz7XTE5DWw",
-    "details": {
-      "twitter": "hiseki_erio"
-    }
-  },
-  {
-    "name": {
       "en": "Amaori Hikaru",
       "jp": "天居ひかる"
     },
@@ -420,17 +409,6 @@
     "channel_id": "UCORH-VrhMk_S24HzI0jSQEA",
     "details": {
       "twitter": "HikaruAmaori"
-    }
-  },
-  {
-    "name": {
-      "en": "Komori Chiyu",
-      "jp": "古守ちゆ"
-    },
-    "platform_id": "yt",
-    "channel_id": "UCBIR44irWpj1eTx0ZQFofHg",
-    "details": {
-      "twitter": "komori_chiyu"
     }
   },
   {
