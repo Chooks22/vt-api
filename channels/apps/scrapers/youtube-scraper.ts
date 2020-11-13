@@ -18,7 +18,7 @@ export default async function(channelData: MemberObject): Promise<['FAIL'|'OK', 
   }
   logger.info(`Got ${channelVideoList.length} videos from ${channel_id}`);
   database.emit('save-videos', channelVideoList);
-  database.emit('update-member', { channel_id, crawled_at: Date.now() });
+  database.emit('update-member', { channel_id, crawled_at: new Date() });
   return ['OK', channelVideoList.length];
 }
 
@@ -73,14 +73,14 @@ function parseVideos(
     organization,
     title,
     time: {
-      published: +new Date(publishedAt),
-      scheduled: +new Date(scheduledStartTime) || null,
-      start: +new Date(actualStartTime) || null,
-      end: +new Date(actualEndTime) || null
+      published: new Date(publishedAt),
+      scheduled: new Date(scheduledStartTime) || null,
+      start: new Date(actualStartTime) || null,
+      end: new Date(actualEndTime) || null
     },
     status: getVideoStatus(liveStreamingDetails),
     viewers: +concurrentViewers || null,
-    updated_at: Date.now()
+    updated_at: new Date()
   };
 }
 

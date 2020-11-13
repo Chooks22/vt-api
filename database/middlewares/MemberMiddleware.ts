@@ -10,7 +10,7 @@ async function getId(increment = true) {
 }
 
 MemberSchema.pre<MemberProps>('save', async function() {
-  this.updated_at = Date.now();
+  this.updated_at = new Date();
   if (this.isNew) this._id = await getId();
 });
 

@@ -45,7 +45,7 @@ const parseAndMergeChannelData = (
   channel_name: snippet.title,
   channel_id: memberData.channel_id,
   channel_stats: {
-    published_at: +new Date(snippet.publishedAt),
+    published_at: new Date(snippet.publishedAt),
     subscribers: +statistics.subscriberCount || 0,
     videos: +statistics.videoCount,
     views: +statistics.viewCount
