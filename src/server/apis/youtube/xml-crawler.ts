@@ -37,7 +37,7 @@ class XmlScraper {
     return parsedString.feed.entry.map(this.parseEntries.bind(this)).sort(this.videoSorter);
   }
   private videoSorter(video1: YoutubeVideoObject, video2: YoutubeVideoObject) {
-    return video2.crawled_at - video1.crawled_at;
+    return +video2.crawled_at - +video1.crawled_at;
   }
   private parseEntries(entry: VideoXmlEntry): YoutubeVideoObject {
     return {
@@ -47,7 +47,7 @@ class XmlScraper {
       organization: this.organization,
       title: entry.title,
       status: 'new',
-      crawled_at: +new Date(entry.published)
+      crawled_at: new Date(entry.published)
     };
   }
 }

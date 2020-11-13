@@ -51,10 +51,10 @@ function parseVideo(
     channel_id: channelId,
     title,
     time: {
-      published: +new Date(publishedAt),
-      scheduled: +new Date(scheduledStartTime) || null,
-      start: +new Date(actualStartTime) || null,
-      end: +new Date(actualEndTime) || null
+      published: new Date(publishedAt),
+      scheduled: new Date(scheduledStartTime) || null,
+      start: new Date(actualStartTime) || null,
+      end: new Date(actualEndTime) || null
     },
     status: getVideoStatus(liveStreamingDetails),
     viewers: +concurrentViewers || null

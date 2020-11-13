@@ -22,7 +22,7 @@ export interface YoutubeVideoObject extends VideoObject {
   platform_id: 'yt';
   channel_id: YoutubeChannelId;
   organization?: string;
-  crawled_at?: number;
+  crawled_at?: Date;
 }
 // #endregion Youtube Video
 // #region Youtube Channel
@@ -30,7 +30,7 @@ export interface YoutubeChannelData {
   channel_name: string;
   channel_id: YoutubeChannelId;
   channel_stats: {
-    published_at: number;
+    published_at: Date;
     views: number;
     subscribers: number;
     videos: number;

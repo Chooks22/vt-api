@@ -38,7 +38,7 @@ const parseYoutubeChannelData = (
     channel_id: id,
     channel_name: title,
     channel_stats: {
-      published_at: +new Date(publishedAt),
+      published_at: new Date(publishedAt),
       subscribers: +subscriberCount || 0,
       videos: +videoCount,
       views: +viewCount
