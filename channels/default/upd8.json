@@ -1,0 +1,340 @@
+[
+  {
+    "name": {
+      "en": "Shibuya HAL",
+      "jp": "渋谷ハル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChLfthKoUV502J7gU9STArg",
+    "details": {
+      "twitter": "ShibuyaHAL"
+    }
+  },
+  {
+    "name": {
+      "en": "Shibuya HAL",
+      "jp": "渋谷ハル"
+    },
+    "platform_id": "bb",
+    "channel_id": "shibuyahal",
+    "details": {
+      "twitter": "ShibuyaHAL"
+    }
+  },
+  {
+    "name": {
+      "en": "Omega Sisters",
+      "jp": "おめがシスターズ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCNjTjd2-PMC8Oo_-dCEss7A",
+    "details": {
+      "twitter": "omesis_rio"
+    }
+  },
+  {
+    "name": {
+      "en": "Kimino Miya",
+      "jp": "キミノミヤ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCg8TPE5nLLOqlNnBivmQwww",
+    "details": {
+      "twitter": "MIYA_KIMINO"
+    }
+  },
+  {
+    "name": {
+      "en": "Choueki Tarou",
+      "jp": "懲役太郎"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC0e6zo8oX6ISSBjPaSZsjeA",
+    "details": {
+      "twitter": "choueki_tarou"
+    }
+  },
+  {
+    "name": {
+      "en": "Yuugiri",
+      "jp": "由宇霧"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCMxKcUjeTEcgHmC9Zzn3R4w",
+    "details": {
+      "twitter": "oiran_yugiri"
+    }
+  },
+  {
+    "name": {
+      "en": "Kerin",
+      "jp": "ケリン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCeAfiVvEuyICYJW-f3GnQjQ",
+    "details": {
+      "twitter": "Kerin_Vtuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Utai Meika",
+      "jp": "歌衣メイカ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7-N7MvN5muVIHqyQx9LFbA",
+    "details": {
+      "twitter": "makeagames2018"
+    }
+  },
+  {
+    "name": {
+      "en": "Kashiko Mari",
+      "jp": "かしこまり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCfiK42sBHraMBK6eNWtsy7A",
+    "details": {
+      "twitter": "kashikomari_ch"
+    }
+  },
+  {
+    "name": {
+      "en": "Tomari Mari",
+      "jp": "兎鞠まり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCkPIfBOLoO0hVPG-tI2YeGg",
+    "details": {
+      "twitter": "tomari_mari"
+    }
+  },
+  {
+    "name": {
+      "en": "MonsterZ MATE"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCDG8K9g6qo8gX4jCjsqUVzA",
+    "details": {
+      "twitter": "monsterzmate"
+    }
+  },
+  {
+    "name": {
+      "en": "Nora Cat",
+      "jp": "のらきゃっと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3iwL9Yz8LcKkJsnLPevOTQ",
+    "details": {
+      "twitter": "VR_Girl_NoraCat"
+    }
+  },
+  {
+    "name": {
+      "en": "Fukuya Master",
+      "jp": "ふくやマスター"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCXzcu59Cbu-hkpNNXnNiKDg",
+    "details": {
+      "twitter": "lesupo_ru321id"
+    }
+  },
+  {
+    "name": {
+      "en": "Mao Magurona",
+      "jp": "魔王マグロナ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCPf-EnX70UM7jqjKwhDmS8g",
+    "details": {
+      "twitter": "ukyo_rst"
+    }
+  },
+  {
+    "name": {
+      "en": "Coco Tsuki",
+      "jp": "ココツキ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCH1B9AR8sfWJVf9zcu9rbGg",
+    "details": {
+      "twitter": "CocoTsuki_Mane"
+    }
+  },
+  {
+    "name": {
+      "en": "Utagoe Housoubu",
+      "jp": "ウタゴエ放送部"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC84RYorF7UcJzt_iAYXBisA",
+    "details": {
+      "twitter": "lara_songs"
+    }
+  },
+  {
+    "name": {
+      "en": "Hibiki Ao",
+      "jp": "響木アオ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCNwo7eikmX5HPs7NedWVBgw",
+    "details": {
+      "twitter": "hibiki_ao"
+    }
+  },
+  {
+    "name": {
+      "en": "Nijikawa Laki",
+      "jp": "虹河ラキ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCp77Qho-YHhnklRr-DkjiOw",
+    "details": {
+      "twitter": "nijikawa_laki"
+    }
+  },
+  {
+    "name": {
+      "en": "Kasukabe Tsukushi",
+      "jp": "春日部つくし"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCHccxX2p_9DB_HPnXSb2omw",
+    "details": {
+      "twitter": "kasukaBe_nyoki"
+    }
+  },
+  {
+    "name": {
+      "en": "Sakurazuki Kanon",
+      "jp": "桜月花音"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3-jXrZXv-PQshpaTQpicPQ",
+    "details": {
+      "twitter": "SakurazukiKanon"
+    }
+  },
+  {
+    "name": {
+      "en": "Yoruno Neon",
+      "jp": "夜乃ネオン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCLQIMDHNE0ZGAiHIdMbq7dw",
+    "details": {
+      "twitter": "NeonNight_exe"
+    }
+  },
+  {
+    "name": {
+      "en": "Virtual Neko",
+      "jp": "バーチャルねこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCKDHdDpoE9lurDuyAGAuNnw",
+    "details": {
+      "twitter": "neko_vtuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Icotsu"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCGFD_8TRHhlpjfqGhLUSk4g",
+    "details": {
+      "twitter": "Vtuber_Icotsu"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiotenshi Rieru",
+      "jp": "塩天使リエル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCE5rWcDxLPaaUFWOxzJFfNg",
+    "details": {
+      "twitter": "VAngelf_Riel"
+    }
+  },
+  {
+    "name": {
+      "en": "KON",
+      "jp": "空"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCyZZMKRn-mUEkPzaqa9b6bg",
+    "details": {
+      "twitter": "kwa_kon"
+    }
+  },
+  {
+    "name": {
+      "en": "Deratohadou",
+      "jp": "デラとハドウ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC0QzO6nK1cEDZvJSt2769Zw",
+    "details": {
+      "twitter": "harddeluxe"
+    }
+  },
+  {
+    "name": {
+      "en": "Moscow Mule",
+      "jp": "モスコミュール"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCX7WYPXASkYUm2GyomLllIg",
+    "details": {
+      "twitter": "Moscow_ojisan"
+    }
+  },
+  {
+    "name": {
+      "en": "upd8"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBsrAA8Z_6Ot3my0vM8dlvg",
+    "details": {
+      "twitter": "project_upd8"
+    }
+  },
+  {
+    "name": {
+      "en": "Hanagasa Iria",
+      "jp": "花笠イリヤ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCigpSsgPbdCxXtbfGksFIYQ",
+    "details": {
+      "twitter": "ilya_cheriko"
+    }
+  },
+  {
+    "name": {
+      "en": "Engine Kazumi",
+      "jp": "エンジンかずみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCZk6mxfTpjuuxgqxuFBJO_g",
+    "details": {
+      "twitter": "Engine_Kazumi"
+    }
+  },
+  {
+    "name": {
+      "en": "Nishikiyama Mutaka",
+      "jp": "錦山夢鷹"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCil-nSDmDTgV9n4jjb95znw",
+    "details": {
+      "twitter": "mutaka_cheriko"
+    }
+  }
+]

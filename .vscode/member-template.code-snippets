@@ -1,0 +1,21 @@
+{
+	"Channel Template": {
+		"scope": "json",
+		"prefix": "member",
+		"body": [
+			"{",
+			"  \"name\": {",
+			"    \"en\": \"$1\",",
+			"    \"jp\": \"$2\",",
+			"    \"kr\": \"$3\",",
+			"    \"cn\": \"$4\"",
+			"  },",
+			"  \"platform_id\": \"${5|yt,bb,tt|}\",",
+			"  \"channel_id\": \"$6\",",
+			"  \"details\": {",
+			"    \"twitter\": \"$7\"",
+			"  }",
+			"}"
+		]
+	}
+}

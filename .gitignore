@@ -1,3 +1,4 @@
 .env
-.keys.json
+dist
+channels/organizations
 node_modules
