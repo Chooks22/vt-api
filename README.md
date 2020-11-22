@@ -110,6 +110,7 @@ $ npm start
   live(
     organizations: [String]
     platforms: [PlatformId]
+    exclude_organizations: [String]
   ): [VideoObject]
 }
 ```
