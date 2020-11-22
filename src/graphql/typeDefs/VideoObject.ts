@@ -43,6 +43,7 @@ export const typeDef = gql`
   extend type Query {
     live(
       organizations: [String]
+      exclude_organizations: [String]
       platforms: [PlatformId]
     ): [VideoObject]!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
