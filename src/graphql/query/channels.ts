@@ -66,7 +66,6 @@ export async function channels(_, query: ChannelsQuery) {
 
     const results = {
       items: uncachedChannels,
-      prev_page_token: page_token || null,
       next_page_token: null,
       page_info: {
         total_results: channelCount,

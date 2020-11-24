@@ -7,7 +7,6 @@ export const typeDef = gql`
   }
   type VideosResource {
     items: [VideoObject]!
-    prev_page_token: String
     next_page_token: String
     page_info: PageInfo!
   }

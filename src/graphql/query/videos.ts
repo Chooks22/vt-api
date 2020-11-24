@@ -69,7 +69,6 @@ export async function videos(_, query: VideoQuery) {
 
     const results = {
       items: uncachedVideos,
-      prev_page_token: page_token || null,
       next_page_token: null,
       page_info: {
         total_results: videoCount,
