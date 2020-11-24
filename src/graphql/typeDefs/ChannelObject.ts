@@ -48,7 +48,7 @@ export const typeDef = gql`
       platforms: [PlatformId]
       channel_id: [ID]
       order_by: SortChannelsFields = { _id: asc }
-      next_page_token: String
+      page_token: String
       limit: Int = 25
     ): ChannelsResource!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")

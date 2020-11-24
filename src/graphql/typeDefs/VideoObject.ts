@@ -60,7 +60,7 @@ export const typeDef = gql`
       platforms: [PlatformId]
       max_upcoming_mins: Int = 0
       order_by: SortVideosFields = { published: desc }
-      next_page_token: String
+      page_token: String
       limit: Int = 25
     ): VideosResource!
     @rateLimit(window: "1s", max: 10, message: "You are doing that too often.")
