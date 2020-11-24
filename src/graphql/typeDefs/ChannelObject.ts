@@ -3,7 +3,9 @@ import { gql } from 'apollo-server';
 export const typeDef = gql`
   type ChannelsResource {
     items: [ChannelObject]!
+    prev_page_token: String
     next_page_token: String
+    page_info: PageInfo!
   }
   type ChannelObject {
     _id: ID!

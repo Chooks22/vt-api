@@ -1,9 +1,15 @@
 import { gql } from 'apollo-server';
 
 export const typeDef = gql`
+  type PageInfo {
+    total_results: Int!
+    results_per_page: Int!
+  }
   type VideosResource {
     items: [VideoObject]!
+    prev_page_token: String
     next_page_token: String
+    page_info: PageInfo!
   }
   type VideoObject {
     _id: ID!
