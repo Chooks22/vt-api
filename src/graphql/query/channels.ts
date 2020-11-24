@@ -47,21 +47,31 @@ export async function channels(_, query: ChannelsQuery) {
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
 
-    const uncachedChannels = await Channels.find({
+    const QUERY = {
       _id: { [_id[0] ? '$in' : '$nin']: _id },
       ...next_page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(next_page_token) } },
       ...name && { $or: getNameQueries(name) },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...platforms[0] && { platform_id: { $in: platforms } }
-    }).sort(sortBy)
+    };
+
+    const channelCount = await Channels.countDocuments(QUERY);
+    const uncachedChannels = await Channels
+      .find(QUERY)
+      .sort(sortBy)
       .limit(limit + 1)
       .lean()
       .exec();
 
     const results = {
       items: uncachedChannels,
-      next_page_token: null
+      prev_page_token: next_page_token || null,
+      next_page_token: null,
+      page_info: {
+        total_results: channelCount,
+        results_per_page: limit
+      }
     };
 
     const hasNextPage = uncachedChannels.length > limit && results.items.pop();

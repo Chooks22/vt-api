@@ -50,21 +50,31 @@ export async function videos(_, query: VideoQuery) {
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
 
-    const uncachedVideos = await Videos.find({
+    const QUERY: any = { // any because typescript gets mad for some reason.
       status: status[0] ? { $in: status } : { $ne: 'missing' },
       ...next_page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(next_page_token) } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
       ...platforms[0] && { platform_id: { $in: platforms } },
       ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + MAX_UPCOMING } }
-    }).sort(orderBy)
+    };
+
+    const videoCount = await Videos.countDocuments(QUERY);
+    const uncachedVideos = await Videos
+      .find(QUERY)
+      .sort(orderBy)
       .limit(limit + 1)
       .lean()
       .exec();
 
     const results = {
       items: uncachedVideos,
-      next_page_token: null
+      prev_page_token: next_page_token || null,
+      next_page_token: null,
+      page_info: {
+        total_results: videoCount,
+        results_per_page: limit
+      }
     };
 
     const hasNextPage = uncachedVideos.length > limit && results.items.pop();
