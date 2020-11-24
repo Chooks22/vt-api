@@ -18,7 +18,7 @@ interface VideoQuery {
   platforms: PlatformId[];
   max_upcoming_mins: number;
   order_by: SortBy;
-  next_page_token: string;
+  page_token: string;
   limit: number;
 }
 
@@ -30,7 +30,7 @@ export async function videos(_, query: VideoQuery) {
       organizations = [],
       platforms = [],
       max_upcoming_mins,
-      next_page_token = '',
+      page_token = '',
       limit
     } = query;
 
@@ -45,14 +45,14 @@ export async function videos(_, query: VideoQuery) {
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
     const orderBy = { [`time.${ORDER_KEY}`]: ORDER_VALUE };
-    const CACHE_KEY = getCacheKey(`VIDS:${channel_id}${status}${organizations}${platforms}${max_upcoming_mins}${ORDER_BY_KEY}${limit}${next_page_token}`);
+    const CACHE_KEY = getCacheKey(`VIDS:${channel_id}${status}${organizations}${platforms}${max_upcoming_mins}${ORDER_BY_KEY}${limit}${page_token}`);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
 
     const QUERY: any = { // any because typescript gets mad for some reason.
       status: status[0] ? { $in: status } : { $ne: 'missing' },
-      ...next_page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(next_page_token) } },
+      ...page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
       ...platforms[0] && { platform_id: { $in: platforms } },
@@ -69,7 +69,7 @@ export async function videos(_, query: VideoQuery) {
 
     const results = {
       items: uncachedVideos,
-      prev_page_token: next_page_token || null,
+      prev_page_token: page_token || null,
       next_page_token: null,
       page_info: {
         total_results: videoCount,

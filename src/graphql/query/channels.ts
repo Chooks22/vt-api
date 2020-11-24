@@ -19,7 +19,7 @@ interface ChannelsQuery {
   platforms: PlatformId[];
   channel_id: ChannelId[];
   order_by: OrderBy;
-  next_page_token: string;
+  page_token: string;
   limit: number;
 }
 
@@ -31,7 +31,7 @@ export async function channels(_, query: ChannelsQuery) {
       organizations = [],
       channel_id = [],
       platforms = [],
-      next_page_token = '',
+      page_token = '',
       limit
     } = query;
     if (limit < 1 || limit > 50) {
@@ -42,14 +42,14 @@ export async function channels(_, query: ChannelsQuery) {
     const sortById = ORDER_KEY === '_id';
     const sortBy = sortById ? ORDER_BY : { [`channel_stats.${ORDER_KEY}`]: ORDER_VALUE };
     const ORGANIZATIONS = parseOrganization(organizations);
-    const CACHE_KEY = getCacheKey(`CHNLS:${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${limit}${ORDER_BY_KEY}${next_page_token}`, false);
+    const CACHE_KEY = getCacheKey(`CHNLS:${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${limit}${ORDER_BY_KEY}${page_token}`, false);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
 
     const QUERY = {
       _id: { [_id[0] ? '$in' : '$nin']: _id },
-      ...next_page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(next_page_token) } },
+      ...page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...name && { $or: getNameQueries(name) },
       ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
@@ -66,7 +66,7 @@ export async function channels(_, query: ChannelsQuery) {
 
     const results = {
       items: uncachedChannels,
-      prev_page_token: next_page_token || null,
+      prev_page_token: page_token || null,
       next_page_token: null,
       page_info: {
         total_results: channelCount,
