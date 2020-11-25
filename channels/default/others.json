@@ -509,5 +509,16 @@
     "details": {
       "twitter": "natsume_ulta"
     }
+  },
+  {
+    "name": {
+      "en": "Annin Miru",
+      "jp": "杏仁ミル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCFahBR2wixu0xOex84bXFvg",
+    "details": {
+      "twitter": "AnninMirudayo"
+    }
   }
 ]
