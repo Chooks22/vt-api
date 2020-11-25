@@ -1,0 +1,68 @@
+[
+  {
+    "name": {
+      "en": "Yomemi",
+      "jp": "ヨメミ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCy5lOmEQoivK5XK7QCaRKug",
+    "details": {
+      "twitter": "APP_Yomemi"
+    }
+  },
+  {
+    "name": {
+      "en": "Yomemi",
+      "jp": "ヨエミ"
+    },
+    "platform_id": "bb",
+    "channel_id": "292044559",
+    "details": {
+      "twitter": "APP_Yomemi"
+    }
+  },
+  {
+    "name": {
+      "en": "Natsumi Moe",
+      "jp": "夏実萌恵"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBePKUYNhoMcjBi-BRmjarQ",
+    "details": {
+      "twitter": "Vtuber_Moe"
+    }
+  },
+  {
+    "name": {
+      "en": "Natsumi Moe",
+      "jp": "夏実萌恵"
+    },
+    "platform_id": "tt",
+    "channel_id": "natsumi_moe",
+    "details": {
+      "twitter": "Vtuber_Moe"
+    }
+  },
+  {
+    "name": {
+      "en": "Étra",
+      "jp": "エトラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAHXqn4nAd2j3LRu1Qyi_JA",
+    "details": {
+      "twitter": "etra_ASI"
+    }
+  },
+  {
+    "name": {
+      "en": "Moemi",
+      "jp": "嫁ノ萌実"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCIwHOJn_3QjBTwQ_gNj7WRA",
+    "details": {
+      "twitter": "Moemi_Yomeno"
+    }
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "name": {
+      "en": "Amano Pikamee",
+      "jp": "天野ピカミィ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCajhBT4nMrg3DLS-bLL2RCg",
+    "details": {
+      "twitter": "amanopikamee"
+    }
+  },
+  {
+    "name": {
+      "en": "Amano Pikamee",
+      "jp": "天野ピカミィ"
+    },
+    "platform_id": "tt",
+    "channel_id": "pikameeamano",
+    "details": {
+      "twitter": "amanopikamee"
+    }
+  },
+  {
+    "name": {
+      "en": "Hikasa Tomoshika",
+      "jp": "緋笠トモシカ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3vzVK_N_SUVKqbX69L_X4g",
+    "details": {
+      "twitter": "Tomoshika_H"
+    }
+  },
+  {
+    "name": {
+      "en": "Jitomi Monoe",
+      "jp": "磁富モノエ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCaFhsCKSSS821N-EcWmPkUQ",
+    "details": {
+      "twitter": "Jitomi_Monoe"
+    }
+  }
+]

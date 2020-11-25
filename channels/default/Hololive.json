@@ -1,0 +1,1371 @@
+[
+  {
+    "name": {
+      "en": "Tokino Sora",
+      "jp": "ときのそら",
+      "cn": "时乃空"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCp6993wxpyDPHUpavwDFqgg",
+    "details": {
+      "twitter": "tokino_sora",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Tokino Sora",
+      "jp": "ときのそら",
+      "cn": "时乃空"
+    },
+    "platform_id": "bb",
+    "channel_id": "286179206",
+    "details": {
+      "twitter": "tokino_sora",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Roboco-san",
+      "jp": "ロボ子さん",
+      "cn": "萝卜子"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCDqI2jOz0weumE8s7paEk6g",
+    "details": {
+      "twitter": "robocosan",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Roboco-san",
+      "jp": "ロボ子さん",
+      "cn": "萝卜子"
+    },
+    "platform_id": "bb",
+    "channel_id": "20813493",
+    "details": {
+      "twitter": "robocosan",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Sakura Miko",
+      "jp": "さくらみこ",
+      "cn": "樱巫女"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC-hM6YJuNYVAmUWxeIr9FeA",
+    "details": {
+      "twitter": "sakuramiko35",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Sakura Miko",
+      "jp": "さくらみこ",
+      "cn": "樱巫女"
+    },
+    "platform_id": "bb",
+    "channel_id": "366690056",
+    "details": {
+      "twitter": "sakuramiko35",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Hoshimachi Suisei",
+      "jp": "星街すいせい",
+      "cn": "星街彗星"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC5CwaMl1eIgY8h02uZw7u8A",
+    "details": {
+      "twitter": "suisei_hosimati",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "Hoshimachi Suisei",
+      "jp": "星街すいせい",
+      "cn": "星街彗星"
+    },
+    "platform_id": "bb",
+    "channel_id": "9034870",
+    "details": {
+      "twitter": "suisei_hosimati",
+      "branch": "Hololive JP",
+      "group": "Gen 0"
+    }
+  },
+  {
+    "name": {
+      "en": "AZKi",
+      "jp": "AZKi"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC0TXe_LYZ4scaW2XMyi5_kw",
+    "details": {
+      "twitter": "AZKi_VDiVA",
+      "branch": "Hololive JP",
+      "group": "INoNaKa Music"
+    }
+  },
+  {
+    "name": {
+      "en": "Yozora Mel",
+      "jp": "夜空メル",
+      "cn": "夜空梅露"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCD8HOxPs4Xvsm8H0ZxXGiBw",
+    "details": {
+      "twitter": "yozoramel",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Yozora Mel",
+      "jp": "夜空メル",
+      "cn": "夜空梅露"
+    },
+    "platform_id": "bb",
+    "channel_id": "389856447",
+    "details": {
+      "twitter": "yozoramel",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirakami Fubuki",
+      "jp": "白上フブキ",
+      "cn": "白上吹雪"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCdn5BQ06XqgXoAxIhbqw5Rg",
+    "details": {
+      "twitter": "shirakamifubuki",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirakami Fubuki",
+      "jp": "白上フブキ",
+      "cn": "白上吹雪"
+    },
+    "platform_id": "bb",
+    "channel_id": "332704117",
+    "details": {
+      "twitter": "shirakamifubuki",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Natsuiro Matsuri",
+      "jp": "夏色まつり",
+      "cn": "夏色祭"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCQ0UDLQCjY0rmuxCDE38FGg",
+    "details": {
+      "twitter": "natsuiromatsuri",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Natsuiro Matsuri",
+      "jp": "夏色まつり",
+      "cn": "夏色祭"
+    },
+    "platform_id": "bb",
+    "channel_id": "336731767",
+    "details": {
+      "twitter": "natsuiromatsuri",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Aki Rosenthal",
+      "jp": "アキ・ローゼンタール",
+      "cn": "亚绮-罗森"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCFTLzh12_nrtzqBPsTCqenA",
+    "details": {
+      "twitter": "akirosenthal",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Aki Rosenthal",
+      "jp": "アキ・ローゼンタール",
+      "cn": "亚绮-罗森"
+    },
+    "platform_id": "bb",
+    "channel_id": "389857131",
+    "details": {
+      "twitter": "akirosenthal",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Akai Haato",
+      "jp": "赤井はあと",
+      "cn": "赤井心"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1CfXB_kRs3C-zaeTG3oGyg",
+    "details": {
+      "twitter": "akaihaato",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Akai Haato",
+      "jp": "赤井はあと",
+      "cn": "赤井心"
+    },
+    "platform_id": "bb",
+    "channel_id": "339567211",
+    "details": {
+      "twitter": "akaihaato",
+      "branch": "Hololive JP",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Minato Aqua",
+      "jp": "湊あくあ",
+      "cn": "湊-阿库娅"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1opHUrw8rvnsadT-iGp7Cg",
+    "details": {
+      "twitter": "minatoaqua",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Minato Aqua",
+      "jp": "湊あくあ",
+      "cn": "湊-阿库娅"
+    },
+    "platform_id": "bb",
+    "channel_id": "375504219",
+    "details": {
+      "twitter": "minatoaqua",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Murasaki Shion",
+      "jp": "紫咲シオン",
+      "cn": "紫咲诗音"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCXTpFs_3PqI41qX2d9tL2Rw",
+    "details": {
+      "twitter": "murasakishionch",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Murasaki Shion",
+      "jp": "紫咲シオン",
+      "cn": "紫咲诗音"
+    },
+    "platform_id": "bb",
+    "channel_id": "389857640",
+    "details": {
+      "twitter": "murasakishionch",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Nakiri Ayame",
+      "jp": "百鬼あやめ",
+      "cn": "百鬼绫目"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7fk0CB07ly8oSl0aqKkqFg",
+    "details": {
+      "twitter": "nakiriayame",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Nakiri Ayame",
+      "jp": "百鬼あやめ",
+      "cn": "百鬼绫目"
+    },
+    "platform_id": "bb",
+    "channel_id": "389858027",
+    "details": {
+      "twitter": "nakiriayame",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Yuzuki Choco",
+      "jp": "癒月ちょこ",
+      "cn": "癒月巧可"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1suqwovbL1kzsoaZgFZLKg",
+    "details": {
+      "twitter": "yuzukichococh",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Yuzuki Choco",
+      "jp": "癒月ちょこ",
+      "cn": "癒月巧可"
+    },
+    "platform_id": "bb",
+    "channel_id": "389858754",
+    "details": {
+      "twitter": "yuzukichococh",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Oozora Subaru",
+      "jp": "大空スバル",
+      "cn": "大空昴"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCvzGlP9oQwU--Y0r9id_jnA",
+    "details": {
+      "twitter": "oozorasubaru",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Oozora Subaru",
+      "jp": "大空スバル",
+      "cn": "大空昴"
+    },
+    "platform_id": "bb",
+    "channel_id": "389859190",
+    "details": {
+      "twitter": "oozorasubaru",
+      "branch": "Hololive JP",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Ookami Mio",
+      "jp": "大神ミオ",
+      "cn": "大神澪"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCp-5t9SrOQwXMU7iIjQfARg",
+    "details": {
+      "twitter": "ookamimio",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Ookami Mio",
+      "jp": "大神ミオ",
+      "cn": "大神澪"
+    },
+    "platform_id": "bb",
+    "channel_id": "389862071",
+    "details": {
+      "twitter": "ookamimio",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Nekomata Okayu",
+      "jp": "猫又おかゆ",
+      "cn": "猫又小粥"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCvaTdHTWBGv3MKj3KVqJVCw",
+    "details": {
+      "twitter": "nekomataokayu",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Nekomata Okayu",
+      "jp": "猫又おかゆ",
+      "cn": "猫又小粥"
+    },
+    "platform_id": "bb",
+    "channel_id": "412135222",
+    "details": {
+      "twitter": "nekomataokayu",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Inugami Korone",
+      "jp": "戌神ころね",
+      "cn": "戌神沁音"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChAnqc_AY5_I3Px5dig3X1Q",
+    "details": {
+      "twitter": "inugamikorone",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Inugami Korone",
+      "jp": "戌神ころね",
+      "cn": "戌神沁音"
+    },
+    "platform_id": "bb",
+    "channel_id": "412135619",
+    "details": {
+      "twitter": "inugamikorone",
+      "branch": "Hololive JP",
+      "group": "hololive GAMERS"
+    }
+  },
+  {
+    "name": {
+      "en": "Usada Pekora",
+      "jp": "兎田ぺこら",
+      "cn": "兔田佩克拉"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1DCedRgGHBdm81E1llLhOQ",
+    "details": {
+      "twitter": "usadapekora",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Usada Pekora",
+      "jp": "兎田ぺこら",
+      "cn": "兔田佩克拉"
+    },
+    "platform_id": "bb",
+    "channel_id": "443305053",
+    "details": {
+      "twitter": "usadapekora",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Uruha Rushia",
+      "jp": "潤羽るしあ",
+      "cn": "润羽露西娅"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCl_gCybOJRIgOXw6Qb4qJzQ",
+    "details": {
+      "twitter": "uruharushia",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Uruha Rushia",
+      "jp": "潤羽るしあ",
+      "cn": "润羽露西娅"
+    },
+    "platform_id": "bb",
+    "channel_id": "443300418",
+    "details": {
+      "twitter": "uruharushia",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiranui Flare",
+      "jp": "不知火フレア",
+      "cn": "不知火芙蕾雅"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCvInZx9h3jC2JzsIzoOebWg",
+    "details": {
+      "twitter": "shiranuiflare",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiranui Flare",
+      "jp": "不知火フレア",
+      "cn": "不知火芙蕾雅"
+    },
+    "platform_id": "bb",
+    "channel_id": "454737600",
+    "details": {
+      "twitter": "shiranuiflare",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirogane Noel",
+      "jp": "白銀ノエル",
+      "cn": "白银诺艾尔"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCdyqAaZDKHXg4Ahi7VENThQ",
+    "details": {
+      "twitter": "shiroganenoel",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirogane Noel",
+      "jp": "白銀ノエル",
+      "cn": "白银诺艾尔"
+    },
+    "platform_id": "bb",
+    "channel_id": "454733056",
+    "details": {
+      "twitter": "shiroganenoel",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Houshou Marine",
+      "jp": "宝鐘マリン",
+      "cn": "宝钟玛琳"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCCzUftO8KOVkV4wQG1vkUvg",
+    "details": {
+      "twitter": "houshoumarine",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Houshou Marine",
+      "jp": "宝鐘マリン",
+      "cn": "宝钟玛琳"
+    },
+    "platform_id": "bb",
+    "channel_id": "454955503",
+    "details": {
+      "twitter": "houshoumarine",
+      "branch": "Hololive JP",
+      "group": "Gen 3: Hololive Fantasy"
+    }
+  },
+  {
+    "name": {
+      "en": "Amane Kanata",
+      "jp": "天音かなた",
+      "cn": "天音彼方"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCZlDXzGoo7d44bwdNObFacg",
+    "details": {
+      "twitter": "amanekanatach",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Amane Kanata",
+      "jp": "天音かなた",
+      "cn": "天音彼方"
+    },
+    "platform_id": "bb",
+    "channel_id": "491474048",
+    "details": {
+      "twitter": "amanekanatach",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Kiryu Coco",
+      "jp": "桐生ココ",
+      "cn": "桐生可可"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCS9uQI-jC3DE0L4IpXyvr6w",
+    "details": {
+      "twitter": "kiryucoco",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Tsunomaki Watame",
+      "jp": "角巻わため",
+      "cn": "角卷绵芽"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCqm3BQLlJfvkTsX_hvm0UmA",
+    "details": {
+      "twitter": "tsunomakiwatame",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Tsunomaki Watame",
+      "jp": "角巻わため",
+      "cn": "角卷绵芽"
+    },
+    "platform_id": "bb",
+    "channel_id": "491474050",
+    "details": {
+      "twitter": "tsunomakiwatame",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Tokoyami Towa",
+      "jp": "常闇トワ",
+      "cn": "常暗永远"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1uv2Oq6kNxgATlCiez59hw",
+    "details": {
+      "twitter": "tokoyamitowa",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Tokoyami Towa",
+      "jp": "常闇トワ",
+      "cn": "常暗永远"
+    },
+    "platform_id": "bb",
+    "channel_id": "491474051",
+    "details": {
+      "twitter": "tokoyamitowa",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Himemori Luna",
+      "jp": "姫森ルーナ",
+      "cn": "姬森璐娜"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCa9Y57gfeY0Zro_noHRVrnw",
+    "details": {
+      "twitter": "himemoriluna",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Himemori Luna",
+      "jp": "姫森ルーナ",
+      "cn": "姬森璐娜"
+    },
+    "platform_id": "bb",
+    "channel_id": "491474052",
+    "details": {
+      "twitter": "himemoriluna",
+      "branch": "Hololive JP",
+      "group": "Generation 4"
+    }
+  },
+  {
+    "name": {
+      "en": "Yukihana Lamy",
+      "jp": "雪花ラミィ",
+      "cn": "雪花菈米"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCFKOVgVbGmX65RxO3EtH3iw",
+    "details": {
+      "twitter": "yukihanalamy",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Yukihana Lamy",
+      "jp": "雪花ラミィ",
+      "cn": "雪花菈米"
+    },
+    "platform_id": "bb",
+    "channel_id": "624252706",
+    "details": {
+      "twitter": "yukihanalamy",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Momosuzu Nene",
+      "jp": "桃鈴ねね",
+      "cn": "桃铃音音"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAWSyEs_Io8MtpY3m-zqILA",
+    "details": {
+      "twitter": "momosuzunene",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Momosuzu Nene",
+      "jp": "桃鈴ねね",
+      "cn": "桃铃音音"
+    },
+    "platform_id": "bb",
+    "channel_id": "624252709",
+    "details": {
+      "twitter": "momosuzunene",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Shishiro Botan",
+      "jp": "獅白ぼたん",
+      "cn": "狮白牡丹"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCUKD-uaobj9jiqB-VXt71mA",
+    "details": {
+      "twitter": "shishirobotan",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Shishiro Botan",
+      "jp": "獅白ぼたん",
+      "cn": "狮白牡丹"
+    },
+    "platform_id": "bb",
+    "channel_id": "624252710",
+    "details": {
+      "twitter": "shishirobotan",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Omaru Polka",
+      "jp": "尾丸ポルカ",
+      "cn": "尾丸波尔卡"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCK9V2B22uJYu3N7eR_BT9QA",
+    "details": {
+      "twitter": "omarupolka",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Omaru Polka",
+      "jp": "尾丸ポルカ",
+      "cn": "尾丸波尔卡"
+    },
+    "platform_id": "bb",
+    "channel_id": "624252712",
+    "details": {
+      "twitter": "omarupolka",
+      "branch": "Hololive JP",
+      "group": "Generation 5"
+    }
+  },
+  {
+    "name": {
+      "en": "Hanasaki Miyabi",
+      "jp": "花咲みやび"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC6t3-_N8A6ME1JShZHHqOMw",
+    "details": {
+      "twitter": "miyabihanasaki",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Kagami Kira",
+      "jp": "鏡見キラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCEzsociuFqVwgZuMaZqaCsg",
+    "details": {
+      "twitter": "kagamikirach",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Kanade Izuru",
+      "jp": "奏手イヅル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCZgOv3YDEs-ZnZWDYVwJdmA",
+    "details": {
+      "twitter": "kanadeizuru",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Arurandeisu",
+      "jp": "アルランディス",
+      "cn": "阿尔兰蒂斯"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCKeAhJvy8zgXWbh9duVjIaQ",
+    "details": {
+      "twitter": "arurandeisu",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Arurandeisu",
+      "jp": "アルランディス",
+      "cn": "阿尔兰蒂斯"
+    },
+    "platform_id": "bb",
+    "channel_id": "551114700",
+    "details": {
+      "twitter": "arurandeisu",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Rikkaroid",
+      "jp": "律可",
+      "cn": "律可"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC9mf_ZVpouoILRY9NUIaK-w",
+    "details": {
+      "twitter": "rikkaroid",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Rikkaroid",
+      "jp": "律可",
+      "cn": "律可"
+    },
+    "platform_id": "bb",
+    "channel_id": "350631685",
+    "details": {
+      "twitter": "rikkaroid",
+      "branch": "Holostars",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Astel Leda",
+      "jp": "アステル・レダ",
+      "cn": "阿斯特尔瑞达"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCNVEsYbiZjH5QLmGeSgTSzg",
+    "details": {
+      "twitter": "astelleda",
+      "branch": "Holostars",
+      "group": "Gen 2: SunTempo"
+    }
+  },
+  {
+    "name": {
+      "en": "Astel Leda",
+      "jp": "アステル・レダ",
+      "cn": "阿斯特尔瑞达"
+    },
+    "platform_id": "bb",
+    "channel_id": "551114698",
+    "details": {
+      "twitter": "astelleda",
+      "branch": "Holostars",
+      "group": "Gen 2: SunTempo"
+    }
+  },
+  {
+    "name": {
+      "en": "Kishido Temma",
+      "jp": "岸堂天真"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCGNI4MENvnsymYjKiZwv9eg",
+    "details": {
+      "twitter": "kishidotemma",
+      "branch": "Holostars",
+      "group": "Gen 2: SunTempo"
+    }
+  },
+  {
+    "name": {
+      "en": "Yukoku Roberu",
+      "jp": "夕刻ロベル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCANDOlYTJT7N5jlRC3zfzVA",
+    "details": {
+      "twitter": "yukokuroberu",
+      "branch": "Holostars",
+      "group": "Gen 2: SunTempo"
+    }
+  },
+  {
+    "name": {
+      "en": "Kageyama Shien",
+      "jp": "影山シエン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChSvpZYRPh0FvG4SJGSga3g",
+    "details": {
+      "twitter": "kageyamashien",
+      "branch": "Holostars",
+      "group": "Gen 3: TriNero"
+    }
+  },
+  {
+    "name": {
+      "en": "Aragami Oga",
+      "jp": "荒咬オウガ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCwL7dgTxKo8Y4RFIKWaf8gA",
+    "details": {
+      "twitter": "aragamioga",
+      "branch": "Holostars",
+      "group": "Gen 3: TriNero"
+    }
+  },
+  {
+    "name": {
+      "en": "Yogiri",
+      "jp": "夜霧",
+      "cn": "夜霧"
+    },
+    "platform_id": "bb",
+    "channel_id": "427061218",
+    "details": {
+      "twitter": "Yogiri_hololive",
+      "branch": "Hololive CN",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Civia",
+      "jp": "希薇婭",
+      "cn": "希薇娅"
+    },
+    "platform_id": "bb",
+    "channel_id": "354411419",
+    "details": {
+      "twitter": "_Civia",
+      "branch": "Hololive CN",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Civia",
+      "jp": "希薇婭"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCgNVXGlZIFK96XdEY20sVjg",
+    "details": {
+      "twitter": "Civia_Hololive",
+      "branch": "Hololive CN",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Spade Echo",
+      "jp": "黒桃影",
+      "cn": "黒桃影"
+    },
+    "platform_id": "bb",
+    "channel_id": "456368455",
+    "details": {
+      "twitter": "SpadeEcho",
+      "branch": "Hololive CN",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Doris",
+      "jp": "ドリス"
+    },
+    "platform_id": "bb",
+    "channel_id": "511613156",
+    "details": {
+      "twitter": "Doris_Hololive",
+      "branch": "Hololive CN",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Rosalyn",
+      "jp": "ロサリン"
+    },
+    "platform_id": "bb",
+    "channel_id": "511613157",
+    "details": {
+      "twitter": "Rosalyn_holoCN",
+      "branch": "Hololive CN",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Artia",
+      "jp": "アティア"
+    },
+    "platform_id": "bb",
+    "channel_id": "511613155",
+    "details": {
+      "twitter": "Artia_Hololive",
+      "branch": "Hololive CN",
+      "group": "Generation 2"
+    }
+  },
+  {
+    "name": {
+      "en": "Ayunda Risu",
+      "jp": "アユンダ・リス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCOyYb1c43VlX9rc_lT6NKQw",
+    "details": {
+      "twitter": "ayunda_risu",
+      "branch": "Hololive ID",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Moona Hoshinova",
+      "jp": "ムーナ・ホシノヴァ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCP0BspO_AMEe3aQqqpo89Dg",
+    "details": {
+      "twitter": "moonahoshinova",
+      "branch": "Hololive ID",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Airani Iofifteen",
+      "jp": "アイラニ・イオフィフティーン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAoy6rzhSf4ydcYjJw3WoVg",
+    "details": {
+      "twitter": "airaniiofifteen",
+      "branch": "Hololive ID",
+      "group": "Generation 1"
+    }
+  },
+  {
+    "name": {
+      "en": "Mori Calliope",
+      "jp": "森 カリオペ",
+      "cn": "森美声"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCL_qhgtOy0dy1Agp8vkySQg",
+    "details": {
+      "twitter": "moricalliope",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Mori Calliope",
+      "jp": "森 カリオペ",
+      "cn": "森美声"
+    },
+    "platform_id": "bb",
+    "channel_id": "674600645",
+    "details": {
+      "twitter": "moricalliope",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Takanashi Kiara",
+      "jp": "小鳥遊キアラ",
+      "cn": "小鸟游琪亚拉"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCHsx4Hqa-1ORjQTh9TYDhww",
+    "details": {
+      "twitter": "takanashikiara",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Takanashi Kiara",
+      "jp": "小鳥遊キアラ",
+      "cn": "小鸟游琪亚拉"
+    },
+    "platform_id": "bb",
+    "channel_id": "674600646",
+    "details": {
+      "twitter": "takanashikiara",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Ninomae Ina’nis",
+      "jp": "一伊那尓栖/にのまえいなにす",
+      "cn": "一伊那尓栖"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCMwGHR0BTZuLsmjY_NT5Pwg",
+    "details": {
+      "twitter": "ninomaeinanis",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Ninomae Ina’nis",
+      "jp": "一伊那尓栖/にのまえいなにす",
+      "cn": "一伊那尓栖"
+    },
+    "platform_id": "bb",
+    "channel_id": "674600647",
+    "details": {
+      "twitter": "ninomaeinanis",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Gawr Gura",
+      "jp": "がうる・ぐら",
+      "cn": "噶呜・古拉"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCoSrY_IQQVpmIRZ9Xf-y93g",
+    "details": {
+      "twitter": "gawrgura",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Gawr Gura",
+      "jp": "がうる・ぐら",
+      "cn": "噶呜・古拉"
+    },
+    "platform_id": "bb",
+    "channel_id": "674600648",
+    "details": {
+      "twitter": "gawrgura",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Watson Amelia",
+      "jp": "ワトソン・アメリア",
+      "cn": "沃森・艾米莉亚"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCyl1z3jo3XHR1riLFKG5UAg",
+    "details": {
+      "twitter": "watsonameliaen",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Watson Amelia",
+      "jp": "ワトソン・アメリア",
+      "cn": "沃森・艾米莉亚"
+    },
+    "platform_id": "bb",
+    "channel_id": "674600649",
+    "details": {
+      "twitter": "watsonameliaen",
+      "branch": "Hololive EN",
+      "group": "Gen 1: -Myth-"
+    }
+  },
+  {
+    "name": {
+      "en": "Choco Sub Channel",
+      "jp": "Choco subCh. 癒月ちょこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCp3tgHXw_HI0QMk1K8qh3gQ"
+  },
+  {
+    "name": {
+      "en": "Hololive VTuber Group",
+      "jp": "Hololive ホロライブ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCJFZiqLMntJufDCHc6bQixg",
+    "details": {
+      "twitter": "hololivetv",
+      "branch": "Hololive JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Hololive VTuber Group",
+      "jp": "Hololive ホロライブ"
+    },
+    "platform_id": "bb",
+    "channel_id": "286700005",
+    "details": {
+      "twitter": "hololivetv",
+      "branch": "Hololive JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Hololive Indonesia"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCfrWoRGlawPQDQxxeIDRP0Q",
+    "details": {
+      "twitter": "hololive_id",
+      "branch": "Hololive ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Hololive English"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCotXwY6s8pWmuWd_snKYjhg",
+    "details": {
+      "twitter": "hololive_En",
+      "branch": "Hololive EN"
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "name": {
+      "en": "X'Flare",
+      "jp": "クロスフレア"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCaWuiIyX89dLP5H4pA7QAvQ",
+    "details": {
+      "twitter": "XFlareVtuber1"
+    }
+  },
+  {
+    "name": {
+      "en": "BΣretta X' Rain",
+      "jp": "レッタ クロスレイン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCJA_J8CpKRT78Sr1bylS1vA",
+    "details": {
+      "twitter": "BerettaXRain"
+    }
+  },
+  {
+    "name": {
+      "en": "Nero X' Fire",
+      "jp": "ネロクロスファイア"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCdsHTs3OOKj_ANMKnmbUASw",
+    "details": {
+      "twitter": "NeroXFireVtuber"
+    }
+  },
+  {
+    "name": {
+      "en": "Lemuel Ragna X'",
+      "jp": "レムエル ラグナクロス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC9127w5CLmWugWcpdGGuKOA",
+    "details": {
+      "twitter": "lemuel_x"
+    }
+  },
+  {
+    "name": {
+      "en": "Lamuril Ragna X'",
+      "jp": "ラムリル ラグナクロス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC1qGKZnAnIc1wgRDOT2IOtg",
+    "details": {
+      "twitter": "LamurilX"
+    }
+  }
+]

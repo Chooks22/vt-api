@@ -1,0 +1,46 @@
+[
+  {
+    "name": {
+      "en": "Suou Patra",
+      "jp": "周防パトラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCeLzT-7b2PBcunJplmWtoDg",
+    "details": {
+      "twitter": "Patra_HNST"
+    }
+  },
+  {
+    "name": {
+      "en": "Shimamura Charlotte",
+      "jp": "島村シャルロット"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCYTz3uIgwVY3ZU-IQJS8r3A",
+    "details": {
+      "twitter": "Charlotte_HNST"
+    }
+  },
+  {
+    "name": {
+      "en": "Saionji Mary",
+      "jp": "西園寺メアリ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCwePpiw1ocZRSNSkpKvVISw",
+    "details": {
+      "twitter": "Mary_HNST"
+    }
+  },
+  {
+    "name": {
+      "en": "Sekishiro Mico",
+      "jp": "堰代ミコ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCDh2bWI5EDu7PavqwICkVpA",
+    "details": {
+      "twitter": "Mico_HNST"
+    }
+  }
+]

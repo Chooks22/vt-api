@@ -1,0 +1,254 @@
+[
+  {
+    "name": {
+      "en": "Kirahoshi Uta",
+      "jp": "綺羅星ウタ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCX2Sm8SGWTUOyCizgrzadXA",
+    "details": {
+      "twitter": "uta_kirahoshi",
+      "group": "1st Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Inuki Matoi",
+      "jp": "射貫まとい"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCFrH3bfn7gDeV29wrHHM80g",
+    "details": {
+      "twitter": "matoi_inuki",
+      "group": "1st Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Koto Miyuri",
+      "jp": "琴みゆり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBe_jjkUHhVNAj46bukAbJA",
+    "details": {
+      "twitter": "miyuri_koto",
+      "group": "1st Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Usami Yuno",
+      "jp": "宇佐美ユノ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCJQMHCFjVZOVRYafR6gY04Q",
+    "details": {
+      "twitter": "yuno_usami",
+      "group": "1st Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Hanabasami Kyo",
+      "jp": "花鋏キョウ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC4OeUf_KfYRrwksschtRYow",
+    "details": {
+      "twitter": "Kyo_Hanabasami",
+      "group": "2nd Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Shishigami Leona",
+      "jp": "獅子神レオナ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCB1s_IdO-r0nUkY2mXeti-A",
+    "details": {
+      "twitter": "LeonaShishigami",
+      "group": "2nd Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Mizugame Mia",
+      "jp": "水瓶ミア"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCpPuEfqwYbpn7e2jWdQeWew",
+    "details": {
+      "twitter": "Mia_Mizugame",
+      "group": "2nd Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Yumekawa Kanau",
+      "jp": "夢川かなう"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC8jskpQfW9fn2NLK3PdaGdg",
+    "details": {
+      "twitter": "Kanau_Yumekawa",
+      "group": "2nd Gen"
+    }
+  },
+  {
+    "name": {
+      "en": "Amakawa Hano",
+      "jp": "天川はの"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCxJ9SJLG7dA00M7VoEe4ltw",
+    "details": {
+      "twitter": "sb_hano_",
+      "group": "Star!Bear"
+    }
+  },
+  {
+    "name": {
+      "en": "Himekuma Ribon",
+      "jp": "姫熊 りぼん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC6HjtF2rHZO8gAsX5FXF-Kg",
+    "details": {
+      "twitter": "sb_ribon_",
+      "group": "Star!Bear"
+    }
+  },
+  {
+    "name": {
+      "en": "Shirane Yuki",
+      "jp": "白音ゆき"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCcD_EdnJcOjJMohDn435D3w",
+    "details": {
+      "twitter": "Shirane_Yuki",
+      "group": "Monokuro Ainos"
+    }
+  },
+  {
+    "name": {
+      "en": "Kurone Yomi",
+      "jp": "黒音よみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCmssHxtaJAxIvje7LTHoKiw",
+    "details": {
+      "twitter": "Kurone__Yomi",
+      "group": "Monokuro Ainos"
+    }
+  },
+  {
+    "name": {
+      "en": "Inumochi Chiroru",
+      "jp": "犬望チロル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC46Wizhr_xgL9Rm9onVkPQQ",
+    "details": {
+      "twitter": "tirol_inumoti",
+      "group": "Maruchiizu"
+    }
+  },
+  {
+    "name": {
+      "en": "Marumochi Tsukimi",
+      "jp": "丸餅つきみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCTEZGNJDqv-isWSPRsEhnRA",
+    "details": {
+      "twitter": "tukimi_marumoti",
+      "group": "Maruchiizu"
+    }
+  },
+  {
+    "name": {
+      "en": "Izumo Meguru",
+      "jp": "出雲めぐる"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCReYPHLeFKv-0wYgX6F2Zhw",
+    "details": {
+      "twitter": "meguru_izumo",
+      "group": "Maruchiizu"
+    }
+  },
+  {
+    "name": {
+      "en": "Qualia Qu",
+      "jp": "久檻夜くぅ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCXtQTtPJedfjqEPysorbsMg",
+    "details": {
+      "twitter": "Qu_Qualia",
+      "group": "Solo 2020 Debuts"
+    }
+  },
+  {
+    "name": {
+      "en": "Kazami Mikan",
+      "jp": "風海みかん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCa5g-Q_NT2COXiSS55bwXVQ",
+    "details": {
+      "twitter": "Kazami_Mikan83",
+      "group": "Solo 2020 Debuts"
+    }
+  },
+  {
+    "name": {
+      "en": "Hekina Airu",
+      "jp": "碧那アイル"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCpBCiBjOoZanFhj-49LgcDg",
+    "details": {
+      "twitter": "Ail_Hekina",
+      "group": "Solo 2020 Debuts"
+    }
+  },
+  {
+    "name": {
+      "en": "Minato Minami",
+      "jp": "湊音みなみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCyTw66xE5YkeTL2YduA69QQ",
+    "details": {
+      "twitter": "_MinatoMinami",
+      "group": "SuiSay/Sugar Stella"
+    }
+  },
+  {
+    "name": {
+      "en": "Kogami Yukari",
+      "jp": "皇噛ユカリ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCt0F29rrrkOU5Vu2gyYgrBA",
+    "details": {
+      "twitter": "yukari_kogami",
+      "group": "METEO/Sugar Stella"
+    }
+  },
+  {
+    "name": {
+      "en": "Yuiga Kohaku",
+      "jp": "唯牙コハク"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCf6J4I7NwMXtuIU8YZKAjCA",
+    "details": {
+      "twitter": "kohaku_yuiga",
+      "group": "METEO/Sugar Stella"
+    }
+  }
+]
