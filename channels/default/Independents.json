@@ -478,5 +478,27 @@
     "details": {
       "twitter": "AnninMirudayo"
     }
+  },
+  {
+    "name": {
+      "en": "Shiraishi Yukino",
+      "jp": "白石ゆきの"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCoFEbNyIRUS26-hf2AucwFw",
+    "details": {
+      "twitter": "shiraishiyukin0"
+    }
+  },
+  {
+    "name": {
+      "en": "Shiraishi Yukino",
+      "jp": "白石ゆきの"
+    },
+    "platform_id": "tt",
+    "channel_id": "shiraishiyukin0",
+    "details": {
+      "twitter": "shiraishiyukin0"
+    }
   }
 ]
