@@ -56,7 +56,7 @@ export const typeDef = gql`
       channel_id: [ID]
       status: [VideoStatus]
       organizations: [String]
-      exlucde_organizations: [String]
+      exclude_organizations: [String]
       platforms: [PlatformId]
       max_upcoming_mins: Int = 0
       order_by: SortVideosFields = { published: desc }
