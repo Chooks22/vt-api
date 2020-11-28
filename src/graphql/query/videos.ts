@@ -69,14 +69,15 @@ export async function videos(_, query: VideoQuery) {
       ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + MAX_UPCOMING } }
     };
 
-    const videoCount = await Videos.countDocuments(QUERY);
-    const uncachedVideos = await Videos
+    const getVideoCount = Videos.countDocuments(QUERY);
+    const getUncachedVideos = Videos
       .find(QUERY)
       .sort(orderBy)
       .limit(limit + 1)
       .lean()
       .exec();
 
+    const [videoCount, uncachedVideos] = await Promise.all([getVideoCount, getUncachedVideos]);
     const results = {
       items: uncachedVideos,
       next_page_token: null,

@@ -66,14 +66,15 @@ export async function channels(_, query: ChannelsQuery) {
       ...platforms[0] && { platform_id: { $in: platforms } }
     };
 
-    const channelCount = await Channels.countDocuments(QUERY);
-    const uncachedChannels = await Channels
+    const getChannelCount = Channels.countDocuments(QUERY);
+    const getUncachedChannels = Channels
       .find(QUERY)
       .sort(sortBy)
       .limit(limit + 1)
       .lean()
       .exec();
 
+    const [channelCount, uncachedChannels] = await Promise.all([getChannelCount, getUncachedChannels]);
     const results = {
       items: uncachedChannels,
       next_page_token: null,
