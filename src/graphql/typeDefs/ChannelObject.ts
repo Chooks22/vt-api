@@ -42,7 +42,7 @@ export const typeDef = gql`
   extend type Query {
     channels(
       _id: [ID]
-      name: String 
+      name: String
       organizations: [String]
       platforms: [PlatformId]
       channel_id: [ID]
