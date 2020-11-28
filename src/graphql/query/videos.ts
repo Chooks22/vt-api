@@ -15,6 +15,7 @@ interface VideoQuery {
   channel_id: ChannelId[];
   status: VideoStatus[];
   organizations: string[];
+  exclude_organizations: string[];
   platforms: PlatformId[];
   max_upcoming_mins: number;
   order_by: SortBy;
@@ -28,6 +29,7 @@ export async function videos(_, query: VideoQuery) {
       channel_id = [],
       status = [],
       organizations = [],
+      exclude_organizations = [],
       platforms = [],
       max_upcoming_mins,
       page_token = '',
@@ -40,6 +42,10 @@ export async function videos(_, query: VideoQuery) {
     if (max_upcoming_mins < 0 || max_upcoming_mins > 2880) {
       return new UserInputError('max_upcoming_mins must be between 0-2880 inclusive.');
     }
+    if (organizations.length && exclude_organizations.length) {
+      return new UserInputError('Setting both organizations and exclude_organizations is redundant. Only choose one.');
+    }
+    const EXCLUDE_ORG = !organizations.length;
     const MAX_UPCOMING = max_upcoming_mins * 6e4;
     const ORGANIZATIONS = parseOrganization(organizations);
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
@@ -54,7 +60,11 @@ export async function videos(_, query: VideoQuery) {
       status: status[0] ? { $in: status } : { $ne: 'missing' },
       ...page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
-      ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
+      ...ORGANIZATIONS[0] && { organization: {
+        ...EXCLUDE_ORG
+          ? { $not: { $regex: ORGANIZATIONS, $options: 'i' } }
+          : { $regex: ORGANIZATIONS, $options: 'i' }
+      } },
       ...platforms[0] && { platform_id: { $in: platforms } },
       ...max_upcoming_mins && { 'time.scheduled': { $lte: Date.now() + MAX_UPCOMING } }
     };

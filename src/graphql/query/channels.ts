@@ -16,6 +16,7 @@ interface ChannelsQuery {
   _id: number[];
   name: string;
   organizations: string[];
+  exclude_organizations: string[];
   platforms: PlatformId[];
   channel_id: ChannelId[];
   order_by: OrderBy;
@@ -29,6 +30,7 @@ export async function channels(_, query: ChannelsQuery) {
       _id = [],
       name = '',
       organizations = [],
+      exclude_organizations = [],
       channel_id = [],
       platforms = [],
       page_token = '',
@@ -37,6 +39,10 @@ export async function channels(_, query: ChannelsQuery) {
     if (limit < 1 || limit > 50) {
       return new UserInputError('limit must be between 1-50 inclusive.');
     }
+    if (organizations.length && exclude_organizations.length) {
+      return new UserInputError('Setting both organizations and exclude_organizations is redundant. Only choose one.');
+    }
+    const EXCLUDE_ORG = !organizations.length;
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
     const sortById = ORDER_KEY === '_id';
@@ -51,7 +57,11 @@ export async function channels(_, query: ChannelsQuery) {
       _id: { [_id[0] ? '$in' : '$nin']: _id },
       ...page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...name && { $or: getNameQueries(name) },
-      ...ORGANIZATIONS[0] && { organization: { $in: ORGANIZATIONS } },
+      ...ORGANIZATIONS[0] && { organization: {
+        ...EXCLUDE_ORG
+          ? { $not: { $regex: ORGANIZATIONS, $options: 'i' } }
+          : { $regex: ORGANIZATIONS, $options: 'i' }
+      } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...platforms[0] && { platform_id: { $in: platforms } }
     };
