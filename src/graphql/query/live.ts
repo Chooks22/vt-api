@@ -25,7 +25,11 @@ export async function live(_, query: LiveQuery) {
     const uncachedVideos = await Videos.find({
       status: 'live',
       ...platforms[0] && { platform_id: { $in: platforms } },
-      ...ORGANIZATIONS[0] && { organization: { [EXCLUDE_ORG ? '$nin' : '$in']: ORGANIZATIONS } }
+      ...ORGANIZATIONS[0] && { organization: {
+        ...EXCLUDE_ORG
+          ? { $not: { $regex: ORGANIZATIONS, $options: 'i' } }
+          : { $regex: ORGANIZATIONS, $options: 'i' }
+      } }
     }).sort({ 'time.start': 1 })
       .lean()
       .exec();
