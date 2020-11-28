@@ -3,7 +3,7 @@ import { PlatformId } from '../../../database/types/members';
 import { memcache, Videos } from '../../modules';
 import { ChannelId } from '../../modules/types/youtube';
 import { VideoStatus } from '../../server/apis/youtube/types';
-import { firstField, getCacheKey, getNextToken, parseOrganization, parseToken, Sort } from './consts';
+import { cutGroupString, firstField, getCacheKey, getNextToken, parseOrganization, parseToken, Sort } from './consts';
 
 interface SortBy {
   published?: Sort;
@@ -47,11 +47,11 @@ export async function videos(_, query: VideoQuery) {
     }
     const EXCLUDE_ORG = !organizations.length;
     const MAX_UPCOMING = max_upcoming_mins * 6e4;
-    const ORGANIZATIONS = parseOrganization(organizations);
+    const ORGANIZATIONS = parseOrganization(EXCLUDE_ORG ? exclude_organizations : organizations);
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
     const orderBy = { [`time.${ORDER_KEY}`]: ORDER_VALUE };
-    const CACHE_KEY = getCacheKey(`VIDS:${channel_id}${status}${organizations}${platforms}${max_upcoming_mins}${ORDER_BY_KEY}${limit}${page_token}`);
+    const CACHE_KEY = getCacheKey(`VIDS:${+EXCLUDE_ORG}${cutGroupString(ORGANIZATIONS)}${channel_id}${status}${platforms}${max_upcoming_mins}${ORDER_BY_KEY}${limit}${page_token}`);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
