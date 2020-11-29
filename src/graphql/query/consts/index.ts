@@ -1,4 +1,5 @@
 export type Sort = 'asc'|'desc';
+export const escapeRegex = (text: string) => text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 export const getNextToken = (text: any) => Buffer.from(text.toString()).toString('base64');
 export const parseToken = (token: string) => Buffer.from(token, 'base64');
 export const getCacheKey = (query: string, invalidate = true) => `${query}:${invalidate ? process.env.CACHE_MINUTE : 0}`.replace(/ |\n/g, '');
