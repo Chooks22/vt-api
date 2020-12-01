@@ -1176,6 +1176,39 @@
   },
   {
     "name": {
+      "en": "Kureiji Ollie",
+      "jp": "クレイジーオリー"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCYz_5n-uDuChHtLo7My1HnQ",
+    "details": {
+      "twitter": "kureijiollie"
+    }
+  },
+  {
+    "name": {
+      "en": "Anya Melfissa",
+      "jp": "アーニャメルフィッサ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC727SQYUvx5pDDGQpTICNWg",
+    "details": {
+      "twitter": "anyamelfissa"
+    }
+  },
+  {
+    "name": {
+      "en": "Pavolia Reine",
+      "jp": "パボリアレイネ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChgTyjG-pdNvxxhdsXfHQ5Q",
+    "details": {
+      "twitter": "pavoliareine"
+    }
+  },
+  {
+    "name": {
       "en": "Mori Calliope",
       "jp": "森 カリオペ",
       "cn": "森美声"
