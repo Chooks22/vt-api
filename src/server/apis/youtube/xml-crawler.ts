@@ -32,8 +32,9 @@ class XmlScraper {
     return this.parseXml();
   }
   private async parseXml(): Promise<YoutubeVideoObject[]> {
-    const parsedString = await parseStringPromise(this.rawXmlData, this.xmlOptions);
-    if (!parsedString.feed.entry?.map) return;
+    const parsedString = await parseStringPromise(this.rawXmlData, this.xmlOptions)
+      .catch(() => logger.warn(`Channel ${this.channelId} doesn\'t exist.`));
+    if (!parsedString || !parsedString.feed.entry?.map) return;
     return parsedString.feed.entry.map(this.parseEntries.bind(this)).sort(this.videoSorter);
   }
   private videoSorter(video1: YoutubeVideoObject, video2: YoutubeVideoObject) {
