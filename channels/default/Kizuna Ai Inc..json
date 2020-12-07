@@ -1,0 +1,35 @@
+[
+  {
+    "name": {
+      "en": "Kizuna AI",
+      "jp": "キズナアイ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC4YaOt1yT-ZeyB0OmxHgolA",
+    "details": {
+      "twitter": "aichan_nel"
+    }
+  },
+  {
+    "name": {
+      "en": "Kizuna AI",
+      "jp": "キズナアイ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCbFwe3COkDrbNsbMyGNCsDg",
+    "details": {
+      "twitter": "aichan_nel"
+    }
+  },
+  {
+    "name": {
+      "en": "Love-chan",
+      "jp": "Loveちゃん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCYm8zALd2uHqyy6C1tb4_zA",
+    "details": {
+      "twitter": "lovechan_lp"
+    }
+  }
+]
