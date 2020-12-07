@@ -508,5 +508,63 @@
     },
     "platform_id": "yt",
     "channel_id": "UClf0kZBKcBVKVOAjGEGbQ-A"
+  },
+  {
+    "name": {
+      "en": "Sephira Su",
+      "jp": "セフィラ・スゥ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCHKJMmZJjLpkjZDPp_miSzg",
+    "details": {
+      "twitter": "SephiraSu"
+    }
+  },
+  {
+    "name": {
+      "en": "Asano Ninja Sisters",
+      "jp": "朝ノ, 朝ノ姉妹ぷろじぇくと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCODNLyn3L83wEmC0DLL0cxA",
+    "details": {
+      "twitter_1": "asanoruri",
+      "twitter_2": "asanoakane",
+      "twitter_3": "asanohikarihaa1"
+    }
+  },
+  {
+    "name": {
+      "en": "Mia Tami",
+      "jp": "みあたみ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7yqc24BjJwi3PoqhXrx6og",
+    "details": {
+      "twitter_1": "narusemia",
+      "twitter_2": "tammy_now"
+    }
+  },
+  {
+    "name": {
+      "en": "Anezaki Yukimi",
+      "jp": "姉崎ユキミ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCwXOUuxUxCJ1yD0JfogUvMg",
+    "details": {
+      "twitter": "az_yukimi"
+    }
+  },
+  {
+    "name": {
+      "en": "Mia Runis",
+      "jp": "ミア ルーニス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCupCAZz1l52vV8m-dvaoBVQ",
+    "details": {
+      "twitter": "MiaRunis"
+    }
   }
 ]
