@@ -13,4 +13,5 @@ schedule.scheduleJob(
 import { channels } from './channels';
 import { live } from './live';
 import { videos } from './videos';
-export const Query = { channels, live, videos };
+import { data } from './data';
+export const Query = { channels, live, videos, data };
