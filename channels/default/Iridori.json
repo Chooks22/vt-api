@@ -1,0 +1,35 @@
+[
+  {
+    "name": {
+      "en": "Shizuku Fuyumori",
+      "jp": "冬守しずく"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCj6ZvZqDJsrwBal-5R_q1ZQ",
+    "details": {
+      "twitter": "fuyumori_1616"
+    }
+  },
+  {
+    "name": {
+      "en": "Misono Yui",
+      "jp": "御園結唯"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCsHILl-8i1H9316RPeTEcfQ",
+    "details": {
+      "twitter": "misono_1616"
+    }
+  },
+  {
+    "name": {
+      "en": "Fukumaki Yuka",
+      "jp": "服巻有香"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCpLvJ42sm-edPGF8pKJonOQ",
+    "details": {
+      "twitter": "fukumaki_1616"
+    }
+  }
+]
