@@ -577,5 +577,27 @@
     "details": {
       "twitter": "meiro_emoechi"
     }
+  },
+  {
+    "name": {
+      "en": "Amatsuka Uto",
+      "jp": "天使うと"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCdYR5Oyz8Q4g0ZmB4PkTD7g",
+    "details": {
+      "twitter": "amatsukauto"
+    }
+  },
+  {
+    "name": {
+      "en": "Kamiko Kana",
+      "jp": "神狐かな"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCn1coImC6NMDYCQfH_ILzXw",
+    "details": {
+      "twitter": "kamikokana"
+    }
   }
 ]
