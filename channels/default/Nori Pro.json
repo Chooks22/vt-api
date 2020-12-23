@@ -90,5 +90,27 @@
     "details": {
       "twitter": "KUMAgaya_taKUMA"
     }
+  },
+  {
+    "name": {
+      "en": "Hoozuki Warabe",
+      "jp": "鬼灯わらべ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCLyTXfCZtl7dyhta9Jg3pZg",
+    "details": {
+      "twitter": "hoozukiwarabe"
+    }
+  },
+  {
+    "name": {
+      "en": "Yumeno Lilith",
+      "jp": "夢乃リリス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCH11P1Hq4PXdznyw1Hhr3qw",
+    "details": {
+      "twitter": "yumenolilith"
+    }
   }
 ]
