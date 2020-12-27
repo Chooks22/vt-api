@@ -18,6 +18,7 @@ interface ChannelsQuery {
   organizations: string[];
   exclude_organizations: string[];
   platforms: PlatformId[];
+  exclude_channel_id: ChannelId[];
   channel_id: ChannelId[];
   order_by: OrderBy;
   page_token: string;
@@ -31,6 +32,7 @@ export async function channels(_, query: ChannelsQuery) {
       name = '',
       organizations = [],
       exclude_organizations = [],
+      exclude_channel_id = [],
       channel_id = [],
       platforms = [],
       page_token = '',
@@ -42,13 +44,18 @@ export async function channels(_, query: ChannelsQuery) {
     if (organizations.length && exclude_organizations.length) {
       return new UserInputError('Setting both organizations and exclude_organizations is redundant. Only choose one.');
     }
+    if (channel_id.length && exclude_channel_id.length) {
+      return new UserInputError('Setting both channel_id and exclude_channel_id is redundant. Only choose one.');
+    }
     const EXCLUDE_ORG = !organizations.length;
+    const EXCLUDE_IDS = !organizations.length;
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
     const sortById = ORDER_KEY === '_id';
     const sortBy = sortById ? ORDER_BY : { [`channel_stats.${ORDER_KEY}`]: ORDER_VALUE };
     const ORGANIZATIONS = parseOrganization(EXCLUDE_ORG ? exclude_organizations : organizations);
-    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${limit}${ORDER_BY_KEY}${page_token}`, false);
+    const CHANNEL_IDS = EXCLUDE_IDS ? exclude_channel_id : channel_id;
+    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${+EXCLUDE_IDS}${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${limit}${ORDER_BY_KEY}${page_token}`, false);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
@@ -62,7 +69,7 @@ export async function channels(_, query: ChannelsQuery) {
           ? { $not: { $regex: ORGANIZATIONS, $options: 'i' } }
           : { $regex: ORGANIZATIONS, $options: 'i' }
       } },
-      ...channel_id[0] && { channel_id: { $in: channel_id } },
+      ...channel_id[0] && { channel_id: { [EXCLUDE_IDS ? '$nin' : '$in']: CHANNEL_IDS } },
       ...platforms[0] && { platform_id: { $in: platforms } }
     };
 

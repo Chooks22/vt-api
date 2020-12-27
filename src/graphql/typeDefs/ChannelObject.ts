@@ -46,6 +46,7 @@ export const typeDef = gql`
       organizations: [String]
       exclude_organizations: [String]
       platforms: [PlatformId]
+      exclude_channel_id: [ID]
       channel_id: [ID]
       order_by: SortChannelsFields = { _id: asc }
       page_token: String
