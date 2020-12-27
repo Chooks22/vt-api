@@ -9,6 +9,7 @@ export const typeDef = gql`
   extend type Query {
     data(
       channel_id: [ID]
+      exclude_channel_id: [ID]
       organizations: [String]
       exclude_organizations: [String]
     ): DataObject!

@@ -11,6 +11,7 @@ interface Query {
   organizations: string[];
   exclude_organizations: string[];
   channel_id: ChannelId[];
+  exclude_channel_id: ChannelId[];
   platforms: PlatformId[];
 }
 
@@ -20,14 +21,20 @@ export async function data(_, query: Query) {
       organizations = [],
       exclude_organizations = [],
       channel_id = [],
+      exclude_channel_id = [],
       platforms = []
     } = query;
     if (organizations.length && exclude_organizations.length) {
       return new UserInputError('Setting both organizations and exclude_organizations is redundant. Only choose one.');
     }
+    if (channel_id.length && exclude_channel_id.length) {
+      return new UserInputError('Setting both channel_id and exclude_channel_id is redundant. Only choose one.');
+    }
     const EXCLUDE_ORG = !organizations.length;
+    const EXCLUDE_IDS = !channel_id.length;
     const ORGANIZATIONS = parseOrganization(EXCLUDE_ORG ? exclude_organizations : organizations);
-    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}`, false);
+    const CHANNEL_IDS = EXCLUDE_IDS ? exclude_channel_id : channel_id;
+    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(CHANNEL_IDS)}${platforms}`, false);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
@@ -38,7 +45,7 @@ export async function data(_, query: Query) {
           ? { $not: { $regex: ORGANIZATIONS, $options: 'i' } }
           : { $regex: ORGANIZATIONS, $options: 'i' }
       } },
-      ...channel_id[0] && { channel_id: { $in: channel_id } },
+      ...channel_id[0] && { channel_id: { [EXCLUDE_IDS ? '$nin' : '$in']: CHANNEL_IDS } },
       ...platforms[0] && { platform_id: { $in: platforms } }
     };
 
