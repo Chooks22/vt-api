@@ -48,7 +48,7 @@ export async function channels(_, query: ChannelsQuery) {
       return new UserInputError('Setting both channel_id and exclude_channel_id is redundant. Only choose one.');
     }
     const EXCLUDE_ORG = !organizations.length;
-    const EXCLUDE_IDS = !organizations.length;
+    const EXCLUDE_IDS = !channel_id.length;
     const [ORDER_BY, ORDER_BY_KEY] = firstField(query.order_by);
     const [ORDER_KEY, ORDER_VALUE] = Object.entries(ORDER_BY)[0];
     const sortById = ORDER_KEY === '_id';
