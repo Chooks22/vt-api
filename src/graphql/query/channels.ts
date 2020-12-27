@@ -55,7 +55,7 @@ export async function channels(_, query: ChannelsQuery) {
     const sortBy = sortById ? ORDER_BY : { [`channel_stats.${ORDER_KEY}`]: ORDER_VALUE };
     const ORGANIZATIONS = parseOrganization(EXCLUDE_ORG ? exclude_organizations : organizations);
     const CHANNEL_IDS = EXCLUDE_IDS ? exclude_channel_id : channel_id;
-    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${+EXCLUDE_IDS}${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(channel_id)}${platforms}${limit}${ORDER_BY_KEY}${page_token}`, false);
+    const CACHE_KEY = getCacheKey(`CHNLS:${+EXCLUDE_ORG}${+EXCLUDE_IDS}${_id}${(name)}${cutGroupString(ORGANIZATIONS)}${cutChannelIds(CHANNEL_IDS)}${platforms}${limit}${ORDER_BY_KEY}${page_token}`, false);
 
     const cached = await memcache.get(CACHE_KEY);
     if (cached) return cached;
