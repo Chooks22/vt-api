@@ -599,5 +599,16 @@
     "details": {
       "twitter": "kamikokana"
     }
+  },
+  {
+    "name": {
+      "en": "Figaro",
+      "jp": "ふぃがろ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7CtvN04ublW4LGTPksG6mg",
+    "details": {
+      "twitter": "figaro_qpt"
+    }
   }
 ]
