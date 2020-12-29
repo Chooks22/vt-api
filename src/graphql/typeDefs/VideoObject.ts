@@ -55,6 +55,7 @@ export const typeDef = gql`
     videos(
       channel_id: [ID]
       status: [VideoStatus]
+      title: String
       organizations: [String]
       exclude_organizations: [String]
       platforms: [PlatformId]
