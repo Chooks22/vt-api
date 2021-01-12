@@ -2,7 +2,7 @@ import { ApolloError, UserInputError } from 'apollo-server';
 import { PlatformId } from '../../../database/types/members';
 import { Channels, memcache } from '../../modules';
 import { ChannelId } from '../../modules/types/youtube';
-import { cutChannelIds, cutGroupString, firstField, getCacheKey, getNextToken, parseOrganization, parseToken, Sort } from './consts';
+import { cutChannelIds, cutGroupString, escapeRegex, firstField, getCacheKey, getNextToken, parseOrganization, parseToken, Sort } from './consts';
 
 const CACHE_TTL = +(process.env.TTL_LONG ?? 900);
 
@@ -104,9 +104,12 @@ export async function channels(_, query: ChannelsQuery) {
   }
 }
 
-const getNameQueries = (name: string) => [
-  { 'name.en': { $regex: name, $options: 'i' } },
-  { 'name.jp': { $regex: name, $options: 'i' } },
-  { 'name.kr': { $regex: name, $options: 'i' } },
-  { 'name.cn': { $regex: name, $options: 'i' } }
-];
+const getNameQueries = (name: string) => {
+  const nameRegex = escapeRegex(name).replace(/ +/g, '|');
+  return [
+    { 'name.en': { $regex: nameRegex, $options: 'i' } },
+    { 'name.jp': { $regex: nameRegex, $options: 'i' } },
+    { 'name.kr': { $regex: nameRegex, $options: 'i' } },
+    { 'name.cn': { $regex: nameRegex, $options: 'i' } }
+  ];
+};
