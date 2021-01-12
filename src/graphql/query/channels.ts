@@ -105,7 +105,7 @@ export async function channels(_, query: ChannelsQuery) {
 }
 
 const getNameQueries = (name: string) => {
-  const nameRegex = escapeRegex(name).split(/ +/g).map(string => `(?=.*${string})`);
+  const nameRegex = escapeRegex(name).split(/ +/g).map(string => `(?=.*${string})`).join('');
   return [
     { 'name.en': { $regex: nameRegex, $options: 'i' } },
     { 'name.jp': { $regex: nameRegex, $options: 'i' } },
