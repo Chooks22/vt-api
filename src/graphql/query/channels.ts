@@ -62,7 +62,6 @@ export async function channels(_, query: ChannelsQuery) {
 
     const QUERY = {
       _id: { [_id[0] ? '$in' : '$nin']: _id },
-      ...page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...name && { $or: getNameQueries(name) },
       ...ORGANIZATIONS[0] && { organization: {
         ...EXCLUDE_ORG
@@ -75,7 +74,10 @@ export async function channels(_, query: ChannelsQuery) {
 
     const getChannelCount = Channels.countDocuments(QUERY);
     const getUncachedChannels = Channels
-      .find(QUERY)
+      .find({
+        ...QUERY,
+        ...page_token && { [Object.keys(sortBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
+      })
       .sort(sortBy)
       .limit(limit + 1)
       .lean()

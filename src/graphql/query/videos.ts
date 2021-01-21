@@ -61,7 +61,6 @@ export async function videos(_, query: VideoQuery) {
 
     const QUERY: any = { // any because typescript gets mad for some reason.
       status: status[0] ? { $in: status } : { $ne: 'missing' },
-      ...page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
       ...channel_id[0] && { channel_id: { $in: channel_id } },
       ...TITLE && { title: { $regex: TITLE, $options: 'i' } },
       ...ORGANIZATIONS[0] && { organization: {
@@ -75,7 +74,10 @@ export async function videos(_, query: VideoQuery) {
 
     const getVideoCount = Videos.countDocuments(QUERY);
     const getUncachedVideos = Videos
-      .find(QUERY)
+      .find({
+        ...QUERY,
+        ...page_token && { [Object.keys(orderBy)[0]]: { [ORDER_VALUE === 'asc' ? '$gte' : '$lte']: parseToken(page_token) } },
+      })
       .sort(orderBy)
       .limit(limit + 1)
       .lean()
