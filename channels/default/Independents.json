@@ -621,5 +621,27 @@
     "details": {
       "twitter": "futakuchimana"
     }
+  },
+  {
+    "name": {
+      "en": "Sakura Aoi",
+      "jp": "桜あおい"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCbA74nSnIScrPLosct0ZjEA",
+    "details": {
+      "twitter": "aooooooi_san"
+    }
+  },
+  {
+    "name": {
+      "en": "Hoshino Meguri",
+      "jp": "星乃めぐり"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC0nasgeLGQZYGQdfhu6b-SQ",
+    "details": {
+      "twitter": "hoshi_no_meguri"
+    }
   }
 ]
