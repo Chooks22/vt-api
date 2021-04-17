@@ -35,7 +35,7 @@ database.on('save-videos', async newVideos => {
   ).then(writeResults => writeResults.reduce(
     (total, result) => total + (result.upserted?.length ?? 0), 0)
   ).catch(logger.error);
-  if (!isNaN(results)) logger.log(`Finished saving ${results} videos.`);
+  if (typeof results === 'number') logger.log(`Finished saving ${results} videos.`);
 });
 
 database.on('update-videos', async videos => {
@@ -61,5 +61,5 @@ database.on('update-channels', async channels => {
   ).then(writeResults => writeResults.reduce(
     (total, result) => total + result.nModified, 0)
   ).catch(logger.error);
-  if (!isNaN(results)) logger.log(`Updated ${results} channels.`);
+  if (typeof results === 'number') logger.log(`Updated ${results} channels.`);
 });

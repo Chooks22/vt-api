@@ -43,7 +43,7 @@ database.on('update-channels', async channelData => {
   ).then(writeResults => writeResults.reduce(
     (total, result) => total + (result.upserted?.length ?? result.nModified), 0)
   ).catch(logger.error);
-  if (!isNaN(results)) logger.log(`Updated ${results} channels.`);
+  if (typeof results === 'number') logger.log(`Updated ${results} channels.`);
 });
 
 database.on('update-member', channelData => {
