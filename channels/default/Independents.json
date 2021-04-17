@@ -643,5 +643,16 @@
     "details": {
       "twitter": "hoshi_no_meguri"
     }
+  },
+  {
+    "name": {
+      "en": "Gokigen Naname",
+      "jp": "ななめちゃん"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAE1yQeCWiv1eSxAmzpzD4Q",
+    "details": {
+      "twitter": "Naname421"
+    }
   }
 ]
