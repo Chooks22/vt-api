@@ -1,0 +1,57 @@
+[
+  {
+    "name": {
+      "en": "Reina Sun",
+      "jp": "レイナ・サン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCKJexadCeNo3lu0U20skmNg",
+    "details": {
+      "twitter": "reina_kawaiii"
+    }
+  },
+  {
+    "name": {
+      "en": "Nene Amano",
+      "jp": "天野寧々"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCu1INzefw3R7M9-3QEHYmMQ",
+    "details": {
+      "twitter": "amanene_kawaii"
+    }
+  },
+  {
+    "name": {
+      "en": "Isla Coleman",
+      "jp": "アイラ・コールマン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCuaDidGk4HNLOnQE9wzMMeQ",
+    "details": {
+      "twitter": "isla_kawaii"
+    }
+  },
+  {
+    "name": {
+      "en": "Charlotte Suzu",
+      "jp": "シャーロット・スズ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCoAw3SML_09dF-7yhQU8wFQ",
+    "details": {
+      "twitter": "charsuzu_kawaii"
+    }
+  },
+  {
+    "name": {
+      "en": "Hana Flores",
+      "jp": "ハナ・フローレス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCkvYfE6_lEmstu6GoqPUOZQ",
+    "details": {
+      "twitter": "HanaFlo_Kawaii"
+    }
+  }
+]
