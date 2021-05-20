@@ -1911,6 +1911,41 @@
       "twitter": "Vihaan_VTuber",
       "group": "Nijisanji EN"
     }
+  },  {
+    "name": {
+      "en": "Elira Pendora",
+      "jp": "エリーラ ペンドラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCIeSUTOTkF9Hs7q3SGcO-Ow",
+    "details": {
+      "twitter": "EliraPendora",
+      "group": "Nijisanji EN"
+    }
+  },
+    {
+    "name": {
+      "en": "Pomu Rainpuff",
+      "jp": "ぽむ れいんぱふ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCP4nMSTdwU1KqYWu3UH5DHQ",
+    "details": {
+      "twitter": "PomuRainpuff",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Finana Ryugu",
+      "jp": "フィナーナ 竜宮"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCu-J8uIXuLZh16gG-cT1naw",
+    "details": {
+      "twitter": "FinanaRyugu",
+      "group": "Nijisanji EN"
+    }
   },
   {
     "name": {
