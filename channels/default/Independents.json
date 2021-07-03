@@ -686,5 +686,15 @@
     "details": {
       "twitter": ""
     }
+  },
+  {
+    "name": {
+      "en": "Charlotte Van Halen"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC8Cq5WAkqOVrFrTmUjXckyg",
+    "details": {
+      "twitter": "lottevanhalen"
+    }
   }
 ]
