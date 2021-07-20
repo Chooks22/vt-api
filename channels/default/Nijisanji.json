@@ -1949,6 +1949,72 @@
   },
   {
     "name": {
+      "en": "Selen Tatsuki",
+      "jp": "セレン龍月"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCV1xUwfM2v2oBtT3JNvic3w",
+    "details": {
+      "twitter": "selen_tatsuki"
+    }
+  },
+  {
+    "name": {
+      "en": "Selen Tatsuki",
+      "jp": "セレン龍月"
+    },
+    "platform_id": "tt",
+    "channel_id": "selentatsuki",
+    "details": {
+      "twitter": "selen_tatsuki"
+    }
+  },
+  {
+    "name": {
+      "en": "Rosemi Lovelock",
+      "jp": "ロゼミ・ラブロック"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC4WvIIAo89_AzGUh1AZ6Dkg",
+    "details": {
+      "twitter": "Rosemi_Lovelock"
+    }
+  },
+  {
+    "name": {
+      "en": "Rosemi Lovelock",
+      "jp": "ロゼミ・ラブロック"
+    },
+    "platform_id": "tt",
+    "channel_id": "rosemilovelock",
+    "details": {
+      "twitter": "Rosemi_Lovelock"
+    }
+  },
+  {
+    "name": {
+      "en": "Petra Gurin",
+      "jp": "ペトラ・グリン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCgA2jKRkqpY_8eysPUs8sjw",
+    "details": {
+      "twitter": "Petra_Gurin"
+    }
+  },
+  {
+    "name": {
+      "en": "Petra Gurin",
+      "jp": "ペトラ・グリン"
+    },
+    "platform_id": "tt",
+    "channel_id": "petragurin",
+    "details": {
+      "twitter": "Petra_Gurin"
+    }
+  },
+  {
+    "name": {
       "en": "Wiffy",
       "kr": "위피"
     },
