@@ -696,5 +696,27 @@
     "details": {
       "twitter": "lottevanhalen"
     }
+  },
+  {
+    "name": {
+      "en": "Kannagi Kurama",
+      "jp": "神凪くらま"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCuDIxB9u2VAYp9XLMGVurDg",
+    "details": {
+      "twitter": "kannagikurama"
+    }
+  },
+  {
+    "name": {
+      "en": "Gokigen Naname",
+      "jp": "ごきげんななめ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAE1yQeCWiv1eSxAmzpzD4Q",
+    "details": {
+      "twitter": "naname421"
+    }
   }
 ]
