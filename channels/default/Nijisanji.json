@@ -2305,6 +2305,78 @@
   },
   {
     "name": {
+      "en": "Shin Kiru",
+      "kr": "신기루"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCi6nV5Z2dzFuXBzLG3P9zqQ",
+    "details": {
+      "twitter": "KiruShin2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Yang Nari",
+      "kr": "양나리"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCCHH0nWYXFZmtDS_4tvMxHQ",
+    "details": {
+      "twitter": "NariYang2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ryu Hari",
+      "kr": "류하리"
+    },
+    "platform_id": "yt",
+    "channel_id": "UClS6k3w1sPwlVFqK3-yID5A",
+    "details": {
+      "twitter": "HariRyu2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "HariRyu2434",
+      "kr": "세피나"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCeGendL8CO5RkffB6IFwHow",
+    "details": {
+      "twitter": "Seffyna2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ban Hada",
+      "kr": "반하다"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCLjx3lqIkYkPCBJop8czJ2A",
+    "details": {
+      "twitter": "BanHada2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Song Mia",
+      "kr": "송미아"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCyqzU2nq7eGNi4kN0uHx7TA",
+    "details": {
+      "twitter": "SongMia2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
       "en": "Eine",
       "jp": "艾因"
     },
