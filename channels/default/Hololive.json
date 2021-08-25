@@ -1349,6 +1349,61 @@
   },
   {
     "name": {
+      "en": "Tsukumo Sana",
+      "jp": "九十九佐命"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCsUj0dszADCGbF3gNrQEuSQ",
+    "details": {
+      "twitter": "tsukumosana"
+    }
+  },
+  {
+    "name": {
+      "en": "Ceres Fauna",
+      "jp": "セレス・ファウナ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCO_aKKYxn4tvrqPjcTzZ6EQ",
+    "details": {
+      "twitter": "ceresfauna"
+    }
+  },
+  {
+    "name": {
+      "en": "Ouro Kronii",
+      "jp": "オーロ・クロニー"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCmbs8T6MWqUHP1tIQvSgKrg",
+    "details": {
+      "twitter": "ourokronii"
+    }
+  },
+  {
+    "name": {
+      "en": "Nanashi Mumei",
+      "jp": "七詩ムメイ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3n5uGu18FoCy23ggWWp8tA",
+    "details": {
+      "twitter": "nanashimumei_en"
+    }
+  },
+  {
+    "name": {
+      "en": "Hakos Baelz",
+      "jp": "ハコス・ベールズ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCgmPnx-EEeOrZSg5Tiw7ZRQ",
+    "details": {
+      "twitter": "hakosbaelz"
+    }
+  },
+  {
+    "name": {
       "en": "Choco Sub Channel",
       "jp": "Choco subCh. 癒月ちょこ"
     },
