@@ -1,0 +1,46 @@
+[
+  {
+    "name": {
+      "en": "Amatsuka Kayano",
+      "jp": "天使かやの"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCaBNbbikqjXNn8uKBMVj-cQ",
+    "details": {
+      "twitter": "AMATSUKA_KAYANO"
+    }
+  },
+  {
+    "name": {
+      "en": "Marika Matsurika",
+      "jp": "マリカ・マツリカ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCxcqGAAVl4wL6BlK4Rm4ISA",
+    "details": {
+      "twitter": "MarikaMa2rika"
+    }
+  },
+  {
+    "name": {
+      "en": "Yurika Matsurika",
+      "jp": "ユリカ・マツリカ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCG5NiZERHUgjDiWrDJnaUuw",
+    "details": {
+      "twitter": "yurikama2rika"
+    }
+  },
+  {
+    "name": {
+      "en": "Menmo Hanashiro",
+      "jp": "花城めんも"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCAb1PTLhKoDFQQOBrInGDQg",
+    "details": {
+      "twitter": "hanashiro_menmo"
+    }
+  }
+]
