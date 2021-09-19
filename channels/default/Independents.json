@@ -729,5 +729,16 @@
     "details": {
       "twitter": "tateno_ito_ch"
     }
+  },
+  {
+    "name": {
+      "en": "Maisaki Berry",
+      "jp": "苺咲べりぃ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7A7bGRVdIwo93nqnA3x-OQ",
+    "details": {
+      "twitter": "MaisakiBerry"
+    }
   }
 ]
