@@ -108,5 +108,38 @@
     "details": {
       "twitter": "Hikari_Hira"
     }
+  },
+  {
+    "name": {
+      "en": "Tsukinoki Tirol",
+      "jp": "月野木ちろる"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCqskJ0nmw-_eweWfsKvbrzQ",
+    "details": {
+      "twitter": "tirol0_0lorit"
+    }
+  },
+  {
+    "name": {
+      "en": "Oura Rukako",
+      "jp": "大浦るかこ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC3xG1XWzAKt5dxSxktJvtxg",
+    "details": {
+      "twitter": "Rukako_Oura"
+    }
+  },
+  {
+    "name": {
+      "en": "Konan Mia",
+      "jp": "湖南みあ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC4PrHgUcAtOoj_LKmUL-uLQ",
+    "details": {
+      "twitter": "Mia_Konan"
+    }
   }
 ]

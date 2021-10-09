@@ -1,10 +1,8 @@
 [
   {
     "name": {
-      "en": "Toto Kogara",
-      "jp": "小雀 とと",
-      "kr": "",
-      "cn": ""
+      "en": "Kogara Toto",
+      "jp": "小雀とと"
     },
     "platform_id": "yt",
     "channel_id": "UCgTzsBI0DIRopMylJEDqnog",
@@ -14,10 +12,8 @@
   },
   {
     "name": {
-      "en": "Sumire Kaga",
-      "jp": "花芽 すみれ",
-      "kr": "",
-      "cn": ""
+      "en": "Kaga Sumire",
+      "jp": "花芽すみれ"
     },
     "platform_id": "yt",
     "channel_id": "UCyLGcqYs7RsBb3L0SJfzGYA",
@@ -27,10 +23,8 @@
   },
   {
     "name": {
-      "en": "Nazuna Kaga",
-      "jp": "花芽 なずな",
-      "kr": "",
-      "cn": ""
+      "en": "Kaga Nazuna",
+      "jp": "花芽なずな"
     },
     "platform_id": "yt",
     "channel_id": "UCiMG6VdScBabPhJ1ZtaVmbw",
@@ -40,10 +34,8 @@
   },
   {
     "name": {
-      "en": "Uruha Ichinose",
-      "jp": "一ノ瀬 うるは",
-      "kr": "",
-      "cn": ""
+      "en": "Ichinose Uruha",
+      "jp": "一ノ瀬うるは"
     },
     "platform_id": "yt",
     "channel_id": "UC5LyYg6cCA4yHEYvtUsir3g",
@@ -53,10 +45,8 @@
   },
   {
     "name": {
-      "en": "Hinano Tachibana",
-      "jp": "橘 ひなの",
-      "kr": "",
-      "cn": ""
+      "en": "Tachibana Hinano",
+      "jp": "橘ひなの"
     },
     "platform_id": "yt",
     "channel_id": "UCvUc0m317LWTTPZoBQV479A",
@@ -66,10 +56,8 @@
   },
   {
     "name": {
-      "en": "Noah Kurumi",
-      "jp": "胡桃 のあ",
-      "kr": "",
-      "cn": ""
+      "en": "Kurumi Noah",
+      "jp": "胡桃のあ"
     },
     "platform_id": "yt",
     "channel_id": "UCIcAj6WkJ8vZ7DeJVgmeqKw",
@@ -79,10 +67,8 @@
   },
   {
     "name": {
-      "en": "Ren Kisaragi",
-      "jp": "如月 れん",
-      "kr": "",
-      "cn": ""
+      "en": "Kisaragi Ren",
+      "jp": "如月れん"
     },
     "platform_id": "yt",
     "channel_id": "UCGWa1dMU_sDCaRQjdabsVgg",
@@ -92,10 +78,8 @@
   },
   {
     "name": {
-      "en": "Lisa Hanabusa",
-      "jp": "英 リサ",
-      "kr": "",
-      "cn": ""
+      "en": "Hanabusa Lisa",
+      "jp": "英 リサ"
     },
     "platform_id": "yt",
     "channel_id": "UCurEA8YoqFwimJcAuSHU0MQ",
@@ -105,10 +89,7 @@
   },
   {
     "name": {
-      "en": "Mimi Tosaki",
-      "jp": "兎咲 ミミ",
-      "kr": "",
-      "cn": ""
+      "en": "Tosaki Mimi"
     },
     "platform_id": "yt",
     "channel_id": "UCnvVG9RbOW3J6Ifqo-zKLiw",
@@ -118,10 +99,8 @@
   },
   {
     "name": {
-      "en": "Sena Asumi",
-      "jp": "空澄 セナ",
-      "kr": "",
-      "cn": ""
+      "en": "Asumi Sena",
+      "jp": "空澄 セナ"
     },
     "platform_id": "yt",
     "channel_id": "UCF_U2GCKHvDz52jWdizppIA",
@@ -131,15 +110,46 @@
   },
   {
     "name": {
-      "en": "Qpi Kaminari",
-      "jp": "神成きゅぴ",
-      "kr": "",
-      "cn": ""
+      "en": "Kaminari Qpi",
+      "jp": "神成きゅぴ"
     },
     "platform_id": "yt",
     "channel_id": "UCMp55EbT_ZlqiMS3lCj01BQ",
     "details": {
       "twitter": "xprprQchanx"
+    }
+  },
+  {
+    "name": {
+      "en": "Yakumo Beni",
+      "jp": "八雲べに"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCjXBuHmWkieBApgBhDuJMMQ",
+    "details": {
+      "twitter": "beni_yakumo"
+    }
+  },
+  {
+    "name": {
+      "en": "Aizawa Ema",
+      "jp": "藍沢エマ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCPkKpOHxEDcwmUAnRpIu-Ng",
+    "details": {
+      "twitter": "Ema_Aizawa"
+    }
+  },
+  {
+    "name": {
+      "en": "Shinomiya Runa",
+      "jp": "紫宮るな"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCD5W21JqNMv_tV9nfjvF9sw",
+    "details": {
+      "twitter": "Runa_shinomiya"
     }
   }
 ]

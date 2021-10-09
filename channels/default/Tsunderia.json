@@ -86,5 +86,36 @@
     "details": {
       "twitter": "umiushiurara"
     }
+  },
+  {
+    "name": {
+      "en": "Amemachi Hanabi",
+      "jp": "雨街はなび"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC8yXRB_jKDeapwQak2i30EA",
+    "details": {
+      "twitter": "amemachihanabi"
+    }
+  },
+  {
+    "name": {
+      "en": "Orla Gan Ceann"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCxN7pUZzXmMOuost2oRCHUw",
+    "details": {
+      "twitter": "orlaganceann"
+    }
+  },
+  {
+    "name": {
+      "en": "Orla Gan Ceann"
+    },
+    "platform_id": "tt",
+    "channel_id": "orlaganceann",
+    "details": {
+      "twitter": "orlaganceann"
+    }
   }
 ]

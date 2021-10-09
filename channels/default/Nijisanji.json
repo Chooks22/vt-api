@@ -2317,31 +2317,7 @@
   },
   {
     "name": {
-      "en": "Yang Nari",
-      "kr": "양나리"
-    },
-    "platform_id": "yt",
-    "channel_id": "UCCHH0nWYXFZmtDS_4tvMxHQ",
-    "details": {
-      "twitter": "NariYang2434",
-      "group": "Nijisanji KR"
-    }
-  },
-  {
-    "name": {
-      "en": "Ryu Hari",
-      "kr": "류하리"
-    },
-    "platform_id": "yt",
-    "channel_id": "UClS6k3w1sPwlVFqK3-yID5A",
-    "details": {
-      "twitter": "HariRyu2434",
-      "group": "Nijisanji KR"
-    }
-  },
-  {
-    "name": {
-      "en": "HariRyu2434",
+      "en": "Seffyna",
       "kr": "세피나"
     },
     "platform_id": "yt",
@@ -2804,6 +2780,332 @@
     "details": {
       "twitter": "nijisanji_app",
       "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Nina Kosaka"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCkieJGn3pgJikVW8gmMXE2w",
+    "details": {
+      "twitter": "NinaKosaka",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Millie Parfait"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC47rNmkDcNgbOcM-2BwzJTQ",
+    "details": {
+      "twitter": "MillieParfait",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Enna Alouette"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCR6qhsLpn62WVxCBK1dkLow",
+    "details": {
+      "twitter": "EnnaAlouette",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Reimu Endou"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBURM8S4LH7cRZ0Clea9RDA",
+    "details": {
+      "twitter": "ReimuEndou",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Axia Krone",
+      "jp": "アクシア・クローネ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC8oPnditPSp5lZu45fnXWCA",
+    "details": {
+      "twitter": "AXIA_96NE",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Lauren Iroas",
+      "jp": "ローレン・イロアス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCgmFrRcyH7d1zR9sIVQhFow",
+    "details": {
+      "twitter": "Lauren_iroas",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Leos Vincent",
+      "jp": "レオス・ヴィンセント"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC-6rZgmxZSIbq786j3RD5ow",
+    "details": {
+      "twitter": "Leos_Vincent",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Oliver Evans",
+      "jp": "オリバー・エバンス"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCqjTqdVlvIipZXIKeCkHKUA",
+    "details": {
+      "twitter": "oliverD_23",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Lain Paterson",
+      "jp": "レイン・パターソン"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCRm6lqtdxs_Qo6HeL-SRQ-w",
+    "details": {
+      "twitter": "Lain_Paterson",
+      "group": "Nijisanji JP"
+    }
+  },
+  {
+    "name": {
+      "en": "Nagisa Arcinia"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCijNnZ-6m8g85UGaRAWuw7g",
+    "details": {
+      "twitter": "NagisaArcinia",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Derem Kado"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCMzVa7B8UEdrvUGsPmSgyjA",
+    "details": {
+      "twitter": "DeremKado",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Reza Avanluna"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC5yckZliCkuaEFbqzLBD7hQ",
+    "details": {
+      "twitter": "RezaAvanluna",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Hyona Elatiora"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCIBj1-d71vKjRftiauF50pg",
+    "details": {
+      "twitter": "HyonaElatiora",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Xia Ekavira"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCoJ0Ct-jdas4cLPpSp06gZg",
+    "details": {
+      "twitter": "Xia_Ekavira",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Mika Melatika"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCahgMxSIQ2zIRrPKhM6Mjvg",
+    "details": {
+      "twitter": "MikaMelatika",
+      "group": "Nijisanji ID"
+    }
+  },
+  {
+    "name": {
+      "en": "Hari Ryu",
+      "kr": "류하리"
+    },
+    "platform_id": "tt",
+    "channel_id": "hariryu2434",
+    "details": {
+      "twitter": "HariRyu2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Jiyu Oh",
+      "kr": "오지유"
+    },
+    "platform_id": "tt",
+    "channel_id": "JiyuOh2434",
+    "details": {
+      "twitter": "JiyuOh2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Shin Kiru",
+      "kr": "신기루"
+    },
+    "platform_id": "tt",
+    "channel_id": "kirushin2434",
+    "details": {
+      "twitter": "KiruShin2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ban Hada",
+      "kr": "반하다"
+    },
+    "platform_id": "tt",
+    "channel_id": "banhada2434",
+    "details": {
+      "twitter": "BanHada2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Song Mia",
+      "kr": "송미아"
+    },
+    "platform_id": "tt",
+    "channel_id": "songmia2434",
+    "details": {
+      "twitter": "SongMia2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ko Yami",
+      "kr": "고야미"
+    },
+    "platform_id": "yt",
+    "channel_id": "UC9oudjCTHL2BfwxfDwI18eg",
+    "details": {
+      "twitter": "KoYami2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ko Yami",
+      "kr": "고야미"
+    },
+    "platform_id": "tt",
+    "channel_id": "koyami2434",
+    "details": {
+      "twitter": "KoYami2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ha Yun",
+      "kr": "하윤"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCrhhJPNsOqzNIkUfTABoSpg",
+    "details": {
+      "twitter": "HaYun2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Ha Yun",
+      "kr": "하윤"
+    },
+    "platform_id": "tt",
+    "channel_id": "hayun2434",
+    "details": {
+      "twitter": "HaYun2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Na Sera",
+      "kr": "나세라"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCX88Pe54pxbJDSGIyGrzNdg",
+    "details": {
+      "twitter": "NaSera2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Na Sera",
+      "kr": "나세라"
+    },
+    "platform_id": "tt",
+    "channel_id": "nasera2434",
+    "details": {
+      "twitter": "NaSera2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Lee On",
+      "kr": "이온"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCCJcCWrbQzz6eDhX4M1CUwg",
+    "details": {
+      "twitter": "LeeOn2434",
+      "group": "Nijisanji KR"
+    }
+  },
+  {
+    "name": {
+      "en": "Lee On",
+      "kr": "이온"
+    },
+    "platform_id": "tt",
+    "channel_id": "leeon2434",
+    "details": {
+      "twitter": "LeeOn2434",
+      "group": "Nijisanji KR"
     }
   }
 ]

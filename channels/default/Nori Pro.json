@@ -122,5 +122,38 @@
       "twitter": "yumenolilith",
       "group": "Generation 2"
     }
+  },
+  {
+    "name": {
+      "en": "Oma Kirara",
+      "jp": "逢魔きらら"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBAeKqEIugv69Q2GIgcH7oA",
+    "details": {
+      "twitter": "omakirara"
+    }
+  },
+  {
+    "name": {
+      "en": "Kurumizawa Momo",
+      "jp": "胡桃澤もも"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCxrmkJf_X1Yhte_a4devFzA",
+    "details": {
+      "twitter": "kurumizawamomo"
+    }
+  },
+  {
+    "name": {
+      "en": "Mirutani Nia",
+      "jp": "看谷にぃあ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCIRzELGzTVUOARi3Gwf1-yg",
+    "details": {
+      "twitter": "mirutani_nia"
+    }
   }
 ]
