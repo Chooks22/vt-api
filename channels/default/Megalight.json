@@ -1,0 +1,24 @@
+[
+  {
+    "name": {
+      "en": "Suzuka Stella",
+      "jp": "鈴花ステラ"
+    },
+    "platform_id": "yt",
+    "channel_id": "UChAOCCFuF2hto05Z68xp56A",
+    "details": {
+      "twitter": "_suzukastella"
+    }
+  },
+  {
+    "name": {
+      "en": "Hien Madoka",
+      "jp": "火閻まどか"
+    },
+    "platform_id": "yt",
+    "channel_id": "UCBhhDcVyOAhmUERi1PsQ4Rw",
+    "details": {
+      "twitter": "hienmadoka"
+    }
+  }
+]
