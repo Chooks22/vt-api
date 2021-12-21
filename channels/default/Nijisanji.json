@@ -3107,5 +3107,60 @@
       "twitter": "LeeOn2434",
       "group": "Nijisanji KR"
     }
+  },
+  {
+    "name": {
+      "en": "Vox Akuma",
+    },
+    "platform_id": "yt",
+    "channel_id": "UCckdfYDGrjojJM28n5SHYrA",
+    "details": {
+      "twitter": "Vox_Akuma",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Mysta Rias",
+    },
+    "platform_id": "yt",
+    "channel_id": "UCIM92Ok_spNKLVB5TsgwseQ",
+    "details": {
+      "twitter": "Mysta_Rias",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Shu Yamino",
+    },
+    "platform_id": "yt",
+    "channel_id": "UCG0rzBZV_QMP4MtWg6IjhEA",
+    "details": {
+      "twitter": "shu_yamino",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Luca Kaneshiro",
+    },
+    "platform_id": "yt",
+    "channel_id": "UC7Gb7Uawe20QyFibhLl1lzA",
+    "details": {
+      "twitter": "luca_kaneshiro",
+      "group": "Nijisanji EN"
+    }
+  },
+  {
+    "name": {
+      "en": "Ike Eveland",
+    },
+    "platform_id": "yt",
+    "channel_id": "UC4yNIKGvy-YUrwYupVdLDXA",
+    "details": {
+      "twitter": "ike_eveland",
+      "group": "Nijisanji EN"
+    }
   }
 ]
